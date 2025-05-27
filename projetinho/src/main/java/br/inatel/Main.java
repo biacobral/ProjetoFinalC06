@@ -12,7 +12,7 @@ public class Main {
         Scanner entrada_jogadorSexo = new Scanner(System.in); // sexo do usuário
 
         // Definindo nome e sexo do jogador
-        System.out.print("Insira seu nome: ");
+        System.out.print("Insira seu nome_: ");
         String nomeJogador = entrada_nomeJogador.nextLine(); // Scanner -> String
         System.out.print("Insira seu sexo (F, M, NB): ");
         String sexoJogador = entrada_jogadorSexo.nextLine(); // Scanner -> String
