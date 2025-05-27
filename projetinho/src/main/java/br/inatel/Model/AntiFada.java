@@ -1,12 +1,14 @@
 package br.inatel.Model;
 
-public class AntiFada extends Padrinhos{
+public class AntiFada extends Fada{
 
-    public AntiFada(int idPadrinhos, String nomePadrinho, String tipoPadrinho, int varinha_idSerial, int crianca_idCrianca) {
-        super(idPadrinhos, nomePadrinho, tipoPadrinho, varinha_idSerial, crianca_idCrianca);
+    public AntiFada(int idFada, String nomeFada, String tipoFada, int varinha_idSerial) {
+        super(idFada, nomeFada, tipoFada, varinha_idSerial);
     }
 
-    public AntiFada(String nomePadrinho, String tipoPadrinho, int varinha_idSerial, int crianca_idCrianca) {
-        super(nomePadrinho, tipoPadrinho, varinha_idSerial, crianca_idCrianca);
+    public AntiFada(String nomeFada, String tipoFada, int varinha_idSerial) {
+        super(nomeFada, tipoFada, varinha_idSerial);
     }
+
+
 }

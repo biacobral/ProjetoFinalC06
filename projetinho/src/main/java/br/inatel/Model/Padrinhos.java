@@ -1,41 +1,16 @@
 package br.inatel.Model;
 
-public class Padrinhos {
-    int idPadrinhos;
-    String nomePadrinho;
-    String tipoPadrinho;
-    int Varinha_idSerial;
+public class Padrinhos extends Fada {
+
     int Crianca_idCrianca;
 
-    public Padrinhos(int idPadrinhos, String nomePadrinho, String tipoPadrinho, int varinha_idSerial, int crianca_idCrianca) {
-        this.idPadrinhos = idPadrinhos;
-        this.nomePadrinho = nomePadrinho;
-        this.tipoPadrinho = tipoPadrinho;
-        Varinha_idSerial = varinha_idSerial;
-        Crianca_idCrianca = crianca_idCrianca;
+    public Padrinhos(int idFada, String nomeFada, String tipoFada, int varinha_idSerial) {
+        super(idFada, nomeFada, tipoFada, varinha_idSerial);
+
     }
 
-    public Padrinhos(String nomePadrinho, String tipoPadrinho, int varinha_idSerial, int crianca_idCrianca) {
-        this.nomePadrinho = nomePadrinho;
-        this.tipoPadrinho = tipoPadrinho;
-        Varinha_idSerial = varinha_idSerial;
-        Crianca_idCrianca = crianca_idCrianca;
-    }
-
-    public int getIdPadrinhos() {
-        return idPadrinhos;
-    }
-
-    public String getNomePadrinho() {
-        return nomePadrinho;
-    }
-
-    public String getTipoPadrinho() {
-        return tipoPadrinho;
-    }
-
-    public int getVarinha_idSerial() {
-        return Varinha_idSerial;
+    public Padrinhos(String nomeFada, String tipoFada, int varinha_idSerial) {
+        super(nomeFada, tipoFada, varinha_idSerial);
     }
 
     public int getCrianca_idCrianca() {

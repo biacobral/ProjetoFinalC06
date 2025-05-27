@@ -1,12 +1,12 @@
 package br.inatel.Model;
 
-public class GeneralFada extends Padrinhos{
+public class GeneralFada extends Fada{
 
-    public GeneralFada(int idPadrinhos, String nomePadrinho, String tipoPadrinho, int varinha_idSerial, int crianca_idCrianca) {
-        super(idPadrinhos, nomePadrinho, tipoPadrinho, varinha_idSerial, crianca_idCrianca);
+    public GeneralFada(int idFada, String nomeFada, String tipoFada, int varinha_idSerial) {
+        super(idFada, nomeFada, tipoFada, varinha_idSerial);
     }
 
-    public GeneralFada(String nomePadrinho, String tipoPadrinho, int varinha_idSerial, int crianca_idCrianca) {
-        super(nomePadrinho, tipoPadrinho, varinha_idSerial, crianca_idCrianca);
+    public GeneralFada(String nomeFada, String tipoFada, int varinha_idSerial) {
+        super(nomeFada, tipoFada, varinha_idSerial);
     }
 }
