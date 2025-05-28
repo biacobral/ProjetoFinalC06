@@ -45,20 +45,14 @@ public class Menu {
     private void sortearPedidos() {
         int indice1;
         int indice2;
-        do {
-            // Escolhe dois pedidos diferentes aleatoriamente
-            indice1 = random.nextInt(PEDIDOS_DISPONIVEIS.length);
 
-            // Garante que os dois pedidos sejam diferentes
-            do {
-                indice2 = random.nextInt(PEDIDOS_DISPONIVEIS.length);
-            } while (indice2 == indice1);
-            for(int j: pedidosFeitos) {
-                if(j != indice2 && j != indice1) {
-                    diferente = true;
-                }
-            }
-        }while(!diferente);
+        // Escolhe dois pedidos diferentes aleatoriamente
+        indice1 = random.nextInt(PEDIDOS_DISPONIVEIS.length);
+
+        // Garante que os dois pedidos sejam diferentes
+        do {
+            indice2 = random.nextInt(PEDIDOS_DISPONIVEIS.length);
+        } while (indice2 == indice1);
 
         pedidosFeitos.add(indice1);
         pedidosFeitos.add(indice2);
@@ -83,6 +77,8 @@ public class Menu {
         System.out.printf("║  4. 🚪 %-" + (maxTamanho - 2) + "s  ║%n", "Sair");
         System.out.println(rodape);
         System.out.print("\n🪄 Digite sua escolha (1-4): ");
+        int j = lerOpcao();
+        processarOpcao(j);
     }
 
     public int lerOpcao() {
