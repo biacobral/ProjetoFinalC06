@@ -4,9 +4,12 @@ import br.inatel.Model.*;
 import java.util.Random;
 import java.util.Scanner;
 
+//Importando a função que imprime o menu
+import static br.inatel.Model.Menu.*;
+
+
 public class Main {
     public static void main(String[] args) {
-
         Scanner entrada_nomeJogador = new Scanner(System.in); // nome do usuário
         Scanner entrada_jogadorSexo = new Scanner(System.in); // sexo do usuário
 
@@ -19,7 +22,7 @@ public class Main {
         // Criação do Jogador "Criança"
         Crianca jogador = new Crianca(1, nomeJogador, 12, sexoJogador,
                                      true, "Rua dos Desejos, nº72"); // criando jogador
-        // Criação dos Padrinho
+        // Criação dos Padrinhos
         Padrinhos nossoPadrinho = new Padrinhos(1, "Grimbolino, o Estagiário da Magia", "Padrinho", 1);
         Padrinhos nossaMadrinha = new Padrinhos(2, "Celestina Cintilante, a Matriarca da Magia", "Madrinha", 2);
 
@@ -53,7 +56,8 @@ public class Main {
 
         //Aqui é o big-for(eventos)
         for(int i= jogador.getIdadeCrianca();i<18;i++){
-
+            System.out.println("Bem vindo ao seu "+i+"° ano com seu padrinho");
+            Menu menu = new Menu();
         }
     }
 }
