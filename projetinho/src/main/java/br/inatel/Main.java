@@ -1,6 +1,8 @@
 package br.inatel;
 
 import br.inatel.Model.*;
+
+import java.util.Objects;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -10,19 +12,27 @@ import static br.inatel.Model.Menu.*;
 
 public class Main {
     public static void main(String[] args) {
-        Scanner entrada_nomeJogador = new Scanner(System.in); // nome do usuário
-        Scanner entrada_jogadorSexo = new Scanner(System.in); // sexo do usuário
+        Scanner scanner = new Scanner(System.in); // Scanner para entrada de dados
 
         Menu menu = new Menu();
-
+        boolean taCerto = false;
+        //Opção que vai ser escolhida pelo jogador
+        int opcaoEscolhida;
         // Definindo nome e sexo do jogador
         System.out.print("Insira seu nome: ");
-        String nomeJogador = entrada_nomeJogador.nextLine(); // Scanner -> String
-        System.out.print("Insira seu sexo (F, M, NB): ");
-        String sexoJogador = entrada_jogadorSexo.nextLine(); // Scanner -> String
-
+        String nomeJogador = scanner.nextLine(); // Scanner -> String
+        String sexoJogador;
+        do {
+            System.out.print("Insira seu sexo (F, M, NB): ");
+            sexoJogador = scanner.nextLine(); // Scanner -> String
+            if (Objects.equals(sexoJogador, "F") || Objects.equals(sexoJogador, "M") || Objects.equals(sexoJogador, "NB")) {
+                taCerto = true;
+            } else {
+                System.out.println("Faz o negócio bonitinho, seu cabeça de ovo");
+            }
+        } while (!taCerto);
         // Criação do Jogador "Criança"
-        Crianca jogador = new Crianca(1, nomeJogador, 12, sexoJogador,true, "Rua dos Desejos, nº72"); // criando jogador
+        Crianca jogador = new Crianca(1, nomeJogador, 12, sexoJogador, true, "Rua dos Desejos, nº72"); // criando jogador
         // Criação dos Padrinhos
         Padrinhos nossoPadrinho = new Padrinhos(1, "Grimbolino, o Estagiário da Magia", "Padrinho", 1);
         Padrinhos nossaMadrinha = new Padrinhos(2, "Celestina Cintilante, a Matriarca da Magia", "Madrinha", 2);
@@ -45,20 +55,23 @@ public class Main {
                 "Você tem 12 anos e mora em Dimmsdale, no endereço " + jogador.getEnderecoCrianca() +
                 " e ");
         Random randPadrinho = new Random();
-        int idP = randPadrinho.nextInt(1)+1;
-        if(idP == nossoPadrinho.getIdFada()){
+        int idP = randPadrinho.nextInt(1) + 1;
+        if (idP == nossoPadrinho.getIdFada()) {
             nossoPadrinho.setCrianca_idCrianca(1);
             System.out.println("o seu padrinho será: " + nossoPadrinho.getNomeFada());
-        }
-        else{
+        } else {
             nossaMadrinha.setCrianca_idCrianca(1);
             System.out.println("a sua madrinha será: " + nossaMadrinha.getNomeFada());
         }
         menu.warning();
         //Aqui é o big-for(eventos)
-        for(int i= jogador.getIdadeCrianca();i<18;i++){
-            System.out.println("Bem vindo ao seu "+(i-11)+"° ano com seu padrinho");
+        for (int i = jogador.getIdadeCrianca(); i < 18; i++) {
+            System.out.println("Bem vindo ao seu " + (i - 11) + "° ano com seu padrinho");
             menu.mostraMenu();
+            menu.setOpcaoEscolhida(scanner.nextInt());
+
+
         }
+        scanner.close();
     }
 }
