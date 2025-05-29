@@ -13,6 +13,8 @@ public class Main {
         Scanner entrada_nomeJogador = new Scanner(System.in); // nome do usuário
         Scanner entrada_jogadorSexo = new Scanner(System.in); // sexo do usuário
 
+        Menu menu = new Menu();
+
         // Definindo nome e sexo do jogador
         System.out.print("Insira seu nome: ");
         String nomeJogador = entrada_nomeJogador.nextLine(); // Scanner -> String
@@ -20,8 +22,7 @@ public class Main {
         String sexoJogador = entrada_jogadorSexo.nextLine(); // Scanner -> String
 
         // Criação do Jogador "Criança"
-        Crianca jogador = new Crianca(1, nomeJogador, 12, sexoJogador,
-                                     true, "Rua dos Desejos, nº72"); // criando jogador
+        Crianca jogador = new Crianca(1, nomeJogador, 12, sexoJogador,true, "Rua dos Desejos, nº72"); // criando jogador
         // Criação dos Padrinhos
         Padrinhos nossoPadrinho = new Padrinhos(1, "Grimbolino, o Estagiário da Magia", "Padrinho", 1);
         Padrinhos nossaMadrinha = new Padrinhos(2, "Celestina Cintilante, a Matriarca da Magia", "Madrinha", 2);
@@ -53,11 +54,11 @@ public class Main {
             nossaMadrinha.setCrianca_idCrianca(1);
             System.out.println("a sua madrinha será: " + nossaMadrinha.getNomeFada());
         }
-
+        menu.warning();
         //Aqui é o big-for(eventos)
         for(int i= jogador.getIdadeCrianca();i<18;i++){
-            System.out.println("Bem vindo ao seu "+i+"° ano com seu padrinho");
-            Menu menu = new Menu();
+            System.out.println("Bem vindo ao seu "+(i-11)+"° ano com seu padrinho");
+            menu.mostraMenu();
         }
     }
 }
