@@ -61,25 +61,29 @@ public class Menu {
     public void warning(){
         System.out.println();
         System.out.println("""
+                ==================================================================== ATENÇÃO ====================================================================
+                
+                Você é uma criança triste, por isso lhe foi concedido um padrinho. Cada pedido que você faz te gera felicidade,
+                 caso a sua felicidade chegue ao ápice, seu padrinho terá completado sua missão, irá embora para sempre e você se esquecerá dele...
+                
                 Lhe será concedido um único pedido por ano. Desses, você poderá escolher entre 3 possíveis opções
                  sendo que as duas primeiras serão opções únicas e pré selecionadas pelo sistema e a terceira será um pedido de
                  sua própria escolha. Seu padrinho ou madrinha será quem decidirá se irá ou não conceder o pedido escolhido, sendo
                  ele um pedido pré selecionado ou um pedido feito por você. Mas lembre-se! As fadas possuem suas próprias regras e caso
                  você faça e lhe seja concedido um pedido proibido, o tribunal da magia virá atrás de você!""");
         System.out.println();
-        System.out.println("TENHA CUIDADO COM O QUE VOCÊ IRÁ PEDIR!");
+        System.out.println("================================================= TENHA CUIDADO COM O QUE VOCÊ IRÁ PEDIR! ==================================================");
         System.out.println();
     }
 
     public void mostraMenu(){
         sortearPedidos();
-        System.out.println("\n🌟 MENU DE DESEJOS MÁGICOS 🌟");
-        System.out.println("╔══════════════════════════════════════╗");
-        System.out.println("║  1. " + getPedidoEscolhido1() +" ║");
-        System.out.println("║  2. " + getPedidoEscolhido2() +" ║");
-        System.out.println("║  3. ✍️  Fazer Pedido Personalizado   ║");
-        System.out.println("╚══════════════════════════════════════╝");
-        System.out.print("\n🪄 Digite sua escolha (1-4): ");
+        System.out.println("\n====== 🌟 MENU DE DESEJOS MÁGICOS 🌟 ======");
+        System.out.println("1. " + getPedidoEscolhido1());
+        System.out.println("2. " + getPedidoEscolhido2());
+        System.out.println("3. ✍️  Fazer Pedido Personalizado");
+        System.out.println("============================================");
+        System.out.print("\n🪄 Digite sua escolha (1-3): ");
     }
 
     public void setOpcaoEscolhida(int opcaoEscolhida) {
@@ -88,32 +92,93 @@ public class Menu {
     }
 
     public void eventos(){
+        boolean realizar = random.nextBoolean();
         switch(opcaoEscolhida){
             case 1:
                 switch (this.indice1){
-                    case 0:
+                    case 0: // lanche
+                        if(realizar){
+                            System.out.println("Pedido concedido!");
+                            felicidade += 20;
+                        }
+                        else System.out.println("Pedido não concedido pelo padrinho!");
                         break;
-                    case 1:
+                    case 1: // herói
+                        if(realizar){
+                            System.out.println("Pedido concedido!");
+                            felicidade += 5;
+                        }
+                        else System.out.println("Pedido não concedido pelo padrinho!");
                         break;
-                    case 2:
+                    case 2: // férias
+                        if(realizar){
+                            System.out.println("Pedido concedido!");
+                            felicidade += 20;
+                        }
+                        else System.out.println("Pedido não concedido pelo padrinho!");
                         break;
-                    case 3:
+                    case 3: // voar
+                        if(realizar){
+                            System.out.println("Pedido concedido!");
+                            felicidade += 15;
+                        }
+                        else System.out.println("Pedido não concedido pelo padrinho!");
                         break;
-                    case 4:
+                    case 4: // castelo
+                        if(realizar){
+                            System.out.println("Pedido concedido!");
+                            felicidade += 5;
+                        }
+                        else System.out.println("Pedido não concedido pelo padrinho!");
                         break;
-                    case 5:
+                    case 5: // inteligente
+                        if(realizar){
+                            System.out.println("Pedido concedido!");
+                            felicidade += 15;
+                        }
+                        else System.out.println("Pedido não concedido pelo padrinho!");
                         break;
-                    case 6:
+                    case 6: // padrinho
+                        if(realizar){
+                            System.out.println("Pedido concedido!");
+                            felicidade += 50;
+                        }
+                        else System.out.println("Pedido não concedido pelo padrinho!");
                         break;
-                    case 7:
+                    case 7: // robô
+                        if(realizar){
+                            System.out.println("Pedido concedido!");
+                            felicidade += 5;
+                        }
+                        else System.out.println("Pedido não concedido pelo padrinho!");
                         break;
-                    case 8:
+                    case 8: // entender meninas
+                        if(realizar){
+                            System.out.println("Pedido concedido!");
+                            felicidade += 10;
+                        }
+                        else System.out.println("Pedido não concedido pelo padrinho!");
                         break;
-                    case 9:
+                    case 9: // super poder
+                        if(realizar){
+                            System.out.println("Pedido concedido!");
+                            felicidade += 15;
+                        }
+                        else System.out.println("Pedido não concedido pelo padrinho!");
                         break;
-                    case 10:
+                    case 10: // cachorro falante
+                        if(realizar){
+                            System.out.println("Pedido concedido!");
+                            felicidade += 7;
+                        }
+                        else System.out.println("Pedido não concedido pelo padrinho!");
                         break;
-                    case 11:
+                    case 11: // paixão
+                        if(realizar){
+                            System.out.println("Pedido concedido!");
+                            felicidade += 10;
+                        }
+                        else System.out.println("Pedido não concedido pelo padrinho!");
                         break;
                     default:
                         break;
@@ -121,38 +186,96 @@ public class Menu {
                 break;
             case 2:
                 switch (this.indice2){
-                    case 0:
-                        felicidade += 10;
+                    case 0: // lanche
+                        if(realizar){
+                            System.out.println("Pedido concedido!");
+                            felicidade += 20;
+                        }
+                        else System.out.println("Pedido não concedido pelo padrinho!");
                         break;
-                    case 1:
+                    case 1: // herói
+                        if(realizar){
+                            System.out.println("Pedido concedido!");
+                            felicidade += 5;
+                        }
+                        else System.out.println("Pedido não concedido pelo padrinho!");
                         break;
-                    case 2:
+                    case 2: // férias
+                        if(realizar){
+                            System.out.println("Pedido concedido!");
+                            felicidade += 20;
+                        }
+                        else System.out.println("Pedido não concedido pelo padrinho!");
                         break;
-                    case 3:
+                    case 3: // voar
+                        if(realizar){
+                            System.out.println("Pedido concedido!");
+                            felicidade += 15;
+                        }
+                        else System.out.println("Pedido não concedido pelo padrinho!");
                         break;
-                    case 4:
+                    case 4: // castelo
+                        if(realizar){
+                            System.out.println("Pedido concedido!");
+                            felicidade += 5;
+                        }
+                        else System.out.println("Pedido não concedido pelo padrinho!");
                         break;
-                    case 5:
+                    case 5: // inteligente
+                        if(realizar){
+                            System.out.println("Pedido concedido!");
+                            felicidade += 15;
+                        }
+                        else System.out.println("Pedido não concedido pelo padrinho!");
                         break;
-                    case 6:
+                    case 6: // padrinho
+                        if(realizar){
+                            System.out.println("Pedido concedido!");
+                            felicidade += 50;
+                        }
+                        else System.out.println("Pedido não concedido pelo padrinho!");
                         break;
-                    case 7:
+                    case 7: // robô
+                        if(realizar){
+                            System.out.println("Pedido concedido!");
+                            felicidade += 5;
+                        }
+                        else System.out.println("Pedido não concedido pelo padrinho!");
                         break;
-                    case 8:
+                    case 8: // entender meninas
+                        if(realizar){
+                            System.out.println("Pedido concedido!");
+                            felicidade += 10;
+                        }
+                        else System.out.println("Pedido não concedido pelo padrinho!");
                         break;
-                    case 9:
+                    case 9: // super poder
+                        if(realizar){
+                            System.out.println("Pedido concedido!");
+                            felicidade += 15;
+                        }
+                        else System.out.println("Pedido não concedido pelo padrinho!");
                         break;
-                    case 10:
+                    case 10: // cachorro falante
+                        if(realizar){
+                            System.out.println("Pedido concedido!");
+                            felicidade += 7;
+                        }
+                        else System.out.println("Pedido não concedido pelo padrinho!");
                         break;
-                    case 11:
+                    case 11: // paixão
+                        if(realizar){
+                            System.out.println("Pedido concedido!");
+                            felicidade += 10;
+                        }
+                        else System.out.println("Pedido não concedido pelo padrinho!");
                         break;
                     default:
                         break;
                 }
                 break;
-            case 3:
-                break;
-            case 4:
+            case 3: // escolhas pessoais
+
                 break;
             default:
                 System.out.println("Opção inválida! Tente novamente.");

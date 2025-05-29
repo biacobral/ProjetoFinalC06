@@ -6,7 +6,7 @@ public class Desejos {
     private int idDesejos;
     private String descricao;
     private boolean statusDesejo;
-    static int felicidade = 0;
+    public static int felicidade = 0;
     Random rand = new Random();
     public final static String[] listaDesejos = {
         "Quero lanche infinito...",
@@ -20,8 +20,8 @@ public class Desejos {
         "Quero entender as meninas...",
         "Quero ter superpoderes...",
         "Quero um cachorro falante...",
-        "Quero que as meninas se apaixonem por mim..."
-    };//Deixei como final pq eu quero q seja publico pro menu acessar, mas não quer que haja nenhuma modificação dentro
+        "Quero que as pessoas se apaixonem por mim..."
+    };//Deixei como final porque eu quero q seja publico para o menu acessar, mas não quer que haja nenhuma modificação externa
 
 
     public Desejos(int idDesejos, String descricao, boolean statusDesejo) {
@@ -34,11 +34,4 @@ public class Desejos {
         this.descricao = descricao;
         this.statusDesejo = statusDesejo;
     }
-
-    //Pra saber se o pedido vai ser realizado ou negado
-    public boolean realizar(){
-        statusDesejo = rand.nextBoolean();
-        return statusDesejo;
-    }
-
 }

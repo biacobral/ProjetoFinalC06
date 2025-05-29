@@ -7,9 +7,10 @@ import java.util.Random;
 import java.util.Scanner;
 
 //Importando a função que imprime o menu
+import static br.inatel.Model.Desejos.felicidade;
 import static br.inatel.Model.Menu.*;
 
-
+// THREADMILLIS
 public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in); // Scanner para entrada de dados
@@ -30,7 +31,7 @@ public class Main {
             } else {
                 System.out.println("Faz o negócio bonitinho, seu cabeça de ovo");
             }
-        } while (!taCerto);
+        } while (!taCerto); // try catch dentro do while - substituir if else e criar exceção geral opção invalida
         // Criação do Jogador "Criança"
         Crianca jogador = new Crianca(1, nomeJogador, 12, sexoJogador, true, "Rua dos Desejos, nº72"); // criando jogador
         // Criação dos Padrinhos
@@ -70,7 +71,7 @@ public class Main {
             menu.mostraMenu();
             menu.setOpcaoEscolhida(scanner.nextInt());
 
-
+            System.out.println("Sua felicidade até agora é: " + felicidade + "\n");
         }
         scanner.close();
     }
