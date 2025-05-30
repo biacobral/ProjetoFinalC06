@@ -12,7 +12,7 @@ import static br.inatel.Model.Menu.*;
 
 // THREADMILLIS
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
         Scanner scanner = new Scanner(System.in); // Scanner para entrada de dados
 
         Menu menu = new Menu();
@@ -52,6 +52,7 @@ public class Main {
         Fada general = new GeneralFada(5, "Jorgen Von, o Estranho", "General Fada", 5);
 
         // Boas-vindas!!
+        Thread.sleep(400);
         System.out.print("Olá, " + nomeJogador + "! Parabéns por ganhar seus Padrinhos Mágicos! \n" +
                 "Você tem 12 anos e mora em Dimmsdale, no endereço " + jogador.getEnderecoCrianca() +
                 " e ");
@@ -59,14 +60,26 @@ public class Main {
         int idP = randPadrinho.nextInt(1) + 1;
         if (idP == nossoPadrinho.getIdFada()) {
             nossoPadrinho.setCrianca_idCrianca(1);
-            System.out.println("o seu padrinho será: " + nossoPadrinho.getNomeFada());
+            System.out.println("o seu padrinho será: ");
+            Thread.sleep(1000);
+            System.out.println(nossoPadrinho.getNomeFada());
         } else {
             nossaMadrinha.setCrianca_idCrianca(1);
-            System.out.println("a sua madrinha será: " + nossaMadrinha.getNomeFada());
+            System.out.println("a sua madrinha será: ");
+            Thread.sleep(1000);
+            System.out.println(nossaMadrinha.getNomeFada());
         }
-        menu.warning();
+        Thread.sleep(400);
+        try {
+            menu.warning();
+            Thread.sleep(3050);
+        }
+        catch(InterruptedException e){
+            System.out.println("Vish, deu problema, trata aí.");
+        }
         //Aqui é o big-for(eventos)
         for (int i = jogador.getIdadeCrianca(); i < 18; i++) {
+            Thread.sleep(900);
             System.out.println("Bem vindo ao seu " + (i - 11) + "° ano com seu padrinho");
             menu.mostraMenu();
             menu.setOpcaoEscolhida(scanner.nextInt());

@@ -58,7 +58,7 @@ public class Menu {
         return pedidoEscolhido1;
     }
 
-    public void warning(){
+    public void warning() throws InterruptedException {
         System.out.println();
         System.out.println("""
                 ==================================================================== ATENÇÃO ====================================================================
@@ -68,9 +68,9 @@ public class Menu {
                 
                 Lhe será concedido um único pedido por ano. Desses, você poderá escolher entre 3 possíveis opções
                  sendo que as duas primeiras serão opções únicas e pré selecionadas pelo sistema e a terceira será um pedido de
-                 sua própria escolha. Seu padrinho ou madrinha será quem decidirá se irá ou não conceder o pedido escolhido, sendo
-                 ele um pedido pré selecionado ou um pedido feito por você. Mas lembre-se! As fadas possuem suas próprias regras e caso
-                 você faça e lhe seja concedido um pedido proibido, o tribunal da magia virá atrás de você!""");
+                 sua própria escolha. Seu padrinho ou madrinha será quem decidirá se irá ou não conceder o pedido escolhido.
+                 Mas lembre-se! Os padrinhos possuem suas próprias regras e caso você faça e lhe seja concedido um pedido
+                 proibido, o Tribunal da Magia virá atrás de você!""");
         System.out.println();
         System.out.println("================================================= TENHA CUIDADO COM O QUE VOCÊ IRÁ PEDIR! ==================================================");
         System.out.println();

@@ -20,7 +20,9 @@ public class Desejos {
         "Quero entender as meninas...",
         "Quero ter superpoderes...",
         "Quero um cachorro falante...",
-        "Quero que as pessoas se apaixonem por mim..."
+        "Quero que as pessoas se apaixonem por mim...",
+        "Quero ser famoso mundialmente...",
+        "Quero que só eu tenha padrinhos mágicos..."
     };//Deixei como final porque eu quero q seja publico para o menu acessar, mas não quer que haja nenhuma modificação externa
 
 
