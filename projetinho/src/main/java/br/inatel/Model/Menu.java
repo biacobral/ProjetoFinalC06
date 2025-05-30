@@ -31,11 +31,11 @@ public class Menu {
         do {
             try {
                 // Escolhe dois pedidos diferentes aleatoriamente
-                indice1 = random.nextInt(11);
+                indice1 = random.nextInt(12);
 
                 // Garante que os dois pedidos sejam diferentes
                 do {
-                    indice2 = random.nextInt(11);
+                    indice2 = random.nextInt(12);
                 } while (indice2 == indice1);
             }
             catch(Exception e){
