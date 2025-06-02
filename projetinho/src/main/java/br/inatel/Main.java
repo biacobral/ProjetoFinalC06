@@ -12,7 +12,7 @@ import static br.inatel.Model.Menu.*;
 
 // THREADMILLIS
 public class Main {
-    public static void main(String[] args) throws InterruptedException {
+    public static void main(String[] args)  {
         Scanner scanner = new Scanner(System.in); // Scanner para entrada de dados
 
         Menu menu = new Menu();
@@ -69,7 +69,11 @@ public class Main {
             Thread.sleep(1000);
             System.out.println(nossaMadrinha.getNomeFada());
         }
-        Thread.sleep(400);
+        try {
+            Thread.sleep(400);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
         try {
             menu.warning();
             Thread.sleep(3050);

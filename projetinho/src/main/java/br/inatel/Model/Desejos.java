@@ -36,4 +36,8 @@ public class Desejos {
         this.descricao = descricao;
         this.statusDesejo = statusDesejo;
     }
+
+    public void podeIssoArnaldo(){
+
+    }
 }
