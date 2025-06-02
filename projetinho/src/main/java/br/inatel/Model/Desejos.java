@@ -15,14 +15,14 @@ public class Desejos {
         "Quero voar...",
         "Quero um castelo...",
         "Quero ser o mais inteligente da escola...",
-        "Quero ser um Padrinho...",
+        "Quero ser um Padrinho...",//Proibido
         "Quero um robô ajudante...",
         "Quero entender as meninas...",
         "Quero ter superpoderes...",
         "Quero um cachorro falante...",
-        "Quero que as pessoas se apaixonem por mim...",
+        "Quero que as pessoas se apaixonem por mim...",//Proibido
         "Quero ser famoso mundialmente...",
-        "Quero que só eu tenha padrinhos mágicos..."
+        "Quero que só eu tenha padrinhos mágicos..."//Proibido
     };//Deixei como final porque eu quero q seja publico para o menu acessar, mas não quer que haja nenhuma modificação externa
 
 
@@ -35,9 +35,5 @@ public class Desejos {
     public Desejos(String descricao, boolean statusDesejo) {
         this.descricao = descricao;
         this.statusDesejo = statusDesejo;
-    }
-
-    public void podeIssoArnaldo(){
-
     }
 }

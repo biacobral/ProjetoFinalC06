@@ -1,6 +1,7 @@
 package br.inatel;
 
 import br.inatel.Model.*;
+import static br.inatel.Model.Util.esperaAi;
 
 import java.util.Objects;
 import java.util.Random;
@@ -10,7 +11,11 @@ import java.util.Scanner;
 import static br.inatel.Model.Desejos.felicidade;
 import static br.inatel.Model.Menu.*;
 
-// THREADMILLIS
+/*
+        Notas para nós mesmos:
+        - Pensar se vale a pena fazer uma interface para os seres mágicos
+        - -THREAD_MILLIS- Feito e tratado
+ */
 public class Main {
     public static void main(String[] args)  {
         Scanner scanner = new Scanner(System.in); // Scanner para entrada de dados
@@ -22,14 +27,18 @@ public class Main {
         // Definindo nome e sexo do jogador
         System.out.print("Insira seu nome: ");
         String nomeJogador = scanner.nextLine(); // Scanner -> String
-        String sexoJogador;
+        String sexoJogador = "";
         do {
-            System.out.print("Insira seu sexo (F, M, NB): ");
-            sexoJogador = scanner.nextLine(); // Scanner -> String
-            if (Objects.equals(sexoJogador, "F") || Objects.equals(sexoJogador, "M") || Objects.equals(sexoJogador, "NB")) {
+            try {
+                System.out.print("Insira seu sexo (F, M, NB): ");
+                sexoJogador = scanner.nextLine(); // Scanner -> String
+                if (!Objects.equals(sexoJogador, "F") && !Objects.equals(sexoJogador, "M") && !Objects.equals(sexoJogador, "NB")) {
+                    throw new Exception("Faz certo, cabeça de ovo!");
+                }
                 taCerto = true;
-            } else {
-                System.out.println("Faz o negócio bonitinho, seu cabeça de ovo");
+            }
+            catch (Exception e) {
+                System.out.println(e.getMessage());
             }
         } while (!taCerto); // try catch dentro do while - substituir if else e criar exceção geral opção invalida
         // Criação do Jogador "Criança"
@@ -52,7 +61,7 @@ public class Main {
         Fada general = new GeneralFada(5, "Jorgen Von, o Estranho", "General Fada", 5);
 
         // Boas-vindas!!
-        Thread.sleep(400);
+        esperaAi(400);
         System.out.print("Olá, " + nomeJogador + "! Parabéns por ganhar seus Padrinhos Mágicos! \n" +
                 "Você tem 12 anos e mora em Dimmsdale, no endereço " + jogador.getEnderecoCrianca() +
                 " e ");
@@ -61,35 +70,38 @@ public class Main {
         if (idP == nossoPadrinho.getIdFada()) {
             nossoPadrinho.setCrianca_idCrianca(1);
             System.out.println("o seu padrinho será: ");
-            Thread.sleep(1000);
+            esperaAi(1000);
             System.out.println(nossoPadrinho.getNomeFada());
         } else {
             nossaMadrinha.setCrianca_idCrianca(1);
             System.out.println("a sua madrinha será: ");
-            Thread.sleep(1000);
+            esperaAi(1000);
             System.out.println(nossaMadrinha.getNomeFada());
         }
-        try {
-            Thread.sleep(400);
-        } catch (InterruptedException e) {
-            throw new RuntimeException(e);
-        }
-        try {
-            menu.warning();
-            Thread.sleep(3050);
-        }
-        catch(InterruptedException e){
-            System.out.println("Vish, deu problema, trata aí.");
-        }
-        //Aqui é o big-for(eventos)
-        for (int i = jogador.getIdadeCrianca(); i < 18; i++) {
-            Thread.sleep(900);
-            System.out.println("Bem vindo ao seu " + (i - 11) + "° ano com seu padrinho");
-            menu.mostraMenu();
-            menu.setOpcaoEscolhida(scanner.nextInt());
+        esperaAi(400);
+        menu.warning();
+        esperaAi(3500);
 
-            System.out.println("Sua felicidade até agora é: " + felicidade + "\n");
+        //Aqui é o big-for(eventos)
+        // Tratar aqui!!!!
+            for (int i = jogador.getIdadeCrianca(); i < 18; i++) {
+                try{
+                esperaAi(300);
+                System.out.println("Bem vindo ao seu " + (i - 11) + "° ano com seu padrinho");
+                menu.mostraMenu();
+                menu.setOpcaoEscolhida(scanner.nextInt()); // int set String
+                if (menu.getOpcaoEscolhida() != 1 && menu.getOpcaoEscolhida() != 2 && menu.getOpcaoEscolhida() != 3) {
+                    throw new Exception("Faz certo, cabeça de ovo!");
+                }
+
+                System.out.println("Sua felicidade até agora é: " + felicidade + "\n");
+
+
+            }catch(Exception e){
+                System.out.println(e.getMessage());
+            }
         }
+
         scanner.close();
     }
 }
