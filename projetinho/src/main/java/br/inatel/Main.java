@@ -68,7 +68,7 @@ public class Main {
         Fada antiMadrinha = new AntiFada(4, "Celestina Obscura", "Anti-Fada", 4);
 
         // Criação do General Fada
-        Fada general = new GeneralFada(5, "Jorgen Von, o Estranho", "General Fada", 5);
+        Fada general = new GeneralFada(5, "Jorgen Von Estranho, O General da Magia", "General Fada", 5);
 
         // Boas-vindas!!
         esperaAi(400);

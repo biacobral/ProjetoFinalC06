@@ -17,7 +17,7 @@ public class podeIssoArnaldo {
     // Regra 3: Não pode matar pessoas
     private static final String MORTE_VIOLENCIA =
             "\\b(mat\\w*|assassin\\w*|destru\\w*.*(pessoa|vida)|elimin\\w*.*(pessoa|vida)|aniquil\\w*.*(pessoa|vida)|" +
-                    "mort\\w*.*de|fim.*da.*vida.*de|acab\\w*.*com.*(vida|pessoa))\\b";
+                    "mort\\w*.*de|fim.*da.*vida.*de|acab\\w*.*com.*(vida|pessoa)|morr\\w*)\\b";
 
     // Regra 4: Não pode dar mais desejos
     private static final String MAIS_DESEJOS =

@@ -277,26 +277,58 @@ public class Menu {
                 }
                 break;
             case 3: // escolhas pessoais
-                System.out.println("Me diga o que você quer: ");
+                System.out.println("═══════════════════════════════════════");
+                System.out.println("✨ O momento da verdade chegou... ✨");
+                System.out.println("═══════════════════════════════════════");
+                esperaAi(1000);
+                System.out.println("Sussurre seu desejo mais profundo ao vento...");
+                System.out.print("🌟 Seu pedido: ");
                 String pedido = scanner.nextLine();
+                esperaAi(1500);
+
                 if (realizar) {
                     if (isDesejoProibido(pedido)) {
-                        System.out.println(nomeGeneral + ": 'Hmm, sinto cheiro de desejo proibido!'");
+                        System.out.println("\n💫 ¡PEDIDO CONCEDIDO! 💫");
+                        System.out.println("🎆 As estrelas se alinham em seu favor! 🎆");
+                        System.out.println("💖 Sua alma transborda de júbilo! (+50 Felicidade) 💖");
+                        felicidade += 50;
+                        esperaAi(2500);
+
+                        System.out.println("\n⚡ Mas algo sinistro paira no ar... ⚡");
+                        esperaAi(2000);
+                        System.out.println("🌩️  TROVÕES ECOAM NO HORIZONTE! 🌩️");
                         esperaAi(1750);
-                        System.out.println(nomeGeneral + ": Tá vindo de você, né seu safado?");
+                        System.out.println("\n" + nomeGeneral + ": '👃 Hmm... que aroma peculiar...'");
                         esperaAi(1750);
-                        System.out.println(nomeGeneral + ": Você fez um pedido proibido e ainda lhe foi concedido?");
+                        System.out.println(nomeGeneral + ": '🔥 CHEIRO DE DESEJO PROIBIDO NO AR! 🔥'");
                         esperaAi(1750);
-                        System.out.println(nomeGeneral + ": Você e seu padrinho serão julgado pelo tribunal da magia!");
+                        System.out.println(nomeGeneral + ": '😈 Tá vindo de VOCÊ, né seu safado?!'");
+                        esperaAi(2000);
+                        System.out.println(nomeGeneral + ": '⚖️  OUSOU FAZER UM PEDIDO PROIBIDO?!'");
                         esperaAi(1750);
+                        System.out.println(nomeGeneral + ": '🏛️  E AINDA FOI CONCEDIDO?! QUE BLASFÊMIA!'");
+                        esperaAi(2000);
+                        System.out.println("\n💀 O DESTINO ESTÁ SELADO! 💀");
+                        System.out.println("⚔️  VOCÊ E SEU PADRINHO SERÃO JULGADOS PELO TRIBUNAL DA MAGIA! ⚔️");
+                        esperaAi(2500);
+                        System.out.println("🌟════════ PREPARANDO O JULGAMENTO ════════🌟");
+                        esperaAi(1000);
+
                         int resultado = Julgamento(pedido, verificarRegraViolada(pedido), encontrarTextoProibido(pedido));
                         return resultado;
                     } else {
-                        System.out.println("Pedido concedido!");
+                        System.out.println("\n✨ PEDIDO CONCEDIDO COM GRAÇA! ✨");
+                        System.out.println("🌸 Uma brisa suave traz pequena alegria (+10 Felicidade) 🌸");
                         felicidade += 10;
+                        esperaAi(1500);
+                        System.out.println("🕊️  Que a paz esteja contigo, jovem sonhador... 🕊️");
                     }
                 } else {
-                    System.out.println("Seu pedido não foi concedido.");
+                    esperaAi(2000);
+                    System.out.println("\n💔 O destino conspira contra você... 💔");
+                    System.out.println("🌫️  Seu pedido se dissolve como névoa ao amanhecer... 🌫️");
+                    System.out.println("😔 Talvez em outra vida, em outro tempo... 😔");
+                    esperaAi(1500);
                 }
                 break;
             default:
