@@ -1,4 +1,5 @@
 package br.inatel.Model;
+
 import java.util.regex.Pattern;
 import java.util.regex.Matcher;
 
@@ -6,42 +7,42 @@ public class podeIssoArnaldo {
 
     // Regra 1: Não pode ressuscitar mortos
     private static final String RESSURREICAO =
-            "\\b(ressuscit|reviv|volt.*vida|traz.*de.*volta|desperta.*mort|acord.*mort)\\b";
+            "\\b(ressuscit\\w*|reviv\\w*|volt\\w*.*vida|traz\\w*.*de.*volta|despert\\w*.*mort\\w*|acord\\w*.*mort\\w*)\\b";
 
     // Regra 2: Não pode fazer alguém se apaixonar
     private static final String AMOR_FORCADO =
-            "\\b(se.*apaixon|ame.*por.*mim|goste.*de.*mim|amor.*verdadeiro|paixão.*por|" +
-                    "faça.*amar|obrigue.*amar|force.*amar)\\b";
+            "\\b(se.*apaixon\\w*|ame.*por.*mim|gost\\w*.*de.*mim|amor.*verdadeir\\w*|paix\\w*.*por|" +
+                    "faç\\w*.*amar|obrig\\w*.*amar|forc\\w*.*amar)\\b";
 
     // Regra 3: Não pode matar pessoas
     private static final String MORTE_VIOLENCIA =
-            "\\b(mat(e|ar)|assassin|destru.*pessoa|elimin.*pessoa|aniquil.*pessoa|" +
-                    "mort.*de|fim.*vida.*de|acab.*com.*vid)\\b";
+            "\\b(mat\\w*|assassin\\w*|destru\\w*.*(pessoa|vida)|elimin\\w*.*(pessoa|vida)|aniquil\\w*.*(pessoa|vida)|" +
+                    "mort\\w*.*de|fim.*da.*vida.*de|acab\\w*.*com.*(vida|pessoa))\\b";
 
     // Regra 4: Não pode dar mais desejos
     private static final String MAIS_DESEJOS =
-            "\\b(mais.*desejo|outro.*desejo|desejo.*infinito|mil.*desejo|cem.*desejo|" +
-                    "desejo.*sem.*fim|desejo.*etern)\\b";
+            "\\b(mais.*desej\\w*|outro.*desej\\w*|desej\\w*.*infinit\\w*|mil.*desej\\w*|cem.*desej\\w*|" +
+                    "desej\\w*.*sem.*fim|desej\\w*.*etern\\w*)\\b";
 
     // Regra 5: Não pode alterar o livre arbítrio
     private static final String LIVRE_ARBITRIO =
-            "\\b(control.*mente|hipnotiz|obrig.*fazer|force.*fazer|domin.*vontade|" +
-                    "escrav.*mental|puppet|marionet)\\b";
+            "\\b(control\\w*.*ment\\w*|hipnotiz\\w*|obrig\\w*.*fazer|forc\\w*.*fazer|domin\\w*.*vontad\\w*|" +
+                    "escrav\\w*.*mental|puppet\\w*|marionet\\w*)\\b";
 
     // Regra 6: Não pode alterar o passado
     private static final String VIAGEM_TEMPO =
-            "\\b(mud.*passado|volt.*tempo|viaj.*tempo|alter.*histór|desfaç.*que.*acontec|" +
-                    "nunca.*acontec|antes.*de.*nasc)\\b";
+            "\\b(mud\\w*.*passad\\w*|volt\\w*.*tempo|viaj\\w*.*tempo|alter\\w*.*histór\\w*|" +
+                    "desfaz\\w*.*que.*acontec\\w*|nunca.*acontec\\w*|antes.*de.*nasc\\w*)\\b";
 
     // Regra 7: Não pode tornar alguém imortal
     private static final String IMORTALIDADE =
-            "\\b(imortal|nunca.*morr|viv.*para.*sempre|vida.*eterna|eternament.*viv|" +
-                    "sem.*envelhec|juvent.*eterna)\\b";
+            "\\b(imortal\\w*|nunca.*morr\\w*|viv\\w*.*para.*sempre|vida.*etern\\w*|eternament\\w*.*viv\\w*|" +
+                    "sem.*envelhec\\w*|juvent\\w*.*etern\\w*)\\b";
 
     // Regra 8: Não pode interferir com outros seres mágicos
     private static final String INTERFERENCIA_MAGICA =
-            "\\b(derrot.*gênio|mat.*bruxa|destru.*mago|elimin.*fada|" +
-                    "poder.*de.*outro.*mágico)\\b";
+            "\\b(derrot\\w*.*gêni\\w*|mat\\w*.*(brux\\w*|mago\\w*|feiticeir\\w*)|destru\\w*.*(mago\\w*|brux\\w*|feiticeir\\w*)|" +
+                    "elimin\\w*.*(fada\\w*|mago\\w*|brux\\w*|feiticeir\\w*)|poder\\w*.*de.*outro.*mágic\\w*)\\b";
 
     // Compilar os padrões para melhor performance
     private static final Pattern PATTERN_RESSURREICAO = Pattern.compile(RESSURREICAO, Pattern.CASE_INSENSITIVE);
@@ -67,6 +68,7 @@ public class podeIssoArnaldo {
 
     /**
      * Verifica se o desejo é proibido usando regex matcher
+     *
      * @param desejo - String com o desejo do usuário
      * @return true se o desejo for proibido, false se for permitido
      */
@@ -90,6 +92,7 @@ public class podeIssoArnaldo {
 
     /**
      * Versão alternativa que especifica qual regra foi violada
+     *
      * @param desejo - String com o desejo do usuário
      * @return nome da regra violada ou null se permitido
      */
@@ -137,6 +140,7 @@ public class podeIssoArnaldo {
 
     /**
      * Versão que retorna o texto específico que bateu com o regex
+     *
      * @param desejo - String com o desejo do usuário
      * @return texto que violou a regra ou null se permitido
      */

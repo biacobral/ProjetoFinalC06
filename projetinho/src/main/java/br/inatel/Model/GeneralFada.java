@@ -9,4 +9,5 @@ public class GeneralFada extends Fada{
     public GeneralFada(String nomeFada, String tipoFada, int varinha_idSerial) {
         super(nomeFada, tipoFada, varinha_idSerial);
     }
+
 }
