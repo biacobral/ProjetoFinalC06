@@ -107,6 +107,7 @@ INSERT INTO Varinha (varinhaCor, statusVarinha) VALUES
 
 -- Inserção para tabela Padrinho
 INSERT INTO Padrinhos (nomePadrinho, tipoPadrinho, Varinha_idSerial, Crianca_idCrianca) VALUES
+
 ('Cosmo', 'Padrinho', 2, 1),
 ('Wanda', 'Madrinha', 1, 1),
 ('Juandíssimo', 'Padrinho', 4, 2),

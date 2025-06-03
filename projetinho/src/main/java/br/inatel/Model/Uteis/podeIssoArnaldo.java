@@ -1,4 +1,4 @@
-package br.inatel.Model;
+package br.inatel.Model.Uteis;
 
 import java.util.regex.Pattern;
 import java.util.regex.Matcher;

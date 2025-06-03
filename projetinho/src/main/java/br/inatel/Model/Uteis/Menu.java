@@ -1,11 +1,11 @@
-package br.inatel.Model;
+package br.inatel.Model.Uteis;
 
 import java.util.*;
 
-import static br.inatel.Model.Desejos.*;
-import static br.inatel.Model.podeIssoArnaldo.*;
-import static br.inatel.Model.Util.esperaAi;
-import static br.inatel.Model.tribunalDaMagia.Julgamento;
+import static br.inatel.Model.Personagens.Desejos.*;
+import static br.inatel.Model.Uteis.podeIssoArnaldo.*;
+import static br.inatel.Model.Uteis.Util.esperaAi;
+import static br.inatel.Model.Uteis.tribunalDaMagia.Julgamento;
 
 public class Menu {
     private Scanner scanner;
@@ -26,6 +26,24 @@ public class Menu {
         this.random = new Random();
     }
 
+    // Método auxiliar para ler entrada de forma segura
+    public int lerOpcaoSegura(String mensagem) {
+        while (true) {
+            try {
+                System.out.print(mensagem);
+                String entrada = this.scanner.nextLine().trim();
+
+                if (entrada.isEmpty()) {
+                    System.out.println("Entrada vazia! Tente novamente.");
+                    continue;
+                }
+
+                return Integer.parseInt(entrada);
+            } catch (NumberFormatException e) {
+                System.out.println("Entrada inválida! Digite apenas números.");
+            }
+        }
+    }
 
     private void sortearPedidos() {
         do {
@@ -82,7 +100,6 @@ public class Menu {
         System.out.println("2. " + getPedidoEscolhido2());
         System.out.println("3. ✍️  Fazer Pedido Personalizado");
         System.out.println("============================================");
-        System.out.print("\n🪄 Digite sua escolha (1-3): ");
     }
 
     public void setOpcaoEscolhida(int opcaoEscolhida) {
@@ -92,6 +109,8 @@ public class Menu {
     public int getOpcaoEscolhida() {
         return opcaoEscolhida;
     }
+
+
 
     public int eventos(String nomeGeneral) {
         boolean realizar = random.nextBoolean();

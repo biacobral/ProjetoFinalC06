@@ -1,7 +1,7 @@
-package br.inatel.Model;
+package br.inatel.Model.Uteis;
 
 import java.util.Random;
-import static br.inatel.Model.Util.esperaAi;
+import static br.inatel.Model.Uteis.Util.esperaAi;
 public class tribunalDaMagia {
     public static final String[] Consequencias = {
             "SEPARAÇÃO: Você será separado de seu padrinho e esquecerá de tudo que viveu com ele!",

@@ -1,4 +1,4 @@
-package br.inatel.Model;
+package br.inatel.Model.Personagens;
 
 public abstract class Fada {
     int idFada;

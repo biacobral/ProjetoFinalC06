@@ -1,16 +1,16 @@
 package br.inatel;
 
-import br.inatel.Model.*;
+import br.inatel.Model.Personagens.*;
+import br.inatel.Model.Uteis.Menu;
 
-import static br.inatel.Model.Util.esperaAi;
+import static br.inatel.Model.Uteis.Util.esperaAi;
 
 import java.util.Objects;
 import java.util.Random;
 import java.util.Scanner;
 
 //Importando a função que imprime o menu
-import static br.inatel.Model.Desejos.felicidade;
-import static br.inatel.Model.Menu.*;
+import static br.inatel.Model.Personagens.Desejos.felicidade;
 
 /*
         Notas para nós mesmos:
@@ -93,13 +93,13 @@ public class Main {
         esperaAi(3500);
 
         //Aqui é o big-for(eventos)
-        // Tratar aqui!!!!
         for (int i = jogador.getIdadeCrianca(); i < 18 && !sairDoLoop; i++) {
             try {
                 esperaAi(300);
                 System.out.println("Bem vindo ao seu " + (i - 11) + "° ano com seu padrinho");
                 menu.mostraMenu();
-                menu.setOpcaoEscolhida(scanner.nextInt()); // int set String
+                int opcao = menu.lerOpcaoSegura("🪄 Digite sua escolha (1-3): ");
+                menu.setOpcaoEscolhida(opcao);
                 int resultado = menu.eventos(general.getNomeFada());
                 if (resultado != (-1)) {
                     switch (resultado) {
