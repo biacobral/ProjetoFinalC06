@@ -3,6 +3,7 @@ package br.inatel;
 import br.inatel.Model.Personagens.*;
 import br.inatel.Model.Uteis.Menu;
 
+import static br.inatel.Model.Uteis.Eventos.decidirEvento;
 import static br.inatel.Model.Uteis.Util.esperaAi;
 
 import java.util.Objects;
@@ -97,6 +98,12 @@ public class Main {
             try {
                 esperaAi(300);
                 System.out.println("Bem vindo ao seu " + (i - 11) + "° ano com seu padrinho");
+                if(idP==1) {
+                    decidirEvento(antiPadrinho, nossoPadrinho, jogador, jogador);
+                }
+                else{
+                    decidirEvento(antiMadrinha, nossoPadrinho, jogador, jogador);
+                }
                 menu.mostraMenu();
                 int opcao = menu.lerOpcaoSegura("🪄 Digite sua escolha (1-3): ");
                 menu.setOpcaoEscolhida(opcao);

@@ -1,6 +1,8 @@
 package br.inatel.Model.Uteis;
 import java.lang.Thread;
 
+import static br.inatel.Model.Personagens.Desejos.felicidade;
+
 public class Util {
 
     public static void esperaAi(int tempo){
@@ -12,4 +14,12 @@ public class Util {
         }
     }
 
+    public static void diminuirFelicidade(int valor) throws NaoPodeSerTriste {
+        if((felicidade-valor)<0){
+            throw new NaoPodeSerTriste();
+        }
+        else{
+            felicidade-=valor;
+        }
+    }
 }
