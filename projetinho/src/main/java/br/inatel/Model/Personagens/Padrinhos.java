@@ -20,4 +20,6 @@ public class Padrinhos extends Fada {
     public void setCrianca_idCrianca(int crianca_idCrianca) {
         Crianca_idCrianca = crianca_idCrianca;
     }
+
+
 }

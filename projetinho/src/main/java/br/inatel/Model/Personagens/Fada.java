@@ -50,4 +50,6 @@ public abstract class Fada {
     public void setVarinha_idSerial(int varinha_idSerial) {
         Varinha_idSerial = varinha_idSerial;
     }
+
+
 }

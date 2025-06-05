@@ -31,37 +31,73 @@ public class Eventos {
 
     public static void decidirEvento(Fada antiFada, Padrinhos padrinho, Crianca crianca1, Crianca crianca2) {
         Random random = new Random();
-        int decisao = random.nextInt(6);
+        int decisao = random.nextInt(3);
         decisao = 3;
         switch (decisao) {
             case 0:
                 combateFada(antiFada, padrinho);
                 break;
             case 1:
-                dueloDesejos();
+                baile(crianca1, crianca2);
                 break;
             case 2:
                 vicky();
                 break;
-            case 3:
-                fofoca();
+            default:
                 break;
-            case 4:
-                baileEscola();
-                break;
-            case 5:
-                combateCrianca(crianca1, crianca2);
         }
     }
 
-    //Anti-fadas
+    //Anti-fadas rouba varinha
     private static void combateFada(Fada antiFada, Padrinhos padrinho) {
+    //Magia, Varinha e AntiFada
+            System.out.println("⚔️═══════════════════════════════════════⚔️");
+            System.out.println("🌪️    CONFRONTO ENTRE FADA E ANTI-FADA    🌪️");
+            System.out.println("⚔️═══════════════════════════════════════⚔️");
+            esperaAi(1500);
 
-    }
+            System.out.println("😈 " + antiFada.getNomeFada() + " armou uma armadilha sorrateira!");
+            esperaAi(1500);
+            System.out.println("🪄 Ela está tentando roubar a varinha mágica de " + padrinho.getNomeFada() + "!");
+            esperaAi(2000);
 
-    //Duelo de desejos
-    private static void dueloDesejos() {
+            if (felicidade > 60) {
+                System.out.println("\n💖 Mas sua felicidade está irradiando tanto que cria uma barreira mágica!");
+                esperaAi(1500);
+                System.out.println("🛡️ " + padrinho.getNomeFada() + " consegue proteger sua varinha com sucesso!");
+                esperaAi(1500);
+                System.out.println("🎉 Nenhum pedido será perdido este ano!");
+            } else {
+                System.out.println("\n💔 Sua felicidade está muito baixa para proteger seu padrinho...");
+                esperaAi(1500);
+                System.out.println("😵 " + antiFada.getNomeFada() + " conseguiu roubar a varinha mágica!");
+                esperaAi(1500);
+                System.out.println( "📉 Você ficará sem desejos por um ano inteiro!");
+                //padrinho.setPodeFazerDesejos(false);
+            }
 
+            esperaAi(2000);
+            System.out.println("\n✨═══════════════════════════════════════✨");
+            System.out.println("💫 Fim do confronto mágico!");
+            System.out.println("✨═══════════════════════════════════════✨");
+        }
+
+    //Baile crianças
+    private static void baile(Crianca crianca1, Crianca crianca2) {
+        System.out.println("💃═══════════════════════════════════════💃");
+        System.out.println("🌟        BAILE DA ESCOLA CHEGOU!        🌟");
+        System.out.println("💃═══════════════════════════════════════💃");
+        esperaAi(2000);
+
+        System.out.println("🎭 A escola toda está falando sobre o grande baile!");
+        esperaAi(1500);
+        System.out.println("💫 Você precisa escolher alguém para ser seu par...");
+        esperaAi(1500);
+        System.out.println("😊 Que tal dar uma olhada em quem está disponível?");
+        esperaAi(2000);
+
+        // dar um select no bd
+        // fazer random se aceito ou não (+45 de felicidade)
     }
 
     //Dia com a Vicky
@@ -123,7 +159,7 @@ public class Eventos {
     }
 
     //Fofoca
-    private static void fofoca() {
+    public static void fofoca() {
         Random random = new Random();
         int fofocaEscolhida = random.nextInt(15); // 15 fofocas diferentes
 
@@ -299,13 +335,4 @@ public class Eventos {
         System.out.println("🎭═══════════════════════════════════════🎭");
     }
 
-    //Baile da escola
-    private static void baileEscola() {
-
-    }
-
-    //Duelo
-    private static void combateCrianca(Crianca crianca1, Crianca crianca2) {
-
-    }
 }

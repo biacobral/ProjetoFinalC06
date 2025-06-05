@@ -34,13 +34,13 @@ public class Menu {
                 String entrada = this.scanner.nextLine().trim();
 
                 if (entrada.isEmpty()) {
-                    System.out.println("Entrada vazia! Tente novamente.");
+                    System.out.println("💫 As estrelas sussurram: entrada vazia! Tente novamente... ✨");
                     continue;
                 }
 
                 return Integer.parseInt(entrada);
             } catch (NumberFormatException e) {
-                System.out.println("Entrada inválida! Digite apenas números.");
+                System.out.println("⚡ Os ventos da magia rejeitam sua escolha! Digite apenas números mágicos! 🌟");
             }
         }
     }
@@ -56,7 +56,7 @@ public class Menu {
                     indice2 = random.nextInt(12);
                 } while (indice2 == indice1);
             } catch (Exception e) {
-                System.out.println("Erro ao sortear os pedidos! Tente novamente.");
+                System.out.println("🌪️ Um tornado de magia perturbou o sorteio! Os fados conspiram... Tente novamente! ⚡");
             }
         } while (pedidosFeitos.contains(indice1) || pedidosFeitos.contains(indice2));
         pedidosFeitos.add(indice1);
@@ -77,29 +77,33 @@ public class Menu {
 
     public void warning() {
         System.out.println();
-        System.out.println("""
-                ==================================================================== ATENÇÃO ====================================================================
-                
-                Você é uma criança triste, por isso lhe foi concedido um padrinho. Cada pedido que você faz te gera felicidade,
-                 caso a sua felicidade chegue ao ápice, seu padrinho terá completado sua missão, irá embora para sempre e você se esquecerá dele...
-                
-                Lhe será concedido um único pedido por ano. Desses, você poderá escolher entre 3 possíveis opções
-                 sendo que as duas primeiras serão opções únicas e pré selecionadas pelo sistema e a terceira será um pedido de
-                 sua própria escolha. Seu padrinho ou madrinha será quem decidirá se irá ou não conceder o pedido escolhido.
-                 Mas lembre-se! Os padrinhos possuem suas próprias regras e caso você faça e lhe seja concedido um pedido
-                 proibido, o Tribunal da Magia virá atrás de você!""");
+        System.out.println("🌟════════════════════════════════════════════════════════════════════════════════════════ ATENÇÃO ════════════════════════════════════════════════════════════════════════════════════════🌟");
         System.out.println();
-        System.out.println("================================================= TENHA CUIDADO COM O QUE VOCÊ IRÁ PEDIR! ==================================================");
+        System.out.println("💔 Você é uma alma perdida em um mundo de tristeza, por isso os céus lhe concederam um guardião celestial...");
+        System.out.println("✨ Cada desejo que brota de seu coração é como uma centelha de esperança que ilumina sua existência sombria...");
+        System.out.println("🌈 Mas cuidado, jovem sonhador! Se sua felicidade alcançar o ápice da plenitude...");
+        System.out.println("💫 Seu padrinho mágico terá cumprido sua missão divina e desaparecerá para sempre nas brumas do esquecimento...");
+        System.out.println();
+        System.out.println("⏳ O destino lhe concede apenas UM desejo a cada ciclo solar que se completa...");
+        System.out.println("🎭 Desses, três caminhos místicos se abrem diante de você:");
+        System.out.println("🌟 Dois caminhos únicos, escolhidos pelos ventos do acaso e pelos sussurros das estrelas...");
+        System.out.println("✍️  E um terceiro caminho, onde sua alma pode expressar seus mais profundos anseios...");
+        System.out.println("🧙‍♂️ Mas lembre-se! Seu guardião celestial possui o poder supremo de decisão...");
+        System.out.println("⚖️  E os Anciões do Tribunal da Magia vigiam cada desejo proibido que ecoa pelos reinos místicos!");
+        System.out.println();
+        System.out.println("🔥═══════════════════════════════════════════════════════════════ TENHA CUIDADO COM O QUE VOCÊ IRÁ PEDIR! ═══════════════════════════════════════════════════════════════🔥");
         System.out.println();
     }
 
     public void mostraMenu() {
         sortearPedidos();
-        System.out.println("\n====== 🌟 MENU DE DESEJOS MÁGICOS 🌟 ======");
-        System.out.println("1. " + getPedidoEscolhido1());
-        System.out.println("2. " + getPedidoEscolhido2());
+        System.out.println("\n🌟═══════════════════════════════════════🌟");
+        System.out.println("✨        MENU DE DESEJOS MÁGICOS        ✨");
+        System.out.println("🌟═══════════════════════════════════════🌟");
+        System.out.println("1. 🎭 " + getPedidoEscolhido1());
+        System.out.println("2. 🎪 " + getPedidoEscolhido2());
         System.out.println("3. ✍️  Fazer Pedido Personalizado");
-        System.out.println("============================================");
+        System.out.println("🌟═══════════════════════════════════════🌟");
     }
 
     public void setOpcaoEscolhida(int opcaoEscolhida) {
@@ -110,7 +114,40 @@ public class Menu {
         return opcaoEscolhida;
     }
 
+    // Método para pedido concedido com drama
+    private void pedidoConcedidoDramatico(int felicidadeGanha) {
+        System.out.println("\n✨═══════════════════════════════════════✨");
+        System.out.println("🎆         MILAGRE ACONTECEU!         🎆");
+        System.out.println("✨═══════════════════════════════════════✨");
+        esperaAi(1500);
+        System.out.println("🌟 As estrelas se alinham em perfeita harmonia!");
+        esperaAi(1000);
+        System.out.println("💫 Os ventos da magia sussurram seu nome!");
+        esperaAi(1000);
+        System.out.println("🎭 Seu desejo ecoa pelos reinos celestiais!");
+        esperaAi(1500);
+        System.out.println("💖 Seu coração transborda de pura alegria! (+" + felicidadeGanha + " Felicidade)");
+        esperaAi(1000);
+        System.out.println("🌈 A luz da esperança brilha mais intensa em sua alma!");
+        felicidade += felicidadeGanha;
+    }
 
+    // Método para pedido negado com drama
+    private void pedidoNegadoDramatico() {
+        System.out.println("\n💔═══════════════════════════════════════💔");
+        System.out.println("🌩️          DESTINO CRUEL!            🌩️");
+        System.out.println("💔═══════════════════════════════════════💔");
+        esperaAi(1500);
+        System.out.println("😭 As lágrimas dos céus caem sobre você...");
+        esperaAi(1000);
+        System.out.println("🌫️ Seu desejo se dissolve como névoa ao amanhecer...");
+        esperaAi(1000);
+        System.out.println("💸 Os fados conspiram contra sua felicidade...");
+        esperaAi(1500);
+        System.out.println("😢 Talvez em outra vida, em outro tempo...");
+        esperaAi(1000);
+        System.out.println("🕊️ Que a esperança não abandone seu coração ferido...");
+    }
 
     public int eventos(String nomeGeneral) {
         boolean realizar = random.nextBoolean();
@@ -119,89 +156,94 @@ public class Menu {
                 switch (this.indice1) {
                     case 0: // lanche
                         if (realizar) {
-                            System.out.println("Pedido concedido!");
-                            felicidade += 20;
-                        } else System.out.println("Seu pedido não foi concedido.");
+                            pedidoConcedidoDramatico(20);
+                        } else pedidoNegadoDramatico();
                         break;
                     case 1: // herói
                         if (realizar) {
-                            System.out.println("Pedido concedido!");
-                            felicidade += 5;
-                        } else System.out.println("Seu pedido não foi concedido.");
+                            pedidoConcedidoDramatico(5);
+                        } else pedidoNegadoDramatico();
                         break;
                     case 2: // férias
                         if (realizar) {
-                            System.out.println("Pedido concedido!");
-                            felicidade += 20;
-                        } else System.out.println("Seu pedido não foi concedido.");
+                            pedidoConcedidoDramatico(20);
+                        } else pedidoNegadoDramatico();
                         break;
                     case 3: // voar
                         if (realizar) {
-                            System.out.println("Pedido concedido!");
-                            felicidade += 15;
-                        } else System.out.println("Seu pedido não foi concedido.");
+                            pedidoConcedidoDramatico(15);
+                        } else pedidoNegadoDramatico();
                         break;
                     case 4: // castelo
                         if (realizar) {
-                            System.out.println("Pedido concedido!");
-                            felicidade += 5;
-                        } else System.out.println("Seu pedido não foi concedido.");
+                            pedidoConcedidoDramatico(5);
+                        } else pedidoNegadoDramatico();
                         break;
                     case 5: // inteligente
                         if (realizar) {
-                            System.out.println("Pedido concedido!");
-                            felicidade += 15;
-                        } else System.out.println("Seu pedido não foi concedido.");
+                            pedidoConcedidoDramatico(15);
+                        } else pedidoNegadoDramatico();
                         break;
                     case 6: // padrinho
                         if (realizar) {
-                            System.out.println("Pedido concedido!");
+                            System.out.println("\n🌟═══════════════════════════════════════🌟");
+                            System.out.println("✨      DESEJO DOS DESEJOS REALIZADO!    ✨");
+                            System.out.println("🌟═══════════════════════════════════════🌟");
+                            esperaAi(2000);
+                            System.out.println("💫 O UNIVERSO INTEIRO TREME DE EMOÇÃO!");
+                            esperaAi(1500);
+                            System.out.println("🎆 EXPLOSÃO DE FELICIDADE CÓSMICA!");
+                            esperaAi(1000);
+                            System.out.println("🌈 SUA ALMA ASCENDE AOS CÉUS! (+50 Felicidade)");
                             felicidade += 50;
-                        } else System.out.println("Seu pedido não foi concedido.");
+                        } else pedidoNegadoDramatico();
                         break;
                     case 7: // robô
                         if (realizar) {
-                            System.out.println("Pedido concedido!");
-                            felicidade += 5;
-                        } else System.out.println("Seu pedido não foi concedido.");
+                            pedidoConcedidoDramatico(5);
+                        } else pedidoNegadoDramatico();
                         break;
                     case 8: // entender meninas
                         if (realizar) {
-                            System.out.println("Pedido concedido!");
-                            felicidade += 10;
-                        } else System.out.println("Seu pedido não foi concedido.");
+                            pedidoConcedidoDramatico(10);
+                        } else pedidoNegadoDramatico();
                         break;
                     case 9: // super poder
                         if (realizar) {
-                            System.out.println("Pedido concedido!");
-                            felicidade += 15;
-                        } else System.out.println("Seu pedido não foi concedido.");
+                            pedidoConcedidoDramatico(15);
+                        } else pedidoNegadoDramatico();
                         break;
                     case 10: // cachorro falante
                         if (realizar) {
-                            System.out.println("Pedido concedido!");
-                            felicidade += 7;
-                        } else System.out.println("Seu pedido não foi concedido.");
+                            pedidoConcedidoDramatico(7);
+                        } else pedidoNegadoDramatico();
                         break;
                     case 11: // paixão
                         if (realizar) {
-                            System.out.println("Pedido concedido!");
-                            felicidade += 10;
-                        } else System.out.println("Seu pedido não foi concedido.");
+                            pedidoConcedidoDramatico(10);
+                        } else pedidoNegadoDramatico();
                         break;
                     case 12: // famoso
                         if (realizar) {
-                            System.out.println("Pedido concedido!");
-                            felicidade += 15;
-                        } else System.out.println("Seu pedido não foi concedido.");
+                            pedidoConcedidoDramatico(15);
+                        } else pedidoNegadoDramatico();
                         break;
                     case 13: // somente eu padrinhos
                         if (realizar) {
-                            System.out.println("Pedido concedido!");
+                            System.out.println("\n🌟═══════════════════════════════════════🌟");
+                            System.out.println("👑      DESEJO SUPREMO CONCEDIDO!       👑");
+                            System.out.println("🌟═══════════════════════════════════════🌟");
+                            esperaAi(2000);
+                            System.out.println("💫 VOCÊ SE TORNA O ESCOLHIDO DOS PADRINHOS!");
+                            esperaAi(1500);
+                            System.out.println("🎆 ÊXTASE ABSOLUTO TOMA CONTA DE SEU SER!");
+                            esperaAi(1000);
+                            System.out.println("🌈 FELICIDADE TRANSCENDENTAL! (+50 Felicidade)");
                             felicidade += 50;
-                        } else System.out.println("Seu pedido não foi concedido.");
+                        } else pedidoNegadoDramatico();
+                        break;
                     default:
-                        System.out.println("Opção inválida!Tente novamente...");
+                        System.out.println("🌪️ Os ventos místicos se confundem! Opção inválida nas estrelas... Tente novamente! ⚡");
                         break;
                 }
                 break;
@@ -209,150 +251,189 @@ public class Menu {
                 switch (this.indice2) {
                     case 0: // lanche
                         if (realizar) {
-                            System.out.println("Pedido concedido!");
-                            felicidade += 20;
-                        } else System.out.println("Seu pedido não foi concedido.");
+                            pedidoConcedidoDramatico(20);
+                        } else pedidoNegadoDramatico();
                         break;
                     case 1: // herói
                         if (realizar) {
-                            System.out.println("Pedido concedido!");
-                            felicidade += 5;
-                        } else System.out.println("Seu pedido não foi concedido.");
+                            pedidoConcedidoDramatico(5);
+                        } else pedidoNegadoDramatico();
                         break;
                     case 2: // férias
                         if (realizar) {
-                            System.out.println("Pedido concedido!");
-                            felicidade += 20;
-                        } else System.out.println("Seu pedido não foi concedido.");
+                            pedidoConcedidoDramatico(20);
+                        } else pedidoNegadoDramatico();
                         break;
                     case 3: // voar
                         if (realizar) {
-                            System.out.println("Pedido concedido!");
-                            felicidade += 15;
-                        } else System.out.println("Seu pedido não foi concedido.");
+                            pedidoConcedidoDramatico(15);
+                        } else pedidoNegadoDramatico();
                         break;
                     case 4: // castelo
                         if (realizar) {
-                            System.out.println("Pedido concedido!");
-                            felicidade += 5;
-                        } else System.out.println("Seu pedido não foi concedido.");
+                            pedidoConcedidoDramatico(5);
+                        } else pedidoNegadoDramatico();
                         break;
                     case 5: // inteligente
                         if (realizar) {
-                            System.out.println("Pedido concedido!");
-                            felicidade += 15;
-                        } else System.out.println("Seu pedido não foi concedido.");
+                            pedidoConcedidoDramatico(15);
+                        } else pedidoNegadoDramatico();
                         break;
                     case 6: // padrinho
                         if (realizar) {
-                            System.out.println("Pedido concedido!");
+                            System.out.println("\n🌟═══════════════════════════════════════🌟");
+                            System.out.println("✨      DESEJO DOS DESEJOS REALIZADO!    ✨");
+                            System.out.println("🌟═══════════════════════════════════════🌟");
+                            esperaAi(2000);
+                            System.out.println("💫 O UNIVERSO INTEIRO TREME DE EMOÇÃO!");
+                            esperaAi(1500);
+                            System.out.println("🎆 EXPLOSÃO DE FELICIDADE CÓSMICA!");
+                            esperaAi(1000);
+                            System.out.println("🌈 SUA ALMA ASCENDE AOS CÉUS! (+50 Felicidade)");
                             felicidade += 50;
-                        } else System.out.println("Seu pedido não foi concedido.");
+                        } else pedidoNegadoDramatico();
                         break;
                     case 7: // robô
                         if (realizar) {
-                            System.out.println("Pedido concedido!");
-                            felicidade += 5;
-                        } else System.out.println("Seu pedido não foi concedido.");
+                            pedidoConcedidoDramatico(5);
+                        } else pedidoNegadoDramatico();
                         break;
                     case 8: // entender meninas
                         if (realizar) {
-                            System.out.println("Pedido concedido!");
-                            felicidade += 10;
-                        } else System.out.println("Seu pedido não foi concedido.");
+                            pedidoConcedidoDramatico(10);
+                        } else pedidoNegadoDramatico();
                         break;
                     case 9: // super poder
                         if (realizar) {
-                            System.out.println("Pedido concedido!");
-                            felicidade += 15;
-                        } else System.out.println("Seu pedido não foi concedido.");
+                            pedidoConcedidoDramatico(15);
+                        } else pedidoNegadoDramatico();
                         break;
                     case 10: // cachorro falante
                         if (realizar) {
-                            System.out.println("Pedido concedido!");
-                            felicidade += 7;
-                        } else System.out.println("Seu pedido não foi concedido.");
+                            pedidoConcedidoDramatico(7);
+                        } else pedidoNegadoDramatico();
                         break;
                     case 11: // paixão
                         if (realizar) {
-                            System.out.println("Pedido concedido!");
-                            felicidade += 10;
-                        } else System.out.println("Seu pedido não foi concedido.");
+                            pedidoConcedidoDramatico(10);
+                        } else pedidoNegadoDramatico();
                         break;
                     case 12: // famoso
                         if (realizar) {
-                            System.out.println("Pedido concedido!");
-                            felicidade += 15;
-                        } else System.out.println("Seu pedido não foi concedido.");
+                            pedidoConcedidoDramatico(15);
+                        } else pedidoNegadoDramatico();
                         break;
                     case 13: // somente eu padrinhos
                         if (realizar) {
-                            System.out.println("Pedido concedido!");
+                            System.out.println("\n🌟═══════════════════════════════════════🌟");
+                            System.out.println("👑      DESEJO SUPREMO CONCEDIDO!       👑");
+                            System.out.println("🌟═══════════════════════════════════════🌟");
+                            esperaAi(2000);
+                            System.out.println("💫 VOCÊ SE TORNA O ESCOLHIDO DOS PADRINHOS!");
+                            esperaAi(1500);
+                            System.out.println("🎆 ÊXTASE ABSOLUTO TOMA CONTA DE SEU SER!");
+                            esperaAi(1000);
+                            System.out.println("🌈 FELICIDADE TRANSCENDENTAL! (+50 Felicidade)");
                             felicidade += 50;
-                        } else System.out.println("Seu pedido não foi concedido.");
+                        } else pedidoNegadoDramatico();
+                        break;
                     default:
-                        System.out.println("Opção inválida! Tente novamente.");
+                        System.out.println("🌪️ Os ventos místicos se confundem! Opção inválida nas estrelas... Tente novamente! ⚡");
                         break;
                 }
                 break;
             case 3: // escolhas pessoais
-                System.out.println("═══════════════════════════════════════");
+                System.out.println("🌟═══════════════════════════════════════🌟");
                 System.out.println("✨ O momento da verdade chegou... ✨");
-                System.out.println("═══════════════════════════════════════");
+                System.out.println("🌟═══════════════════════════════════════🌟");
                 esperaAi(1000);
-                System.out.println("Sussurre seu desejo mais profundo ao vento...");
-                System.out.print("🌟 Seu pedido: ");
+                System.out.println("🌙 As estrelas aguardam em silêncio cósmico...");
+                esperaAi(1000);
+                System.out.println("💫 Sussurre seu desejo mais profundo ao vento...");
+                System.out.print("🎭 Seu pedido do coração: ");
                 String pedido = scanner.nextLine();
                 esperaAi(1500);
 
                 if (realizar) {
                     if (isDesejoProibido(pedido)) {
-                        System.out.println("\n💫 ¡PEDIDO CONCEDIDO! 💫");
-                        System.out.println("🎆 As estrelas se alinham em seu favor! 🎆");
-                        System.out.println("💖 Sua alma transborda de júbilo! (+50 Felicidade) 💖");
+                        System.out.println("\n💫═══════════════════════════════════════💫");
+                        System.out.println("🎆        ¡PEDIDO CONCEDIDO!        🎆");
+                        System.out.println("💫═══════════════════════════════════════💫");
+                        esperaAi(1500);
+                        System.out.println("🌟 As estrelas se alinham em seu favor!");
+                        esperaAi(1000);
+                        System.out.println("🎆 Fogos de artifício explodem nos céus!");
+                        esperaAi(1000);
+                        System.out.println("💖 Sua alma transborda de júbilo! (+50 Felicidade)");
                         felicidade += 50;
                         esperaAi(2500);
 
-                        System.out.println("\n⚡ Mas algo sinistro paira no ar... ⚡");
+                        System.out.println("\n⚡═══════════════════════════════════════⚡");
+                        System.out.println("🌩️     MAS ALGO SINISTRO DESPERTA...     🌩️");
+                        System.out.println("⚡═══════════════════════════════════════⚡");
                         esperaAi(2000);
-                        System.out.println("🌩️  TROVÕES ECOAM NO HORIZONTE! 🌩️");
+                        System.out.println("🌩️  TROVÕES ECOAM PELOS REINOS MÍSTICOS!");
                         esperaAi(1750);
-                        System.out.println("\n" + nomeGeneral + ": '👃 Hmm... que aroma peculiar...'");
+                        System.out.println("💀 O AR SE TORNA DENSO COM ENERGIA SOMBRIA...");
                         esperaAi(1750);
-                        System.out.println(nomeGeneral + ": '🔥 CHEIRO DE DESEJO PROIBIDO NO AR! 🔥'");
+                        System.out.println("\n" + nomeGeneral + ": '👃 Hmm... que aroma peculiar paira no ar...'");
                         esperaAi(1750);
-                        System.out.println(nomeGeneral + ": '😈 Tá vindo de VOCÊ, né seu safado?!'");
+                        System.out.println(nomeGeneral + ": '🔥 CHEIRO DE DESEJO PROIBIDO QUEIMA MINHAS NARINAS!'");
+                        esperaAi(1750);
+                        System.out.println(nomeGeneral + ": '😈 Está emanando de VOCÊ, pequeno transgressor!'");
                         esperaAi(2000);
-                        System.out.println(nomeGeneral + ": '⚖️  OUSOU FAZER UM PEDIDO PROIBIDO?!'");
+                        System.out.println(nomeGeneral + ": '⚖️  OUSOU FAZER UM PEDIDO PROIBIDO PELOS ANCIÕES?!'");
                         esperaAi(1750);
-                        System.out.println(nomeGeneral + ": '🏛️  E AINDA FOI CONCEDIDO?! QUE BLASFÊMIA!'");
+                        System.out.println(nomeGeneral + ": '🏛️  E AINDA FOI CONCEDIDO?! QUE BLASFÊMIA CÓSMICA!'");
                         esperaAi(2000);
-                        System.out.println("\n💀 O DESTINO ESTÁ SELADO! 💀");
-                        System.out.println("⚔️  VOCÊ E SEU PADRINHO SERÃO JULGADOS PELO TRIBUNAL DA MAGIA! ⚔️");
+                        System.out.println("\n💀═══════════════════════════════════════💀");
+                        System.out.println("⚔️         O DESTINO ESTÁ SELADO!         ⚔️");
+                        System.out.println("💀═══════════════════════════════════════💀");
+                        esperaAi(1500);
+                        System.out.println("⚔️  VOCÊ E SEU PADRINHO SERÃO JULGADOS!");
+                        esperaAi(1000);
+                        System.out.println("🏛️  PELO SUPREMO TRIBUNAL DA MAGIA!");
                         esperaAi(2500);
-                        System.out.println("🌟════════ PREPARANDO O JULGAMENTO ════════🌟");
+                        System.out.println("🌟════════ PREPARANDO O JULGAMENTO FINAL ════════🌟");
                         esperaAi(1000);
 
                         int resultado = Julgamento(pedido, verificarRegraViolada(pedido), encontrarTextoProibido(pedido));
                         return resultado;
                     } else {
-                        System.out.println("\n✨ PEDIDO CONCEDIDO COM GRAÇA! ✨");
-                        System.out.println("🌸 Uma brisa suave traz pequena alegria (+10 Felicidade) 🌸");
+                        System.out.println("\n✨═══════════════════════════════════════✨");
+                        System.out.println("🌸     PEDIDO CONCEDIDO COM GRAÇA!     🌸");
+                        System.out.println("✨═══════════════════════════════════════✨");
+                        esperaAi(1500);
+                        System.out.println("🌸 Uma brisa suave traz pequena alegria!");
+                        esperaAi(1000);
+                        System.out.println("💖 Seu coração se aquece gentilmente (+10 Felicidade)");
                         felicidade += 10;
                         esperaAi(1500);
-                        System.out.println("🕊️  Que a paz esteja contigo, jovem sonhador... 🕊️");
+                        System.out.println("🕊️  Que a paz esteja contigo, jovem sonhador...");
+                        esperaAi(1000);
+                        System.out.println("🌈 E que seus sonhos floresçam como jardins eternos!");
                     }
                 } else {
                     esperaAi(2000);
-                    System.out.println("\n💔 O destino conspira contra você... 💔");
-                    System.out.println("🌫️  Seu pedido se dissolve como névoa ao amanhecer... 🌫️");
-                    System.out.println("😔 Talvez em outra vida, em outro tempo... 😔");
+                    System.out.println("\n💔═══════════════════════════════════════💔");
+                    System.out.println("🌩️      O DESTINO CONSPIRA CONTRA VOCÊ     🌩️");
+                    System.out.println("💔═══════════════════════════════════════💔");
+                    esperaAi(1500);
+                    System.out.println("😭 As lágrimas dos anjos caem do céu...");
+                    esperaAi(1000);
+                    System.out.println("🌫️  Seu pedido se dissolve como névoa ao amanhecer...");
+                    esperaAi(1000);
+                    System.out.println("💸 Os ventos do infortúnio sopram contra você...");
+                    esperaAi(1500);
+                    System.out.println("😔 Talvez em outra vida, em outro tempo...");
+                    esperaAi(1000);
+                    System.out.println("🌟 Mas não desista! A esperança é eterna!");
                     esperaAi(1500);
                 }
                 break;
             default:
                 while (true) {
-                    System.out.println("Opção inválida! Tente novamente.");
+                    System.out.println("🌪️ Os portais místicos se confundem! Opção inválida no cosmos! Tente novamente, jovem viajante! ⚡");
                     try {
                         int novaOpcao = scanner.nextInt();
                         if (novaOpcao >= 1 && novaOpcao <= 3) {
