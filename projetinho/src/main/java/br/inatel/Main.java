@@ -18,7 +18,8 @@ import static br.inatel.Model.Personagens.Crianca.felicidade;
 /*
         Notas para nós mesmos:
         - Pensar se vale a pena fazer uma interface para os seres mágicos
-        - -THREAD_MILLIS- Feito e tratado
+        Arrumar todas as coias do SQL
+
  */
 public class Main {
     public static void main(String[] args) {
@@ -46,7 +47,7 @@ public class Main {
         boolean taCerto = false;
         boolean sairDoLoop = false;
         int oqAconteceu = 0;
-        int resultado;
+        int resultado = -1;
         // Definindo nome e sexo do jogador
         System.out.print("Insira seu nome: ");
         String nomeJogador = scanner.nextLine(); // Scanner -> String

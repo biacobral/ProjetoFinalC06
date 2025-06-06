@@ -74,4 +74,6 @@ public class Crianca {
         this.enderecoCrianca = enderecoCrianca;
     }
 
+    public boolean getTemPadrinho() {return temPadrinho;}
+
 }
