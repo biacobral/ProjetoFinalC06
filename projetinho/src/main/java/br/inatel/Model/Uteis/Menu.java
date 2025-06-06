@@ -79,7 +79,7 @@ public class Menu {
         System.out.println();
         System.out.println("🌟════════════════════════════════════════════════════════════════════════════════════════ ATENÇÃO ════════════════════════════════════════════════════════════════════════════════════════🌟");
         System.out.println();
-        System.out.println("💔 Você é uma alma perdida em um mundo de tristeza, por isso os céus lhe concederam um guardião celestial...");
+        System.out.println("💔 Você é uma alma perdida em um mundo de tristeza, por isso os céus lhe concederam um padrinho mágico...");
         System.out.println("✨ Cada desejo que brota de seu coração é como uma centelha de esperança que ilumina sua existência sombria...");
         System.out.println("🌈 Mas cuidado, jovem sonhador! Se sua felicidade alcançar o ápice da plenitude...");
         System.out.println("💫 Seu padrinho mágico terá cumprido sua missão divina e desaparecerá para sempre nas brumas do esquecimento...");
@@ -87,9 +87,9 @@ public class Menu {
         System.out.println("⏳ O destino lhe concede apenas UM desejo a cada ciclo solar que se completa...");
         System.out.println("🎭 Desses, três caminhos místicos se abrem diante de você:");
         System.out.println("🌟 Dois caminhos únicos, escolhidos pelos ventos do acaso e pelos sussurros das estrelas...");
-        System.out.println("✍️  E um terceiro caminho, onde sua alma pode expressar seus mais profundos anseios...");
-        System.out.println("🧙‍♂️ Mas lembre-se! Seu guardião celestial possui o poder supremo de decisão...");
-        System.out.println("⚖️  E os Anciões do Tribunal da Magia vigiam cada desejo proibido que ecoa pelos reinos místicos!");
+        System.out.println("✍️ E um terceiro caminho, onde sua alma pode expressar seus mais profundos anseios...");
+        System.out.println("🧙‍♂️ Mas lembre-se! Seu padrinho mágico possui o poder supremo de decisão...");
+        System.out.println("⚖️ E o General da Magia vigia cada desejo proibido que ecoa pelos reinos místicos!");
         System.out.println();
         System.out.println("🔥═══════════════════════════════════════════════════════════════ TENHA CUIDADO COM O QUE VOCÊ IRÁ PEDIR! ═══════════════════════════════════════════════════════════════🔥");
         System.out.println();
@@ -102,7 +102,7 @@ public class Menu {
         System.out.println("🌟═══════════════════════════════════════🌟");
         System.out.println("1. 🎭 " + getPedidoEscolhido1());
         System.out.println("2. 🎪 " + getPedidoEscolhido2());
-        System.out.println("3. ✍️  Fazer Pedido Personalizado");
+        System.out.println("3. ✍️ Fazer Pedido Personalizado");
         System.out.println("🌟═══════════════════════════════════════🌟");
     }
 
@@ -117,7 +117,7 @@ public class Menu {
     // Metodo para pedido concedido com drama
     private void pedidoConcedidoDramatico(int felicidadeGanha) {
         System.out.println("\n✨═══════════════════════════════════════✨");
-        System.out.println("🎆         MILAGRE ACONTECEU!         🎆");
+        System.out.println("🎆         MILAGRE ACONTECEU!            🎆");
         System.out.println("✨═══════════════════════════════════════✨");
         esperaAi(1500);
         System.out.println("🌟 As estrelas se alinham em perfeita harmonia!");
@@ -135,7 +135,7 @@ public class Menu {
     // Metodo para pedido negado com drama
     private void pedidoNegadoDramatico() {
         System.out.println("\n💔═══════════════════════════════════════💔");
-        System.out.println("🌩️          DESTINO CRUEL!            🌩️");
+        System.out.println("🌩️          DESTINO CRUEL!               🌩️");
         System.out.println("💔═══════════════════════════════════════💔");
         esperaAi(1500);
         System.out.println("😭 As lágrimas dos céus caem sobre você...");
@@ -402,7 +402,7 @@ public class Menu {
                         return resultado;
                     } else {
                         System.out.println("\n✨═══════════════════════════════════════✨");
-                        System.out.println("🌸     PEDIDO CONCEDIDO COM GRAÇA!     🌸");
+                        System.out.println("🌸     PEDIDO CONCEDIDO COM GRAÇA!       🌸");
                         System.out.println("✨═══════════════════════════════════════✨");
                         esperaAi(1500);
                         System.out.println("🌸 Uma brisa suave traz pequena alegria!");
@@ -417,7 +417,7 @@ public class Menu {
                 } else {
                     esperaAi(2000);
                     System.out.println("\n💔═══════════════════════════════════════💔");
-                    System.out.println("🌩️      O DESTINO CONSPIRA CONTRA VOCÊ     🌩️");
+                    System.out.println("🌩️      O DESTINO CONSPIRA CONTRA VOCÊ   🌩️");
                     System.out.println("💔═══════════════════════════════════════💔");
                     esperaAi(1500);
                     System.out.println("😭 As lágrimas dos anjos caem do céu...");

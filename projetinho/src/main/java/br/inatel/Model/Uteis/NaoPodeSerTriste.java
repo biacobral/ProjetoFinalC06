@@ -17,6 +17,5 @@ public class NaoPodeSerTriste extends Exception {
         System.out.println("🌈 Deus: 'Olha só quantas coisas bonitas ainda tem pra viver!'");
         esperaAi(1500);
         System.out.println("💖 Uma sensação calorosa toma conta do seu peito...");
-
     }
 }

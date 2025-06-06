@@ -233,7 +233,7 @@ public class Eventos {
                     diminuirFelicidade(20);
                     System.out.println("💙 Sua felicidade diminuiu em 20 pontos...");
                 } catch (NaoPodeSerTriste e) {
-                    System.out.println(e);
+                    
                     System.out.println("💙 Sua felicidade agora é 0...");
                     felicidade = 0;
                 }
@@ -246,7 +246,7 @@ public class Eventos {
                     diminuirFelicidade(25);
                     System.out.println("💙 Sua felicidade diminuiu em 25 pontos...");
                 } catch (NaoPodeSerTriste e) {
-                    System.out.println(e);
+                    
                     System.out.println("💙 Sua felicidade agora é 0...");
                     felicidade = 0;
 
@@ -260,7 +260,7 @@ public class Eventos {
                     diminuirFelicidade(15);
                     System.out.println("💙 Sua felicidade diminuiu em 15 pontos...");
                 } catch (NaoPodeSerTriste e) {
-                    System.out.println(e);
+                    
                     System.out.println("💙 Sua felicidade agora é 0...");
                     felicidade = 0;
 
@@ -274,7 +274,7 @@ public class Eventos {
                     diminuirFelicidade(18);
                     System.out.println("💙 Sua felicidade diminuiu em 18 pontos...");
                 } catch (NaoPodeSerTriste e) {
-                    System.out.println(e);
+                    
                     System.out.println("💙 Sua felicidade agora é 0...");
                     felicidade = 0;
 
@@ -288,7 +288,7 @@ public class Eventos {
                     diminuirFelicidade(12);
                     System.out.println("💙 Sua felicidade diminuiu em 12 pontos...");
                 } catch (NaoPodeSerTriste e) {
-                    System.out.println(e);
+                    
                     System.out.println("💙 Sua felicidade agora é 0...");
                     felicidade = 0;
 
@@ -302,7 +302,7 @@ public class Eventos {
                     diminuirFelicidade(22);
                     System.out.println("💙 Sua felicidade diminuiu em 22 pontos...");
                 } catch (NaoPodeSerTriste e) {
-                    System.out.println(e);
+                    
                     System.out.println("💙 Sua felicidade agora é 0...");
                     felicidade = 0;
 
@@ -316,7 +316,7 @@ public class Eventos {
                     diminuirFelicidade(25);
                     System.out.println("💙 Sua felicidade diminuiu em 25 pontos...");
                 } catch (NaoPodeSerTriste e) {
-                    System.out.println(e);
+                    
                     System.out.println("💙 Sua felicidade agora é 0...");
                     felicidade = 0;
 

@@ -27,16 +27,6 @@ public class Main {
         boolean taCerto = false;
         boolean sairDoLoop = false;
         int oqAconteceu = 0;
-        /*
-            0 - Nada aconteceu com o tribunal da magia
-            1 - Separou do padrinho
-            2 - Castigo mágico
-            3 - Punição Severa
-            4 - Sua alma foi selada por 100 anos
-            5 - Sugado para o vazio eterno
-            6 - Morreu
-            7 - Preso no loop de sofrimento
-         */
         // Definindo nome e sexo do jogador
         System.out.print("Insira seu nome: ");
         String nomeJogador = scanner.nextLine(); // Scanner -> String
