@@ -6,6 +6,12 @@ DROP DATABASE IF EXISTS Padrinhos_Magicos;
 CREATE DATABASE IF NOT EXISTS Padrinhos_Magicos;
 USE Padrinhos_Magicos;
 
+CREATE TABLE IF NOT EXISTS AntiFada(
+   idFada INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+   nomeFada VARCHAR(45),
+   tipoFada VARCHAR(45),
+   Varinha_idSerial INT;
+)
 -- Tabela: Crianca
 CREATE TABLE IF NOT EXISTS Crianca (
     idCrianca INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
@@ -14,31 +20,6 @@ CREATE TABLE IF NOT EXISTS Crianca (
     sexoCrianca VARCHAR(45),
     temPadrinho BOOLEAN,
     enderecoCrianca VARCHAR(45)
-);
-
--- Tabela: Varinha
-CREATE TABLE IF NOT EXISTS Varinha (
-    idSerial INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
-    varinhaCor VARCHAR(45),
-    statusVarinha VARCHAR(45)
-);
-
--- Tabela: Padrinhos
-CREATE TABLE IF NOT EXISTS Padrinhos (
-    idPadrinhos INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
-    nomePadrinho VARCHAR(45),
-    tipoPadrinho VARCHAR(45),
-    Varinha_idSerial INT,
-    Crianca_idCrianca INT,
-    FOREIGN KEY (Varinha_idSerial) REFERENCES Varinha(idSerial) ON DELETE CASCADE,
-    FOREIGN KEY (Crianca_idCrianca) REFERENCES Crianca(idCrianca) ON DELETE SET NULL ON UPDATE CASCADE
-);
-
--- Tabela: Desejos
-CREATE TABLE IF NOT EXISTS Desejos (
-    idDesejos INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
-    descricao VARCHAR(50),
-    statusDesejo VARCHAR(45)
 );
 
 -- Tabela: CriancaFazDesejos
@@ -50,13 +31,52 @@ CREATE TABLE IF NOT EXISTS CriancaFazDesejos (
     FOREIGN KEY (Desejos_idDesejos) REFERENCES Desejos(idDesejos) ON DELETE CASCADE
 );
 
--- Tabela: Magia 
+-- Tabela: Desejos
+CREATE TABLE IF NOT EXISTS Desejos (
+    idDesejos INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
+    descricao VARCHAR(50),
+    --public static int felicidade = 0;
+);
+
+CREATE TABLE IF NOT EXISTS GeneralFada(
+    idFada INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    nomeFada VARCHAR(45),
+    tipoFada VARCHAR(45),
+    Varinha_idSerial INT;
+);
+
+-- Tabela: Magia
 CREATE TABLE IF NOT EXISTS Magia (
     idMagia INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
     nomeMagia VARCHAR(45),
     descricaoMagia VARCHAR(45),
     Padrinhos_idPadrinhos INT,
     FOREIGN KEY (Padrinhos_idPadrinhos) REFERENCES Padrinhos(idPadrinhos) ON DELETE CASCADE
+);
+
+-- Tabela: Padrinhos
+CREATE TABLE IF NOT EXISTS Padrinhos (
+    idFada INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
+    nomeFada VARCHAR(45),
+    tipoFada VARCHAR(45),
+    Varinha_idSerial INT,
+    Crianca_idCrianca INT,
+    FOREIGN KEY (Varinha_idSerial) REFERENCES Varinha(idSerial) ON DELETE CASCADE,
+    FOREIGN KEY (Crianca_idCrianca) REFERENCES Crianca(idCrianca) ON DELETE SET NULL ON UPDATE CASCADE
+
+    idFada INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    nomeFada VARCHAR(45),
+    tipoFada VARCHAR(45),
+    Varinha_idSerial INT;
+    private int Crianca_idCrianca;
+    private Varinha varinha;
+);
+
+-- Tabela: Varinha
+CREATE TABLE IF NOT EXISTS Varinha (
+    idSerial INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
+    varinhaCor VARCHAR(45),
+    statusVarinha VARCHAR(45)
 );
 -- ---------------------------------------- TRIGGER ----------------------------------------------
 /*
