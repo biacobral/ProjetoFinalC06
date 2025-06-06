@@ -6,7 +6,6 @@ public class Desejos {
     private int idDesejos;
     private String descricao;
     private boolean statusDesejo;
-    public static int felicidade = 0;
 
     Random rand = new Random();
     public final static String[] listaDesejos = {

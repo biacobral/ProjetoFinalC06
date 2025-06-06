@@ -7,6 +7,7 @@ public class Crianca {
     private String sexoCrianca;
     private boolean temPadrinho;
     private String enderecoCrianca;
+    public static int felicidade = 0;
 
     public Crianca(int idCrianca, String nomeCrianca, int idadeCrianca, String sexoCrianca, boolean temPadrinho, String enderecoCrianca) {
         this.idCrianca = idCrianca;

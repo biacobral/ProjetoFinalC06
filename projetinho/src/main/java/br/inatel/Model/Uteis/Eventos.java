@@ -6,8 +6,9 @@ import br.inatel.Model.Personagens.Fada;
 import br.inatel.Model.Personagens.Padrinhos;
 
 import java.util.Random;
+import java.util.Scanner;
 
-import static br.inatel.Model.Personagens.Desejos.felicidade;
+import static br.inatel.Model.Personagens.Crianca.felicidade;
 import static br.inatel.Model.Uteis.Util.diminuirFelicidade;
 import static br.inatel.Model.Uteis.Util.esperaAi;
 
@@ -31,8 +32,8 @@ public class Eventos {
 
     public static void decidirEvento(Fada antiFada, Padrinhos padrinho, Crianca crianca1, Crianca crianca2) {
         Random random = new Random();
-        int decisao = random.nextInt(3);
-        decisao = 3;
+        // deixar varinha padrinho funcionando
+        int decisao = random.nextInt(3);;
         switch (decisao) {
             case 0:
                 combateFada(antiFada, padrinho);
@@ -98,7 +99,68 @@ public class Eventos {
         esperaAi(2000);
 
         // dar um select no bd
-        // fazer random se aceito ou não (+45 de felicidade)
+
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.println("👫 Escolha o número da criança que você quer convidar para o baile (1 a 9): ");
+        int escolha = scanner.nextInt();
+
+        switch (escolha) {
+            case 1:
+
+                break;
+            case 2:
+
+                break;
+            case 3:
+
+                break;
+            case 4:
+
+                break;
+            case 5:
+
+                break;
+            case 6:
+
+                break;
+            case 7:
+
+                break;
+            case 8:
+
+                break;
+            case 9:
+
+                break;
+            default:
+                System.out.println("❌ Número inválido! Você ficou sem par 😢");
+                return; // sai do metodo
+        }
+
+        Random random = new Random();
+        boolean aceito = random.nextBoolean();
+        if (aceito) {
+            System.out.println("💖✨ Incrível!  fulano olhou para você e sorriu.");
+            esperaAi(1500);
+            System.out.println("🕺💃 \"Claro que sim! Eu adoraria ir ao baile com você!\"");
+            esperaAi(1500);
+            System.out.println("🎉 Vocês dançam sob as estrelas, enquanto a música embala um momento inesquecível...");
+            felicidade += 45;
+            esperaAi(1500);
+            System.out.println("😄 Sua felicidade transborda! (+45)");
+            System.out.println("🌈 Felicidade atual: " + felicidade);
+        } else {
+            System.out.println("💔 fulsno parece hesitar, desviando o olhar...");
+            esperaAi(1500);
+            System.out.println("🙁 \"Desculpa... eu já tenho um par.\"");
+            esperaAi(1500);
+            System.out.println("🎶 A música toca ao fundo... mas seu coração parece desafinar com ela.");
+            felicidade -= 10;
+            esperaAi(1500);
+            System.out.println("😞 Você se sente um pouco triste... (-10)");
+            System.out.println("🌧️ Felicidade atual: " + felicidade);
+        }
     }
 
     //Dia com a Vicky

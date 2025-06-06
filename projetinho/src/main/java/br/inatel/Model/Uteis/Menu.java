@@ -1,11 +1,14 @@
 package br.inatel.Model.Uteis;
 
+import br.inatel.Model.Personagens.Padrinhos;
+
 import java.util.*;
 
 import static br.inatel.Model.Personagens.Desejos.*;
 import static br.inatel.Model.Uteis.podeIssoArnaldo.*;
 import static br.inatel.Model.Uteis.Util.esperaAi;
 import static br.inatel.Model.Uteis.tribunalDaMagia.Julgamento;
+import static br.inatel.Model.Personagens.Crianca.felicidade;
 
 public class Menu {
     private Scanner scanner;
@@ -149,8 +152,15 @@ public class Menu {
         System.out.println("🕊️ Que a esperança não abandone seu coração ferido...");
     }
 
-    public int eventos(String nomeGeneral) {
+    public int eventos(String nomeGeneral, Padrinhos padrinho) {
         // if padrinho varinha status != "Funcionando" return -1
+        if(!padrinho.getVarinha().getStatusVarinha().equalsIgnoreCase("Funcionando")){
+            System.out.println("⚠️ Oh, não! Um silêncio mágico paira no ar...");
+            System.out.println("💔 A varinha do seu padrinho está =" + padrinho.getVarinha().getStatusVarinha() + "=!");
+            System.out.println("🔮 Sem magia, sem desejos... parece que este ano você terá que contar apenas com a sorte.");
+            return (-1);
+        }
+
         boolean realizar = random.nextBoolean();
         switch (opcaoEscolhida) {
             case 1:
@@ -439,7 +449,7 @@ public class Menu {
                         int novaOpcao = scanner.nextInt();
                         if (novaOpcao >= 1 && novaOpcao <= 3) {
                             setOpcaoEscolhida(novaOpcao);
-                            eventos(nomeGeneral);
+                            eventos(nomeGeneral, padrinho);
                             break;
                         }
                     } catch (InputMismatchException e) {

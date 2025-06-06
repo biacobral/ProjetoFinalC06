@@ -1,5 +1,6 @@
 package br.inatel;
 
+import br.inatel.DAO.*;
 import br.inatel.Model.Personagens.*;
 import br.inatel.Model.Uteis.Menu;
 
@@ -12,7 +13,7 @@ import java.util.Random;
 import java.util.Scanner;
 
 //Importando a função que imprime o menu
-import static br.inatel.Model.Personagens.Desejos.felicidade;
+import static br.inatel.Model.Personagens.Crianca.felicidade;
 
 /*
         Notas para nós mesmos:
@@ -22,11 +23,30 @@ import static br.inatel.Model.Personagens.Desejos.felicidade;
 public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in); // Scanner para entrada de dados
-
+        //Criando os DAOs
+        AntiFadaDAO antifadaDAO = new AntiFadaDAO();
+        Crianca_Faz_DesejosDAO criancaFazDesejosDAO = new Crianca_Faz_DesejosDAO();
+        CriancaDAO criancasDAO = new CriancaDAO();
+        DesejosDAO desejosDAO = new DesejosDAO();
+        GeneralFadaDAO generalFadaDAO = new GeneralFadaDAO();
+        MagiaDAO magiaDAO = new MagiaDAO();
+        PadrinhosDAO padrinhosDAO = new PadrinhosDAO();
+        VarinhaDAO varinhaDAO = new VarinhaDAO();
+        //Testando a conexão
+        antifadaDAO.connectToDb();
+        criancasDAO.connectToDb();
+        criancaFazDesejosDAO.connectToDb();
+        desejosDAO.connectToDb();
+        generalFadaDAO.connectToDb();
+        magiaDAO.connectToDb();
+        padrinhosDAO.connectToDb();
+        varinhaDAO.connectToDb();
+        //Funções que estamos usando
         Menu menu = new Menu();
         boolean taCerto = false;
         boolean sairDoLoop = false;
         int oqAconteceu = 0;
+        int resultado;
         // Definindo nome e sexo do jogador
         System.out.print("Insira seu nome: ");
         String nomeJogador = scanner.nextLine(); // Scanner -> String
@@ -93,14 +113,23 @@ public class Main {
                 fofoca(); // evento fofoca
                 if(idP==1) {
                     decidirEvento(antiPadrinho, nossoPadrinho, jogador, jogador);
+                    if(nossoPadrinho.getVarinha().getStatusVarinha().equals("Funcionando")){
+                        menu.mostraMenu();
+                        int opcao = menu.lerOpcaoSegura("🪄 Digite sua escolha (1-3): ");
+                        menu.setOpcaoEscolhida(opcao);
+                        resultado = menu.eventos(general.getNomeFada(), nossoPadrinho);
+                    }
                 }
                 else{
-                    decidirEvento(antiMadrinha, nossoPadrinho, jogador, jogador);
+                    decidirEvento(antiMadrinha, nossaMadrinha, jogador, jogador); // jogador jogador mudar
+                    if(nossaMadrinha.getVarinha().getStatusVarinha().equals("Funcionando")){
+                        menu.mostraMenu();
+                        int opcao = menu.lerOpcaoSegura("🪄 Digite sua escolha (1-3): ");
+                        menu.setOpcaoEscolhida(opcao);
+                        resultado = menu.eventos(general.getNomeFada(), nossaMadrinha);
+                    }
                 }
-                menu.mostraMenu();
-                int opcao = menu.lerOpcaoSegura("🪄 Digite sua escolha (1-3): ");
-                menu.setOpcaoEscolhida(opcao);
-                int resultado = menu.eventos(general.getNomeFada());
+
                 if (resultado != (-1)) {
                     switch (resultado) {
                         case 0://Separação

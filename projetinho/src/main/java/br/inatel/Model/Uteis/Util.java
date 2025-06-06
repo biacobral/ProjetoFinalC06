@@ -1,7 +1,7 @@
 package br.inatel.Model.Uteis;
 import java.lang.Thread;
 
-import static br.inatel.Model.Personagens.Desejos.felicidade;
+import static br.inatel.Model.Personagens.Crianca.felicidade;
 
 public class Util {
 
