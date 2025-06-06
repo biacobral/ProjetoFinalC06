@@ -2,15 +2,18 @@ package br.inatel.Model.Personagens;
 
 public class Padrinhos extends Fada {
 
-    int Crianca_idCrianca;
+    private int Crianca_idCrianca;
+    private Varinha varinha;
 
-    public Padrinhos(int idFada, String nomeFada, String tipoFada, int varinha_idSerial) {
-        super(idFada, nomeFada, tipoFada, varinha_idSerial);
-
+    // Construtor com objeto Varinha
+    public Padrinhos(int idFada, String nomeFada, String tipoFada, Varinha varinha) {
+        super(idFada, nomeFada, tipoFada, varinha.getIdSerial());
+        this.varinha = varinha;
     }
 
-    public Padrinhos(String nomeFada, String tipoFada, int varinha_idSerial) {
-        super(nomeFada, tipoFada, varinha_idSerial);
+    public Padrinhos(String nomeFada, String tipoFada, Varinha varinha) {
+        super(nomeFada, tipoFada, varinha.getIdSerial());
+        this.varinha = varinha;
     }
 
     public int getCrianca_idCrianca() {
@@ -21,5 +24,11 @@ public class Padrinhos extends Fada {
         Crianca_idCrianca = crianca_idCrianca;
     }
 
+    public Varinha getVarinha() {
+        return varinha;
+    }
 
+    public void setVarinha(Varinha varinha) {
+        this.varinha = varinha;
+    }
 }

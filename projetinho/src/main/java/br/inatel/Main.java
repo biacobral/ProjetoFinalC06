@@ -55,15 +55,16 @@ public class Main {
         } while (!taCerto); // try catch dentro do while - substituir if else e criar exceção geral opção invalida
         // Criação do Jogador "Criança"
         Crianca jogador = new Crianca(1, nomeJogador, 12, sexoJogador, true, "Rua dos Desejos, nº72"); // criando jogador
-        // Criação dos Padrinhos
-        Padrinhos nossoPadrinho = new Padrinhos(1, "Grimbolino, o Estagiário da Magia", "Padrinho", 1);
-        Padrinhos nossaMadrinha = new Padrinhos(2, "Celestina Cintilante, a Matriarca da Magia", "Madrinha", 2);
 
         // Criação das Varinhas
         Varinha varinha1 = new Varinha(1, "Azul", "Funcionando");
         Varinha varinha2 = new Varinha(2, "Roxo", "Funcionando");
         Varinha antiVarinha1 = new Varinha(3, "Amarelo", "Em manutenção");
         Varinha antiVarinha2 = new Varinha(4, "Vermelho", "Em manutenção");
+
+        // Criação dos Padrinhos
+        Padrinhos nossoPadrinho = new Padrinhos(1, "Grimbolino, o Estagiário da Magia", "Padrinho", varinha1);
+        Padrinhos nossaMadrinha = new Padrinhos(2, "Celestina Cintilante, a Matriarca da Magia", "Madrinha", varinha2);
 
         // Criação dos Anti-Fada
         Fada antiPadrinho = new AntiFada(3, "Grimbolona", "Anti-Fada", 3);
@@ -99,7 +100,7 @@ public class Main {
             try {
                 esperaAi(300);
                 System.out.println("Bem vindo ao seu " + (i - 11) + "° ano com seu padrinho");
-                fofoca();
+                fofoca(); // evento fofoca
                 if(idP==1) {
                     decidirEvento(antiPadrinho, nossoPadrinho, jogador, jogador);
                 }

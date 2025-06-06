@@ -114,7 +114,7 @@ public class Menu {
         return opcaoEscolhida;
     }
 
-    // Método para pedido concedido com drama
+    // Metodo para pedido concedido com drama
     private void pedidoConcedidoDramatico(int felicidadeGanha) {
         System.out.println("\n✨═══════════════════════════════════════✨");
         System.out.println("🎆         MILAGRE ACONTECEU!         🎆");
@@ -132,7 +132,7 @@ public class Menu {
         felicidade += felicidadeGanha;
     }
 
-    // Método para pedido negado com drama
+    // Metodo para pedido negado com drama
     private void pedidoNegadoDramatico() {
         System.out.println("\n💔═══════════════════════════════════════💔");
         System.out.println("🌩️          DESTINO CRUEL!            🌩️");
@@ -150,6 +150,7 @@ public class Menu {
     }
 
     public int eventos(String nomeGeneral) {
+        // if padrinho varinha status != "Funcionando" return -1
         boolean realizar = random.nextBoolean();
         switch (opcaoEscolhida) {
             case 1:

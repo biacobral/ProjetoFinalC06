@@ -15,4 +15,36 @@ public class Varinha {
         this.varinhaCor = varinhaCor;
         this.statusVarinha = statusVarinha;
     }
+
+    private boolean podeFazerDesejo(Varinha varinha) {
+        if(varinha.statusVarinha.equals("Funcionando")) {
+            return true;
+        }
+        return false;
+    }
+
+
+    public int getIdSerial() {
+        return idSerial;
+    }
+
+    public void setIdSerial(int idSerial) {
+        this.idSerial = idSerial;
+    }
+
+    public String getVarinhaCor() {
+        return varinhaCor;
+    }
+
+    public void setVarinhaCor(String varinhaCor) {
+        this.varinhaCor = varinhaCor;
+    }
+
+    public String getStatusVarinha() {
+        return statusVarinha;
+    }
+
+    public void setStatusVarinha(String statusVarinha) {
+        this.statusVarinha = statusVarinha;
+    }
 }

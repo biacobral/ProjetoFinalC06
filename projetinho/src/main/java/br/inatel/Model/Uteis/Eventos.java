@@ -72,8 +72,9 @@ public class Eventos {
                 esperaAi(1500);
                 System.out.println("😵 " + antiFada.getNomeFada() + " conseguiu roubar a varinha mágica!");
                 esperaAi(1500);
-                System.out.println( "📉 Você ficará sem desejos por um ano inteiro!");
-                //padrinho.setPodeFazerDesejos(false);
+                System.out.println("📉 Você ficará sem desejos por um ano inteiro!");
+
+                padrinho.getVarinha().setStatusVarinha("Roubada");
             }
 
             esperaAi(2000);
