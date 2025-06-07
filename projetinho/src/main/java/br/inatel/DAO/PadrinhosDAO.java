@@ -1,4 +1,6 @@
 package br.inatel.DAO;
+import br.inatel.Model.Personagens.Padrinhos;
+
 import java.sql.*;
 
 public class PadrinhosDAO extends ConnectionDao{
@@ -11,16 +13,16 @@ public class PadrinhosDAO extends ConnectionDao{
             System.out.println("🚫 Erro na conexão dos Padrinhos: " + exc.getMessage());
         }
     }
-    public boolean insertPadrinho(Padrinho padrinho) {
+    public boolean insertPadrinho(Padrinhos padrinho) {
         connectToDb();
-        String sql = "INSERT INTO Padrinhos (nomePadrinho, corPadrinho, sexoPadrinho, idVarinhaFK) VALUES (?, ?, ?, ?)";
+        String sql = "INSERT INTO Padrinhos (nomeFada, tipoFada, Varinha_idSerial, Crianca_idCrianca) VALUES (?, ?, ?, ?)";
 
         try {
             pst = con.prepareStatement(sql);
-            pst.setString(1, padrinho.getNomePadrinho());
-            pst.setString(2, padrinho.getCorPadrinho());
-            pst.setString(3, padrinho.getSexoPadrinho());
-            pst.setInt(4, padrinho.getIdVarinhaFK());
+            pst.setString(1, padrinho.getNomeFada());
+            pst.setString(2, padrinho.getTipoFada());
+            pst.setInt(3, padrinho.getVarinha_idSerial());
+            pst.setInt(4, padrinho.getCrianca_idCrianca());
 
             pst.execute();
             System.out.println("🧚‍♀️ Novo Padrinho Mágico cadastrado com sucesso!");

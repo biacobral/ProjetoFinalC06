@@ -1,4 +1,6 @@
 package br.inatel.DAO;
+import br.inatel.Model.Personagens.Varinha;
+
 import java.sql.*;
 
 public class VarinhaDAO extends ConnectionDao{
@@ -14,14 +16,12 @@ public class VarinhaDAO extends ConnectionDao{
 
     public boolean insertVarinha(Varinha varinha) {
         connectToDb();
-        String sql = "INSERT INTO Varinha (tipoVarinha, corVarinha, tamanhoVarinha, poderMagico) VALUES (?, ?, ?, ?)";
+        String sql = "INSERT INTO Varinha (varinhaCor, statusVarinha) VALUES (?, ?)";
 
         try {
             pst = con.prepareStatement(sql);
-            pst.setString(1, varinha.getTipoVarinha());
-            pst.setString(2, varinha.getCorVarinha());
-            pst.setDouble(3, varinha.getTamanhoVarinha());
-            pst.setInt(4, varinha.getPoderMagico());
+            pst.setString(1, varinha.getVarinhaCor());
+            pst.setString(2, varinha.getStatusVarinha());
 
             pst.execute();
             System.out.println("🪄 Nova varinha forjada no arsenal mágico!");

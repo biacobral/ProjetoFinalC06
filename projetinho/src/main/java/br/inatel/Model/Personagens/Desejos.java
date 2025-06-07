@@ -36,4 +36,16 @@ public class Desejos {
         this.descricao = descricao;
         this.statusDesejo = statusDesejo;
     }
+
+    public int getIdDesejos() {
+        return idDesejos;
+    }
+
+    public String getDescricao() {
+        return descricao;
+    }
+
+    public boolean isStatusDesejo() {
+        return statusDesejo;
+    }
 }

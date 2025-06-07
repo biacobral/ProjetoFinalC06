@@ -15,7 +15,7 @@ public class Crianca_Faz_DesejosDAO extends ConnectionDao{
     }
     public boolean insertCriancaDesejo(int idCrianca, int idDesejo) {
         connectToDb();
-        String sql = "INSERT INTO Crianca_Faz_Desejos (idCriancaFK, idDesejoFK) VALUES (?, ?)";
+        String sql = "INSERT INTO Crianca_Faz_Desejos (Crianca_idCrianca, Desejos_idDesejos) VALUES (?, ?)";
 
         try {
             pst = con.prepareStatement(sql);

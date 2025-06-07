@@ -19,14 +19,13 @@ public class AntiFadaDAO extends ConnectionDao{
 
     public boolean insertAntiFada(AntiFada antiFada) {
         connectToDb();
-        String sql = "INSERT INTO AntiFada (nomeAntiFada, corAntiFada, sexoAntiFada, nivelMaldade) VALUES (?, ?, ?, ?)";
+        String sql = "INSERT INTO AntiFada (nomeFada, tipoFada, Varinha_idSerial) VALUES (?, ?, ?)";
 
         try {
             pst = con.prepareStatement(sql);
-            pst.setString(2, antiFada.getNomeFada());
-            pst.setString(3, antiFada.getTipoFada());
-            pst.setInt(1, antiFada.getIdFada());
-            pst.setInt(4, antiFada.getVarinha_idSerial());
+            pst.setString(1, antiFada.getNomeFada());
+            pst.setString(2, antiFada.getTipoFada());
+            pst.setInt(3, antiFada.getVarinha_idSerial());
 
             pst.execute();
             System.out.println("⚔️ Nova Anti-Fada registrada no exército das trevas!");

@@ -66,23 +66,32 @@ public class Main {
         } while (!taCerto); // try catch dentro do while - substituir if else e criar exceção geral opção invalida
         // Criação do Jogador "Criança"
         Crianca jogador = new Crianca(1, nomeJogador, 12, sexoJogador, true, "Rua dos Desejos, nº72"); // criando jogador
+        criancasDAO.insertCrianca(jogador);
 
         // Criação das Varinhas
         Varinha varinha1 = new Varinha(1, "Azul", "Funcionando");
+        varinhaDAO.insertVarinha(varinha1);
         Varinha varinha2 = new Varinha(2, "Roxo", "Funcionando");
+        varinhaDAO.insertVarinha(varinha2);
         Varinha antiVarinha1 = new Varinha(3, "Amarelo", "Em manutenção");
+        varinhaDAO.insertVarinha(antiVarinha1);
         Varinha antiVarinha2 = new Varinha(4, "Vermelho", "Em manutenção");
+        varinhaDAO.insertVarinha(antiVarinha2);
 
         // Criação dos Padrinhos
         Padrinhos nossoPadrinho = new Padrinhos(1, "Grimbolino, o Estagiário da Magia", "Padrinho", varinha1);
         Padrinhos nossaMadrinha = new Padrinhos(2, "Celestina Cintilante, a Matriarca da Magia", "Madrinha", varinha2);
 
+
         // Criação dos Anti-Fada
         Fada antiPadrinho = new AntiFada(3, "Grimbolona", "Anti-Fada", 3);
+        antifadaDAO.insertAntiFada((AntiFada) antiPadrinho);
         Fada antiMadrinha = new AntiFada(4, "Celestina Obscura", "Anti-Fada", 4);
+        antifadaDAO.insertAntiFada((AntiFada) antiMadrinha);
 
         // Criação do General Fada
         Fada general = new GeneralFada(5, "Jorgen Von Estranho, O General da Magia", "General Fada", 5);
+        generalFadaDAO.insertGeneralFada((GeneralFada) general);
 
         // Boas-vindas!!
         esperaAi(400);
@@ -98,6 +107,8 @@ public class Main {
             System.out.println(nossoPadrinho.getNomeFada());
         } else {
             nossaMadrinha.setCrianca_idCrianca(1);
+            padrinhosDAO.insertPadrinho(nossoPadrinho);
+            padrinhosDAO.insertPadrinho(nossaMadrinha);
             System.out.println("a sua madrinha será: ");
             esperaAi(1000);
             System.out.println(nossaMadrinha.getNomeFada());

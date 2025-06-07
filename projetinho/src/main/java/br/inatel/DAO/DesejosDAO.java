@@ -1,4 +1,6 @@
 package br.inatel.DAO;
+import br.inatel.Model.Personagens.Desejos;
+
 import java.sql.*;
 
 public class DesejosDAO extends ConnectionDao{
@@ -12,16 +14,14 @@ public class DesejosDAO extends ConnectionDao{
         }
     }
 
-    public boolean insertDesejo(Desejo desejo) {
+    public boolean insertDesejo(Desejos desejo) {
         connectToDb();
-        String sql = "INSERT INTO Desejos (descricaoDesejo, tipoDesejo, urgenciaDesejo, dataDesejo) VALUES (?, ?, ?, ?)";
+        String sql = "INSERT INTO Desejos (descricao, statusDesejo) VALUES (?, ?)";
 
         try {
             pst = con.prepareStatement(sql);
-            pst.setString(1, desejo.getDescricaoDesejo());
-            pst.setString(2, desejo.getTipoDesejo());
-            pst.setInt(3, desejo.getUrgenciaDesejo());
-            pst.setDate(4, new java.sql.Date(desejo.getDataDesejo().getTime()));
+            pst.setString(1, desejo.getDescricao());
+            pst.setBoolean(2, desejo.isStatusDesejo());
 
             pst.execute();
             System.out.println("🌟 Novo desejo registrado no livro mágico!");

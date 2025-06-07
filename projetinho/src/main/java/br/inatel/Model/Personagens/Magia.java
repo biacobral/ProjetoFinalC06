@@ -19,4 +19,19 @@ public class Magia {
         Padrinhos_idPadrinhos = padrinhos_idPadrinhos;
     }
 
+    public int getIdMagia() {
+        return idMagia;
+    }
+
+    public String getNomeMagia() {
+        return nomeMagia;
+    }
+
+    public String getDescricaoMagia() {
+        return descricaoMagia;
+    }
+
+    public int getPadrinhos_idPadrinhos() {
+        return Padrinhos_idPadrinhos;
+    }
 }

@@ -1,4 +1,6 @@
 package br.inatel.DAO;
+import br.inatel.Model.Personagens.GeneralFada;
+
 import java.sql.*;
 public class GeneralFadaDAO extends ConnectionDao{
     @Override
@@ -13,14 +15,13 @@ public class GeneralFadaDAO extends ConnectionDao{
 
     public boolean insertGeneralFada(GeneralFada general) {
         connectToDb();
-        String sql = "INSERT INTO GeneralFada (nomeGeneral, patente, anosServico, especialidade) VALUES (?, ?, ?, ?)";
+        String sql = "INSERT INTO GeneralFada (nomeFada, tipoFada, Varinha_idSerial) VALUES (?, ?, ?)";
 
         try {
             pst = con.prepareStatement(sql);
-            pst.setString(1, general.getNomeGeneral());
-            pst.setString(2, general.getPatente());
-            pst.setInt(3, general.getAnosServico());
-            pst.setString(4, general.getEspecialidade());
+            pst.setString(1, general.getNomeFada());
+            pst.setString(2, general.getTipoFada());
+            pst.setInt(3, general.getVarinha_idSerial());
 
             pst.execute();
             System.out.println("🎖️ Novo General promovido no Alto Comando das Fadas!");

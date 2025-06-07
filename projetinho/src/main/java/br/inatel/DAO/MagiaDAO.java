@@ -1,4 +1,6 @@
 package br.inatel.DAO;
+import br.inatel.Model.Personagens.Magia;
+
 import java.sql.*;
 
 public class MagiaDAO extends ConnectionDao{
@@ -14,14 +16,13 @@ public class MagiaDAO extends ConnectionDao{
 
     public boolean insertMagia(Magia magia) {
         connectToDb();
-        String sql = "INSERT INTO Magia (nomeMagia, tipoMagia, nivelPoder, descricaoMagia) VALUES (?, ?, ?, ?)";
+        String sql = "INSERT INTO Magia (nomeMagia, descricaoMagia, Padrinhos_idPadrinhos) VALUES (?, ?, ?)";
 
         try {
             pst = con.prepareStatement(sql);
             pst.setString(1, magia.getNomeMagia());
-            pst.setString(2, magia.getTipoMagia());
-            pst.setInt(3, magia.getNivelPoder());
-            pst.setString(4, magia.getDescricaoMagia());
+            pst.setString(2, magia.getDescricaoMagia());
+            pst.setInt(3, magia.getPadrinhos_idPadrinhos());
 
             pst.execute();
             System.out.println("✨ Nova magia inscrita no grimório!");
