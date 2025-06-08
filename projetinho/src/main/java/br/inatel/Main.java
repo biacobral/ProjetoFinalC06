@@ -96,28 +96,28 @@ public class Main {
             }
         } while (!taCerto); // try catch dentro do while - substituir if else e criar exceção geral opção invalida
         // Criação do Jogador "Criança"
-        Crianca jogador = new Crianca(1, nomeJogador, 12, sexoJogador, true, "Rua dos Desejos, nº72"); // criando jogador
-        criancasDAO.insertCrianca(jogador);
         ArrayList<Crianca> criancasExistentes = criancasDAO.selectCrianca();
+        Crianca jogador = new Crianca((criancasExistentes.size()+1), nomeJogador, 12, sexoJogador, true, "Rua dos Desejos, nº72"); // criando jogador
+        criancasDAO.insertCrianca(jogador);
+        ArrayList<Padrinhos> padrinhosExistentes = padrinhosDAO.selectPadrinho();
         // Criação das Varinhas
-        Varinha varinha1 = new Varinha(1, "Azul", "Funcionando");
+        Varinha varinha1 = new Varinha(10, "Azul", "Funcionando");
         varinhaDAO.insertVarinha(varinha1);
-        Varinha varinha2 = new Varinha(2, "Roxo", "Funcionando");
+        Varinha varinha2 = new Varinha(11, "Roxo", "Funcionando");
         varinhaDAO.insertVarinha(varinha2);
-        Varinha antiVarinha1 = new Varinha(3, "Amarelo", "Em manutenção");
+        Varinha antiVarinha1 = new Varinha(12, "Amarelo", "Em manutenção");
         varinhaDAO.insertVarinha(antiVarinha1);
-        Varinha antiVarinha2 = new Varinha(4, "Vermelho", "Em manutenção");
+        Varinha antiVarinha2 = new Varinha(13, "Vermelho", "Em manutenção");
         varinhaDAO.insertVarinha(antiVarinha2);
 
         // Criação dos Padrinhos
-        Padrinhos nossoPadrinho = new Padrinhos(1, "Grimbolino, o Estagiário da Magia", "Padrinho", varinha1);
-        Padrinhos nossaMadrinha = new Padrinhos(2, "Celestina Cintilante, a Matriarca da Magia", "Madrinha", varinha2);
-
+        Padrinhos nossoPadrinho = new Padrinhos((padrinhosExistentes.size()+1), "Grimbolino, o Estagiário da Magia", "Padrinho", varinha1);
+        Padrinhos nossaMadrinha = new Padrinhos((padrinhosExistentes.size()+2), "Celestina Cintilante, a Matriarca da Magia", "Madrinha", varinha2);
 
         // Criação dos Anti-Fada
-        Fada antiPadrinho = new AntiFada(3, "Grimbolona", "Anti-Fada", 3);
+        Fada antiPadrinho = new AntiFada(3, "Grimbolona", "Anti-Fada", 12);
         antifadaDAO.insertAntiFada((AntiFada) antiPadrinho);
-        Fada antiMadrinha = new AntiFada(4, "Celestina Obscura", "Anti-Fada", 4);
+        Fada antiMadrinha = new AntiFada(4, "Celestina Obscura", "Anti-Fada", 13);
         antifadaDAO.insertAntiFada((AntiFada) antiMadrinha);
 
         // Criação do General Fada
@@ -130,15 +130,15 @@ public class Main {
                 "Você tem 12 anos e mora em Dimmsdale, no endereço " + jogador.getEnderecoCrianca() +
                 " e ");
         Random randPadrinho = new Random();
-        int idP = randPadrinho.nextInt(1) + 1;
+        int idP = randPadrinho.nextInt(2) + 1;
         if (idP == nossoPadrinho.getIdFada()) {
-            nossoPadrinho.setCrianca_idCrianca(1);
+            nossoPadrinho.setCrianca_idCrianca(jogador.getIdCrianca());
+            padrinhosDAO.insertPadrinho(nossoPadrinho);
             System.out.println("o seu padrinho será: ");
             esperaAi(1000);
             System.out.println(nossoPadrinho.getNomeFada());
         } else {
-            nossaMadrinha.setCrianca_idCrianca(1);
-            padrinhosDAO.insertPadrinho(nossoPadrinho);
+            nossaMadrinha.setCrianca_idCrianca(jogador.getIdCrianca());
             padrinhosDAO.insertPadrinho(nossaMadrinha);
             System.out.println("a sua madrinha será: ");
             esperaAi(1000);

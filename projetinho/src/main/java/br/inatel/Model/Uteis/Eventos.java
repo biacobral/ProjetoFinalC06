@@ -176,9 +176,17 @@ public class Eventos {
             System.out.println("🙁 \"Desculpa... eu já tenho um par.\"");
             esperaAi(1500);
             System.out.println("🎶 A música toca ao fundo... mas seu coração parece desafinar com ela.");
-            felicidade -= 10;
+            System.out.println("😞 Você se sente um pouco triste...");
+            try {
+                diminuirFelicidade(10);
+                System.out.println("💙 Sua felicidade diminuiu em 10 pontos...");
+            } catch (NaoPodeSerTriste e) {
+
+                System.out.println("💙 Sua felicidade agora é 0...");
+                felicidade = 0;
+
+            }
             esperaAi(1500);
-            System.out.println("😞 Você se sente um pouco triste... (-10)");
             System.out.println("🌧️ Felicidade atual: " + felicidade);
         }
     }

@@ -14,8 +14,12 @@ public class NaoPodeSerTriste extends Exception {
         esperaAi(1500);
         System.out.println("😇 Deus: 'Não pode ser tão triste assim também, né!'");
         esperaAi(1000);
-        System.out.println("🌈 Deus: 'Olha só quantas coisas bonitas ainda tem pra viver!'");
+        System.out.println("🌈 Deus: 'Olha só quantas coisas bonitas ainda tem nesse meu mundão!'");
         esperaAi(1500);
         System.out.println("💖 Uma sensação calorosa toma conta do seu peito...");
+        esperaAi(1500);
+        System.out.println("Você continua triste...");
+        esperaAi(1000);
+        System.out.println("Mas não tanto.");
     }
 }
