@@ -22,9 +22,11 @@ public class tribunalDaMagia {
         esperaAi(2000);
         System.out.println(">" + pedido + "<");
         esperaAi(2000);
-        System.out.println("Dado seu pedido, a seguinte regra foi violada no trecho: ");
+        System.out.println("Dado seu pedido, a seguinte regra: ");
         esperaAi(2000);
         System.out.println(">" + regraViolada + "<");
+        esperaAi(2000);
+        System.out.println("Foi violada no trecho: ");
         esperaAi(2000);
         System.out.println(">" + ondeTa + "<");
         esperaAi(2000);

@@ -8,6 +8,7 @@ import static br.inatel.Model.Uteis.Eventos.decidirEvento;
 import static br.inatel.Model.Uteis.Eventos.fofoca;
 import static br.inatel.Model.Uteis.Util.esperaAi;
 
+import java.util.ArrayList;
 import java.util.Objects;
 import java.util.Random;
 import java.util.Scanner;
@@ -17,9 +18,38 @@ import static br.inatel.Model.Personagens.Crianca.felicidade;
 
 /*
         Notas para nós mesmos:
-        - Pensar se vale a pena fazer uma interface para os seres mágicos
-        Arrumar todas as coias do SQL
+        Felipe - Seguinte, implementei as coisas que eu acredito que a gente vá precisar por enquanto
+        nos DAOs, rodei eles e dá para ver que eles são criados e adicionados no BD quando chama a função.
+            Consegui colocar a lista de crianças que tem no BD na opção de escolher para o baile também, se você rodar
+        você vai ver que sai uma lista com as 7 crianças que tem no BD.
+            Também mudei um pouco o general fada, agora ele tem um método só dele que chama o tribunal da magia,
+        isso mais pra poder justificar que a gente criou o fada como abstrata porque o general tem seu próprio método,
+        que uma fada não pode ter.
+            Outra coisa, não mexe no for que mostra as crianças do baile.
+            O que que é a ideia: A gente recebe um arraylist pela main com as crianças que já tão cadastradas, só que
+        sempre que a gente cadastra o jogador, ele é lançado como uma criança nova no arraylist, o que significa que
+        aquele for tem que rodar só até a última criança cadastrada que é a 7ª criança. O contador do for começa em 1
+        para ficar bonitinho na hora de sair, mas eu chamo i-1 quando é pra sair a criança, então a lógica tá teoricamente
+        certa.
+            Outra coisa, pra poder testar o baile, eu tô setando a opção do evento como a opção do baile quando entra na
+        função do baile, tem que mudar isso quando for arrumar os eventos.
 
+
+        Agora o que tem que ser feito:
+
+        * Colocar no switch do baile o que vai acontecer quando ele chamar uma criança pro baile
+
+        * Resetar a varinha do padrinho que quebra quando ele perde pra uma anti-fada, que parece não estar funcionando, não
+        sei se já tá implementada
+
+        * Dar alguma utilidade pra Magia, que eu acho que podia ser no evento da anti-fada, eles lançarem umas magias um no
+        outro um pouco, só pra falar que tamo usando
+
+        * Colocar um opção segura pra decisão do baile, aquilo ainda não tá nem um pouco seguro, vai cair no default e a pessoa
+        vai perder o evento
+
+            Acho que é isso, qualquer coisa me manda mensagem, só não sei que horas eu vou entrar amanhã, com certeza mesmo é
+         só na hora que eu chegar em SRS
  */
 public class Main {
     public static void main(String[] args) {
@@ -67,7 +97,7 @@ public class Main {
         // Criação do Jogador "Criança"
         Crianca jogador = new Crianca(1, nomeJogador, 12, sexoJogador, true, "Rua dos Desejos, nº72"); // criando jogador
         criancasDAO.insertCrianca(jogador);
-
+        ArrayList<Crianca> criancasExistentes = criancasDAO.selectCrianca();
         // Criação das Varinhas
         Varinha varinha1 = new Varinha(1, "Azul", "Funcionando");
         varinhaDAO.insertVarinha(varinha1);
@@ -124,21 +154,21 @@ public class Main {
                 System.out.println("Bem vindo ao seu " + (i - 11) + "° ano com seu padrinho");
                 fofoca(); // evento fofoca
                 if(idP==1) {
-                    decidirEvento(antiPadrinho, nossoPadrinho, jogador, jogador);
+                    decidirEvento(antiPadrinho, nossoPadrinho, jogador, criancasExistentes);
                     if(nossoPadrinho.getVarinha().getStatusVarinha().equals("Funcionando")){
                         menu.mostraMenu();
                         int opcao = menu.lerOpcaoSegura("🪄 Digite sua escolha (1-3): ");
                         menu.setOpcaoEscolhida(opcao);
-                        resultado = menu.eventos(general.getNomeFada(), nossoPadrinho);
+                        resultado = menu.eventos((GeneralFada) general, nossoPadrinho);
                     }
                 }
                 else{
-                    decidirEvento(antiMadrinha, nossaMadrinha, jogador, jogador); // jogador jogador mudar
+                    decidirEvento(antiMadrinha, nossaMadrinha, jogador, criancasExistentes); // jogador jogador mudar
                     if(nossaMadrinha.getVarinha().getStatusVarinha().equals("Funcionando")){
                         menu.mostraMenu();
                         int opcao = menu.lerOpcaoSegura("🪄 Digite sua escolha (1-3): ");
                         menu.setOpcaoEscolhida(opcao);
-                        resultado = menu.eventos(general.getNomeFada(), nossaMadrinha);
+                        resultado = menu.eventos((GeneralFada) general, nossaMadrinha);
                     }
                 }
 

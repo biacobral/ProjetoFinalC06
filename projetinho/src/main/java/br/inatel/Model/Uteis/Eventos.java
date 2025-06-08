@@ -1,10 +1,10 @@
 package br.inatel.Model.Uteis;
 
-import br.inatel.Model.Personagens.*;
 import br.inatel.Model.Personagens.Crianca;
 import br.inatel.Model.Personagens.Fada;
 import br.inatel.Model.Personagens.Padrinhos;
 
+import java.util.ArrayList;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -30,10 +30,11 @@ public class Eventos {
             "Duelo"
     };
 
-    public static void decidirEvento(Fada antiFada, Padrinhos padrinho, Crianca crianca1, Crianca crianca2) {
+    public static void decidirEvento(Fada antiFada, Padrinhos padrinho, Crianca crianca1, ArrayList<Crianca> crianca2) {
         Random random = new Random();
         // deixar varinha padrinho funcionando
-        int decisao = random.nextInt(3);;
+        int decisao = random.nextInt(3);
+        decisao = 1;
         switch (decisao) {
             case 0:
                 combateFada(antiFada, padrinho);
@@ -51,41 +52,41 @@ public class Eventos {
 
     //Anti-fadas rouba varinha
     private static void combateFada(Fada antiFada, Padrinhos padrinho) {
-    //Magia, Varinha e AntiFada
-            System.out.println("⚔️═══════════════════════════════════════⚔️");
-            System.out.println("🌪️    CONFRONTO ENTRE FADA E ANTI-FADA    🌪️");
-            System.out.println("⚔️═══════════════════════════════════════⚔️");
+        //Magia, Varinha e AntiFada
+        System.out.println("⚔️═══════════════════════════════════════⚔️");
+        System.out.println("🌪️    CONFRONTO ENTRE FADA E ANTI-FADA    🌪️");
+        System.out.println("⚔️═══════════════════════════════════════⚔️");
+        esperaAi(1500);
+
+        System.out.println("😈 " + antiFada.getNomeFada() + " armou uma armadilha sorrateira!");
+        esperaAi(1500);
+        System.out.println("🪄 Ela está tentando roubar a varinha mágica de " + padrinho.getNomeFada() + "!");
+        esperaAi(2000);
+
+        if (felicidade > 50) {
+            System.out.println("\n💖 Mas sua felicidade está irradiando tanto que cria uma barreira mágica!");
             esperaAi(1500);
-
-            System.out.println("😈 " + antiFada.getNomeFada() + " armou uma armadilha sorrateira!");
+            System.out.println("🛡️ " + padrinho.getNomeFada() + " consegue proteger sua varinha com sucesso!");
             esperaAi(1500);
-            System.out.println("🪄 Ela está tentando roubar a varinha mágica de " + padrinho.getNomeFada() + "!");
-            esperaAi(2000);
+            System.out.println("🎉 Nenhum pedido será perdido este ano!");
+        } else {
+            System.out.println("\n💔 Sua felicidade está muito baixa para proteger seu padrinho...");
+            esperaAi(1500);
+            System.out.println("😵 " + antiFada.getNomeFada() + " conseguiu roubar a varinha mágica!");
+            esperaAi(1500);
+            System.out.println("📉 Você ficará sem desejos por um ano inteiro!");
 
-            if (felicidade > 60) {
-                System.out.println("\n💖 Mas sua felicidade está irradiando tanto que cria uma barreira mágica!");
-                esperaAi(1500);
-                System.out.println("🛡️ " + padrinho.getNomeFada() + " consegue proteger sua varinha com sucesso!");
-                esperaAi(1500);
-                System.out.println("🎉 Nenhum pedido será perdido este ano!");
-            } else {
-                System.out.println("\n💔 Sua felicidade está muito baixa para proteger seu padrinho...");
-                esperaAi(1500);
-                System.out.println("😵 " + antiFada.getNomeFada() + " conseguiu roubar a varinha mágica!");
-                esperaAi(1500);
-                System.out.println("📉 Você ficará sem desejos por um ano inteiro!");
-
-                padrinho.getVarinha().setStatusVarinha("Roubada");
-            }
-
-            esperaAi(2000);
-            System.out.println("\n✨═══════════════════════════════════════✨");
-            System.out.println("💫 Fim do confronto mágico!");
-            System.out.println("✨═══════════════════════════════════════✨");
+            padrinho.getVarinha().setStatusVarinha("Roubada");
         }
 
+        esperaAi(2000);
+        System.out.println("\n✨═══════════════════════════════════════✨");
+        System.out.println("💫 Fim do confronto mágico!");
+        System.out.println("✨═══════════════════════════════════════✨");
+    }
+
     //Baile crianças
-    private static void baile(Crianca crianca1, Crianca crianca2) {
+    private static void baile(Crianca crianca1, ArrayList<Crianca> crianca2) {
         System.out.println("💃═══════════════════════════════════════💃");
         System.out.println("🌟        BAILE DA ESCOLA CHEGOU!        🌟");
         System.out.println("💃═══════════════════════════════════════💃");
@@ -101,8 +102,11 @@ public class Eventos {
         // dar um select no bd
 
         Scanner scanner = new Scanner(System.in);
-
-        System.out.println("👫 Escolha o número da criança que você quer convidar para o baile (1 a 9): ");
+        System.out.println("👫 Escolha o número da criança que você quer convidar para o baile (1 a 7): ");
+        for(int i=1; i<8;i++) {
+            System.out.println("------=============------");
+            System.out.println(i+". "+ crianca2.get(i - 1).getNomeCrianca());
+        }
         int escolha = scanner.nextInt();
 
         switch (escolha) {
@@ -125,12 +129,6 @@ public class Eventos {
 
                 break;
             case 7:
-
-                break;
-            case 8:
-
-                break;
-            case 9:
 
                 break;
             default:
@@ -213,7 +211,13 @@ public class Eventos {
         esperaAi(1000);
         System.out.println("💔 Sua alma se despedaça em mil pedacinhos...");
         System.out.println("😢 Sua felicidade despenca: -5 pontos!");
-        felicidade -= 5;
+        esperaAi(1000);
+        try {
+            diminuirFelicidade(5);
+        } catch (NaoPodeSerTriste e) {
+            System.out.println("💙 Sua felicidade agora é 0...");
+            felicidade = 0;
+        }
         esperaAi(1500);
         System.out.println("😭 Felicidade atual: " + felicidade + " pontos");
         esperaAi(1000);
@@ -295,7 +299,7 @@ public class Eventos {
                     diminuirFelicidade(20);
                     System.out.println("💙 Sua felicidade diminuiu em 20 pontos...");
                 } catch (NaoPodeSerTriste e) {
-                    
+
                     System.out.println("💙 Sua felicidade agora é 0...");
                     felicidade = 0;
                 }
@@ -308,7 +312,7 @@ public class Eventos {
                     diminuirFelicidade(25);
                     System.out.println("💙 Sua felicidade diminuiu em 25 pontos...");
                 } catch (NaoPodeSerTriste e) {
-                    
+
                     System.out.println("💙 Sua felicidade agora é 0...");
                     felicidade = 0;
 
@@ -322,7 +326,7 @@ public class Eventos {
                     diminuirFelicidade(15);
                     System.out.println("💙 Sua felicidade diminuiu em 15 pontos...");
                 } catch (NaoPodeSerTriste e) {
-                    
+
                     System.out.println("💙 Sua felicidade agora é 0...");
                     felicidade = 0;
 
@@ -336,7 +340,7 @@ public class Eventos {
                     diminuirFelicidade(18);
                     System.out.println("💙 Sua felicidade diminuiu em 18 pontos...");
                 } catch (NaoPodeSerTriste e) {
-                    
+
                     System.out.println("💙 Sua felicidade agora é 0...");
                     felicidade = 0;
 
@@ -350,7 +354,7 @@ public class Eventos {
                     diminuirFelicidade(12);
                     System.out.println("💙 Sua felicidade diminuiu em 12 pontos...");
                 } catch (NaoPodeSerTriste e) {
-                    
+
                     System.out.println("💙 Sua felicidade agora é 0...");
                     felicidade = 0;
 
@@ -364,7 +368,7 @@ public class Eventos {
                     diminuirFelicidade(22);
                     System.out.println("💙 Sua felicidade diminuiu em 22 pontos...");
                 } catch (NaoPodeSerTriste e) {
-                    
+
                     System.out.println("💙 Sua felicidade agora é 0...");
                     felicidade = 0;
 
@@ -378,7 +382,7 @@ public class Eventos {
                     diminuirFelicidade(25);
                     System.out.println("💙 Sua felicidade diminuiu em 25 pontos...");
                 } catch (NaoPodeSerTriste e) {
-                    
+
                     System.out.println("💙 Sua felicidade agora é 0...");
                     felicidade = 0;
 

@@ -1,5 +1,6 @@
 package br.inatel.Model.Uteis;
 
+import br.inatel.Model.Personagens.GeneralFada;
 import br.inatel.Model.Personagens.Padrinhos;
 
 import java.util.*;
@@ -152,7 +153,7 @@ public class Menu {
         System.out.println("🕊️ Que a esperança não abandone seu coração ferido...");
     }
 
-    public int eventos(String nomeGeneral, Padrinhos padrinho) {
+    public int eventos(GeneralFada general, Padrinhos padrinho) {
         // if padrinho varinha status != "Funcionando" return -1
         if(!padrinho.getVarinha().getStatusVarinha().equalsIgnoreCase("Funcionando")){
             System.out.println("⚠️ Oh, não! Um silêncio mágico paira no ar...");
@@ -355,7 +356,7 @@ public class Menu {
                 break;
             case 3: // escolhas pessoais
                 System.out.println("🌟═══════════════════════════════════════🌟");
-                System.out.println("✨ O momento da verdade chegou... ✨");
+                System.out.println("✨ O momento da verdade chegou...        ✨");
                 System.out.println("🌟═══════════════════════════════════════🌟");
                 esperaAi(1000);
                 System.out.println("🌙 As estrelas aguardam em silêncio cósmico...");
@@ -368,7 +369,7 @@ public class Menu {
                 if (realizar) {
                     if (isDesejoProibido(pedido)) {
                         System.out.println("\n💫═══════════════════════════════════════💫");
-                        System.out.println("🎆        ¡PEDIDO CONCEDIDO!        🎆");
+                        System.out.println("🎆        ¡PEDIDO CONCEDIDO!             🎆");
                         System.out.println("💫═══════════════════════════════════════💫");
                         esperaAi(1500);
                         System.out.println("🌟 As estrelas se alinham em seu favor!");
@@ -378,36 +379,7 @@ public class Menu {
                         System.out.println("💖 Sua alma transborda de júbilo! (+50 Felicidade)");
                         felicidade += 50;
                         esperaAi(2500);
-
-                        System.out.println("\n⚡═══════════════════════════════════════⚡");
-                        System.out.println("🌩️     MAS ALGO SINISTRO DESPERTA...     🌩️");
-                        System.out.println("⚡═══════════════════════════════════════⚡");
-                        esperaAi(2000);
-                        System.out.println("🌩️  TROVÕES ECOAM PELOS REINOS MÍSTICOS!");
-                        esperaAi(1750);
-                        System.out.println("💀 O AR SE TORNA DENSO COM ENERGIA SOMBRIA...");
-                        esperaAi(1750);
-                        System.out.println("\n" + nomeGeneral + ": '👃 Hmm... que aroma peculiar paira no ar...'");
-                        esperaAi(1750);
-                        System.out.println(nomeGeneral + ": '🔥 CHEIRO DE DESEJO PROIBIDO QUEIMA MINHAS NARINAS!'");
-                        esperaAi(1750);
-                        System.out.println(nomeGeneral + ": '😈 Está emanando de VOCÊ, pequeno transgressor!'");
-                        esperaAi(2000);
-                        System.out.println(nomeGeneral + ": '⚖️  OUSOU FAZER UM PEDIDO PROIBIDO PELOS ANCIÕES?!'");
-                        esperaAi(1750);
-                        System.out.println(nomeGeneral + ": '🏛️  E AINDA FOI CONCEDIDO?! QUE BLASFÊMIA CÓSMICA!'");
-                        esperaAi(2000);
-                        System.out.println("\n💀═══════════════════════════════════════💀");
-                        System.out.println("⚔️         O DESTINO ESTÁ SELADO!         ⚔️");
-                        System.out.println("💀═══════════════════════════════════════💀");
-                        esperaAi(1500);
-                        System.out.println("⚔️  VOCÊ E SEU PADRINHO SERÃO JULGADOS!");
-                        esperaAi(1000);
-                        System.out.println("🏛️  PELO SUPREMO TRIBUNAL DA MAGIA!");
-                        esperaAi(2500);
-                        System.out.println("🌟════════ PREPARANDO O JULGAMENTO FINAL ════════🌟");
-                        esperaAi(1000);
-
+                        general.FarejarOProibido();
                         int resultado = Julgamento(pedido, verificarRegraViolada(pedido), encontrarTextoProibido(pedido));
                         return resultado;
                     } else {
@@ -449,7 +421,7 @@ public class Menu {
                         int novaOpcao = scanner.nextInt();
                         if (novaOpcao >= 1 && novaOpcao <= 3) {
                             setOpcaoEscolhida(novaOpcao);
-                            eventos(nomeGeneral, padrinho);
+                            eventos(general, padrinho);
                             break;
                         }
                     } catch (InputMismatchException e) {
