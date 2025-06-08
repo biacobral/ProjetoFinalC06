@@ -19,6 +19,8 @@ public class Magia {
         Padrinhos_idPadrinhos = padrinhos_idPadrinhos;
     }
 
+
+
     public int getIdMagia() {
         return idMagia;
     }

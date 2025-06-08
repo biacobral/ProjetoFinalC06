@@ -30,7 +30,7 @@ public class Menu {
         this.random = new Random();
     }
 
-    // Método auxiliar para ler entrada de forma segura
+    // Metodo auxiliar para ler entrada de forma segura
     public int lerOpcaoSegura(String mensagem) {
         while (true) {
             try {
@@ -154,7 +154,6 @@ public class Menu {
     }
 
     public int eventos(GeneralFada general, Padrinhos padrinho) {
-        // if padrinho varinha status != "Funcionando" return -1
         if(!padrinho.getVarinha().getStatusVarinha().equalsIgnoreCase("Funcionando")){
             System.out.println("⚠️ Oh, não! Um silêncio mágico paira no ar...");
             System.out.println("💔 A varinha do seu padrinho está =" + padrinho.getVarinha().getStatusVarinha() + "=!");

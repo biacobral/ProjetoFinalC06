@@ -5,6 +5,7 @@ import br.inatel.Model.Personagens.Fada;
 import br.inatel.Model.Personagens.Padrinhos;
 
 import java.util.ArrayList;
+import java.util.InputMismatchException;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -31,8 +32,8 @@ public class Eventos {
     };
 
     public static void decidirEvento(Fada antiFada, Padrinhos padrinho, Crianca crianca1, ArrayList<Crianca> crianca2) {
+        padrinho.getVarinha().setStatusVarinha("Funcionando");
         Random random = new Random();
-        // deixar varinha padrinho funcionando
         int decisao = random.nextInt(3);
         decisao = 1;
         switch (decisao) {
@@ -40,7 +41,7 @@ public class Eventos {
                 combateFada(antiFada, padrinho);
                 break;
             case 1:
-                baile(crianca1, crianca2);
+                baile(crianca2);
                 break;
             case 2:
                 vicky();
@@ -86,7 +87,7 @@ public class Eventos {
     }
 
     //Baile crianças
-    private static void baile(Crianca crianca1, ArrayList<Crianca> crianca2) {
+    private static void baile(ArrayList<Crianca> crianca2) {
         System.out.println("💃═══════════════════════════════════════💃");
         System.out.println("🌟        BAILE DA ESCOLA CHEGOU!        🌟");
         System.out.println("💃═══════════════════════════════════════💃");
@@ -99,47 +100,68 @@ public class Eventos {
         System.out.println("😊 Que tal dar uma olhada em quem está disponível?");
         esperaAi(2000);
 
-        // dar um select no bd
-
         Scanner scanner = new Scanner(System.in);
-        System.out.println("👫 Escolha o número da criança que você quer convidar para o baile (1 a 7): ");
-        for(int i=1; i<8;i++) {
-            System.out.println("------=============------");
-            System.out.println(i+". "+ crianca2.get(i - 1).getNomeCrianca());
-        }
-        int escolha = scanner.nextInt();
+        int escolha = -1;
+        boolean escolhaValida = false;
 
+        while (!escolhaValida) {
+            try {
+                System.out.println("👫 Escolha o número da criança que você quer convidar para o baile (1 a 7): ");
+                for (int i = 1; i <= 7; i++) {
+                    System.out.println("------=============------");
+                    System.out.println(i + ". " + crianca2.get(i - 1).getNomeCrianca());
+                }
+
+                System.out.print("Digite sua escolha: ");
+                escolha = scanner.nextInt();
+
+                if (escolha >= 1 && escolha <= 7) {
+                    escolhaValida = true;
+                } else {
+                    System.out.println("❌ Número inválido! Escolha entre 1 e 7.");
+                }
+
+            } catch (InputMismatchException e) {
+                System.out.println("⚠️ Entrada inválida! Digite apenas números.");
+                scanner.nextLine(); // limpa o buffer
+            } catch (Exception e) {
+                System.out.println("⚠️ Ocorreu um erro inesperado. Tente novamente.");
+                scanner.nextLine();
+            }
+        }
+        String nomePar;
         switch (escolha) {
             case 1:
-
+                nomePar = crianca2.get(0).getNomeCrianca();
                 break;
             case 2:
-
+                nomePar = crianca2.get(1).getNomeCrianca();
                 break;
             case 3:
-
+                nomePar = crianca2.get(2).getNomeCrianca();
                 break;
             case 4:
-
+                nomePar = crianca2.get(3).getNomeCrianca();
                 break;
             case 5:
-
+                nomePar = crianca2.get(4).getNomeCrianca();
                 break;
             case 6:
-
+                nomePar = crianca2.get(5).getNomeCrianca();
                 break;
             case 7:
-
+                nomePar = crianca2.get(6).getNomeCrianca();
                 break;
             default:
                 System.out.println("❌ Número inválido! Você ficou sem par 😢");
                 return; // sai do metodo
+
         }
 
         Random random = new Random();
         boolean aceito = random.nextBoolean();
         if (aceito) {
-            System.out.println("💖✨ Incrível!  fulano olhou para você e sorriu.");
+            System.out.println("💖✨ Incrível! "+ nomePar + " olhou para você e sorriu.");
             esperaAi(1500);
             System.out.println("🕺💃 \"Claro que sim! Eu adoraria ir ao baile com você!\"");
             esperaAi(1500);
@@ -149,7 +171,7 @@ public class Eventos {
             System.out.println("😄 Sua felicidade transborda! (+45)");
             System.out.println("🌈 Felicidade atual: " + felicidade);
         } else {
-            System.out.println("💔 fulsno parece hesitar, desviando o olhar...");
+            System.out.println("💔 " + nomePar + " parece hesitar, desviando o olhar...");
             esperaAi(1500);
             System.out.println("🙁 \"Desculpa... eu já tenho um par.\"");
             esperaAi(1500);

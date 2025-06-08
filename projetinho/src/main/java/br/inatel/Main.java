@@ -22,8 +22,8 @@ import static br.inatel.Model.Personagens.Crianca.felicidade;
         nos DAOs, rodei eles e dá para ver que eles são criados e adicionados no BD quando chama a função.
             Consegui colocar a lista de crianças que tem no BD na opção de escolher para o baile também, se você rodar
         você vai ver que sai uma lista com as 7 crianças que tem no BD.
-            Também mudei um pouco o general fada, agora ele tem um método só dele que chama o tribunal da magia,
-        isso mais pra poder justificar que a gente criou o fada como abstrata porque o general tem seu próprio método,
+            Também mudei um pouco o general fada, agora ele tem um metodo só dele que chama o tribunal da magia,
+        isso mais pra poder justificar que a gente criou o fada como abstrata porque o general tem seu próprio metodo,
         que uma fada não pode ter.
             Outra coisa, não mexe no for que mostra as crianças do baile.
             O que que é a ideia: A gente recebe um arraylist pela main com as crianças que já tão cadastradas, só que
@@ -37,16 +37,17 @@ import static br.inatel.Model.Personagens.Crianca.felicidade;
 
         Agora o que tem que ser feito:
 
-        * Colocar no switch do baile o que vai acontecer quando ele chamar uma criança pro baile
+        * Colocar no switch do baile o que vai acontecer quando ele chamar uma criança pro baile (FEITO)
 
         * Resetar a varinha do padrinho que quebra quando ele perde pra uma anti-fada, que parece não estar funcionando, não
-        sei se já tá implementada
+        sei se já tá implementada (FEITO)
 
         * Dar alguma utilidade pra Magia, que eu acho que podia ser no evento da anti-fada, eles lançarem umas magias um no
-        outro um pouco, só pra falar que tamo usando
+        outro um pouco, só pra falar que tamo usando FELIPE
+            - fazer um random nas magias inseridas no BD e mostrar uma de cada fada no combate
 
         * Colocar um opção segura pra decisão do baile, aquilo ainda não tá nem um pouco seguro, vai cair no default e a pessoa
-        vai perder o evento
+        vai perder o evento (FEITO) OBS.: QUANDO ARRUMEI ISSO DEU O ERRO DO PEDIDO PERSONALIZADO *WPP
 
             Acho que é isso, qualquer coisa me manda mensagem, só não sei que horas eu vou entrar amanhã, com certeza mesmo é
          só na hora que eu chegar em SRS
@@ -125,7 +126,7 @@ public class Main {
 
         // Boas-vindas!!
         esperaAi(400);
-        System.out.print("Olá, " + nomeJogador + "! Parabéns por ganhar seus Padrinhos Mágicos! \n" +
+        System.out.print("\n Olá, " + nomeJogador + "! Parabéns por ganhar seus Padrinhos Mágicos! \n" +
                 "Você tem 12 anos e mora em Dimmsdale, no endereço " + jogador.getEnderecoCrianca() +
                 " e ");
         Random randPadrinho = new Random();
@@ -163,7 +164,7 @@ public class Main {
                     }
                 }
                 else{
-                    decidirEvento(antiMadrinha, nossaMadrinha, jogador, criancasExistentes); // jogador jogador mudar
+                    decidirEvento(antiMadrinha, nossaMadrinha, jogador, criancasExistentes);
                     if(nossaMadrinha.getVarinha().getStatusVarinha().equals("Funcionando")){
                         menu.mostraMenu();
                         int opcao = menu.lerOpcaoSegura("🪄 Digite sua escolha (1-3): ");
@@ -211,7 +212,7 @@ public class Main {
                             break;
                     }
                 }
-                if (menu.getOpcaoEscolhida() != 1 && menu.getOpcaoEscolhida() != 2 && menu.getOpcaoEscolhida() != 3) {
+                if (menu.getOpcaoEscolhida() != 1 && menu.getOpcaoEscolhida() != 2 && menu.getOpcaoEscolhida() != 3 && (!nossaMadrinha.getVarinha().getStatusVarinha().equals("Funcionando") || !nossoPadrinho.getVarinha().getStatusVarinha().equals("Funcionando")) ) {
                     throw new Exception("Faz certo, cabeça de ovo!");
                 }
 
@@ -228,47 +229,53 @@ public class Main {
 
         switch (oqAconteceu){
             case 0:
-                System.out.println("Você viveu 6 bons anos com seu padrinho e chegou o momento de se despedirem.");
-                System.out.println("Você acumulou um total de: " + felicidade + " pontos de felicidades.");
+                System.out.println("🌅 Após seis anos mágicos ao lado de seu padrinho, chega a hora do adeus...");
+                System.out.println("💫 Foram tempos de aprendizado, aventuras e sonhos realizados.");
+                System.out.println("📈 Você acumulou um total de: " + felicidade + " pontos de felicidade.");
                 break;
             case 1:
-                System.out.println("Devido a suas próprias escolhas, você será forçadamente separado de seu padrinho.");
-                System.out.println("Você foi feliz enquanto pode.");
-                System.out.println("Você acumulou um total de: " + felicidade + " pontos de felicidades.");
+                System.out.println("🌪️ Suas escolhas abriram um abismo entre você e seu padrinho.");
+                System.out.println("🔗 A conexão mágica foi rompida à força.");
+                System.out.println("😔 Ainda assim... você foi feliz enquanto pôde.");
+                System.out.println("📈 Você acumulou um total de: " + felicidade + " pontos de felicidade.");
                 break;
             case 2:
-                System.out.println("Você perdeu o direito de pedir por mais desejos por consequência de suas próprias decisões.");
-                System.out.println("Você está sendo separado de seu padrinho.");
-                System.out.println("Você acumulou um total de: " + felicidade + " pontos de felicidades.");
+                System.out.println("⚖️ O Tribunal da Magia observou suas ações... e decidiu.");
+                System.out.println("🚫 Você perdeu o direito de realizar mais desejos.");
+                System.out.println("🧚 Seu padrinho agora se afasta, levando consigo o brilho da varinha.");
+                System.out.println("📈 Você acumulou um total de: " + felicidade + " pontos de felicidade.");
                 break;
             case 3:
-                System.out.println("Por consequência de suas próprias decisões, uma parte de seus desejos realizados foram desfeitos");
-                System.out.println("Ainda assim, você conseguiu viver por mais um tempo com seu padrinho e realizou mais alguns desejos.");
-                System.out.println("Você acumulou um total de: " + felicidade + " pontos de felicidades.");
+                System.out.println("⏳ Algumas de suas decisões tiveram um preço.");
+                System.out.println("🔁 Parte dos desejos realizados foi desfeita, como se o tempo tivesse voltado.");
+                System.out.println("🧚‍♂️ Ainda assim, seu padrinho permaneceu mais um pouco... e novos desejos vieram.");
+                System.out.println("📈 Você acumulou um total de: " + felicidade + " pontos de felicidade.");
                 break;
             case 4:
-                System.out.println("Por consequência de suas próprias decisões, você será separado de seu padrinho e ambos serão selados por 100 anos.");
-                System.out.println("Com isso, você acumulou 0 pontos de felicidade.");
+                System.out.println("🔒 Como punição, você e seu padrinho foram selados em cristais mágicos por 100 anos.");
+                System.out.println("⏳ O tempo deixará de existir para vocês... até que alguém os liberte.");
+                System.out.println("📉 Você acumulou 0 pontos de felicidade.");
                 break;
             case 5:
-                System.out.println("Por consequência de suas próprias decisões, você será jogado em um vazio eterno.");
-                System.out.println("Com isso, você acumulou 0 pontos de felicidade.");
+                System.out.println("🌌 Suas ações causaram um desequilíbrio irreversível.");
+                System.out.println("🕳️ Você foi lançado ao Vazio Eterno, onde o tempo, som e luz não existem.");
+                System.out.println("📉 Você acumulou 0 pontos de felicidade.");
                 break;
             case 6:
-                System.out.println("Por consequência de suas próprias decisões, o Tribunal da Magia julgou suas existência" +
-                        " como uma ameaça aos costume das fadas e as regras do Tribunal da Magia e das fadas." +
-                        " Assim, você é jogado dentro de um vulcão que está ativo.");
-                System.out.println("Você morreu.");
+                System.out.println("🔥 O Tribunal da Magia considerou sua existência uma afronta às leis mágicas.");
+                System.out.println("🌋 A sentença foi implacável: você foi lançado em um vulcão em erupção.");
+                System.out.println("💀 Você morreu.");
                 break;
             case 7:
-                System.out.println("Por consequência de seus próprios atos, você foi preso em um loop de sofrimento.");
-                System.out.println("Com isso, você acumulou 0 pontos de felicidade.");
+                System.out.println("🌀 Você caiu em um ciclo eterno de sofrimento — um feitiço que repete suas piores memórias sem fim.");
+                System.out.println("🕰️ Cada momento se repete, sem escapatória, sem redenção.");
+                System.out.println("📉 Você acumulou 0 pontos de felicidade.");
                 break;
             case 8:
-                System.out.println("Você viveu anos felizes com seu padrinho. Felizes ao ponto de seu padrinho ser mais" +
-                        " necessário para outra criança que sofre em algum lugar do mundo. Você se despedirá de seu padrinho," +
-                        " não triste pelo o que deixará de acontecer, mas feliz pelo o que aconteceu.");
-                System.out.println("Você conquistou o pico da felicidade!");
+                System.out.println("🌈 Você viveu anos tão cheios de alegria que sua luz agora precisa alcançar outras vidas.");
+                System.out.println("🧚 Seu padrinho precisa partir para ajudar uma nova criança, mas ele parte com orgulho.");
+                System.out.println("😭 A despedida não é triste — é celebrada com gratidão.");
+                System.out.println("🏆 Você conquistou o *pico da felicidade*!");
                 break;
             default:
                 break;
