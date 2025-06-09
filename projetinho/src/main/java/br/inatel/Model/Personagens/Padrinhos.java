@@ -3,7 +3,7 @@ package br.inatel.Model.Personagens;
 public class Padrinhos extends Fada {
 
     private int Crianca_idCrianca;
-    // Padrinho não existe sem uma varinha
+    // Varinha não existe sem padrinho
     private Varinha varinha;
 
     // Construtor com objeto Varinha
