@@ -2,6 +2,7 @@ package br.inatel.DAO;
 import br.inatel.Model.Personagens.Magia;
 
 import java.sql.*;
+import java.util.ArrayList;
 
 public class MagiaDAO extends ConnectionDao{
     @Override
@@ -39,5 +40,34 @@ public class MagiaDAO extends ConnectionDao{
                 System.out.println("Erro ao fechar conexão: " + exc.getMessage());
             }
         }
+    }
+
+    public ArrayList<Magia> selectMagia() {
+        connectToDb();
+
+        ArrayList<Magia> MagiasExistentes = new ArrayList<>();
+        String sql = "SELECT * FROM Magia";
+        try {
+            st = con.createStatement();
+            rs = st.executeQuery(sql);
+            System.out.println("Lista de usuários:");
+            while (rs.next()) {
+                Magia MagiasAux = new Magia(rs.getString("nomeMagia"), rs.getString("descricaoMagia"), rs.getInt("Padrinhos_idPadrinhos"));
+                System.out.println("--------------------");
+                System.out.println("Nome: " + MagiasAux.getNomeMagia());
+                MagiasExistentes.add(MagiasAux);
+            }
+        } catch (SQLException exc) {
+            System.out.println("Erro: " + exc.getMessage());
+        } finally {
+            try {
+                con.close();
+                st.close();
+                rs.close();
+            } catch (SQLException exc) {
+                System.out.println("Erro: " + exc.getMessage());
+            }
+        }
+        return MagiasExistentes;
     }
 }

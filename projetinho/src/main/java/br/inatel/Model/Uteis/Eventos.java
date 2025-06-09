@@ -3,6 +3,7 @@ package br.inatel.Model.Uteis;
 import br.inatel.Model.Personagens.Crianca;
 import br.inatel.Model.Personagens.Fada;
 import br.inatel.Model.Personagens.Padrinhos;
+import br.inatel.Model.Personagens.Magia;
 
 import java.util.ArrayList;
 import java.util.InputMismatchException;
@@ -31,14 +32,14 @@ public class Eventos {
             "Duelo"
     };
 
-    public static void decidirEvento(Fada antiFada, Padrinhos padrinho, Crianca crianca1, ArrayList<Crianca> crianca2) {
+    public static void decidirEvento(Fada antiFada, Padrinhos padrinho, Crianca crianca1, ArrayList<Crianca> crianca2, ArrayList<Magia> magiasExistentes) {
         padrinho.getVarinha().setStatusVarinha("Funcionando");
         Random random = new Random();
         int decisao = random.nextInt(3);
-        decisao = 1;
+        decisao = 0;
         switch (decisao) {
             case 0:
-                combateFada(antiFada, padrinho);
+                combateFada(antiFada, padrinho, magiasExistentes);
                 break;
             case 1:
                 baile(crianca2);
@@ -52,8 +53,13 @@ public class Eventos {
     }
 
     //Anti-fadas rouba varinha
-    private static void combateFada(Fada antiFada, Padrinhos padrinho) {
+    private static void combateFada(Fada antiFada, Padrinhos padrinho, ArrayList<Magia> magiasExistentes) {
         //Magia, Varinha e AntiFada
+
+        Random magia1 = new Random();
+        Random magia2 = new Random();
+
+
         System.out.println("⚔️═══════════════════════════════════════⚔️");
         System.out.println("🌪️    CONFRONTO ENTRE FADA E ANTI-FADA    🌪️");
         System.out.println("⚔️═══════════════════════════════════════⚔️");
@@ -63,6 +69,30 @@ public class Eventos {
         esperaAi(1500);
         System.out.println("🪄 Ela está tentando roubar a varinha mágica de " + padrinho.getNomeFada() + "!");
         esperaAi(2000);
+
+        Magia magiaUsadaAntiFada = magiasExistentes.get(magia1.nextInt(magiasExistentes.size()));
+        Magia magiaUsadaPadrinho = magiasExistentes.get(magia2.nextInt(magiasExistentes.size()));
+
+        System.out.println("\n🌪️ De repente, o ar fica pesado e as nuvens escurecem...");
+        esperaAi(1500);
+        System.out.println("😈 " + antiFada.getNomeFada() + " ergue os braços e libera um poder sombrio!");
+        esperaAi(2000);
+        System.out.println("💥 Ela lançou a temida magia: **" + magiaUsadaAntiFada.getNomeMagia() + "**!");
+        esperaAi(2000);
+        System.out.println("📖 (" + magiaUsadaAntiFada.getDescricaoMagia() + ")");
+        esperaAi(2000);
+
+        System.out.println("\n🛡️ Mas " + padrinho.getNomeFada() + " não recua!");
+        esperaAi(1500);
+        System.out.println("✨ Com um brilho intenso e coragem inabalável...");
+        esperaAi(2000);
+        System.out.println("🪄 Ele revida com a magia: **" + magiaUsadaPadrinho.getNomeMagia() + "**!");
+        esperaAi(2000);
+        System.out.println("📖 (" + magiaUsadaPadrinho.getDescricaoMagia() + ")");
+        esperaAi(2000);
+
+        System.out.println("\n⚡ O céu se parte. As energias colidem em uma explosão de luz e trevas!");
+        esperaAi(2500);
 
         if (felicidade > 50) {
             System.out.println("\n💖 Mas sua felicidade está irradiando tanto que cria uma barreira mágica!");

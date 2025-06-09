@@ -23,33 +23,16 @@ public abstract class Fada {
         return idFada;
     }
 
-    public void setIdFada(int idFada) {
-        this.idFada = idFada;
-    }
-
     public String getNomeFada() {
         return nomeFada;
-    }
-
-    public void setNomeFada(String nomeFada) {
-        this.nomeFada = nomeFada;
     }
 
     public String getTipoFada() {
         return tipoFada;
     }
 
-    public void setTipoFada(String tipoFada) {
-        this.tipoFada = tipoFada;
-    }
-
     public int getVarinha_idSerial() {
         return Varinha_idSerial;
     }
-
-    public void setVarinha_idSerial(int varinha_idSerial) {
-        Varinha_idSerial = varinha_idSerial;
-    }
-
 
 }

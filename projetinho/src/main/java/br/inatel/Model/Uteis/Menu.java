@@ -167,32 +167,32 @@ public class Menu {
                 switch (this.indice1) {
                     case 0: // lanche
                         if (realizar) {
-                            pedidoConcedidoDramatico(20);
+                            pedidoConcedidoDramatico(30);
                         } else pedidoNegadoDramatico();
                         break;
                     case 1: // herói
                         if (realizar) {
-                            pedidoConcedidoDramatico(5);
+                            pedidoConcedidoDramatico(8);
                         } else pedidoNegadoDramatico();
                         break;
                     case 2: // férias
                         if (realizar) {
-                            pedidoConcedidoDramatico(20);
+                            pedidoConcedidoDramatico(30);
                         } else pedidoNegadoDramatico();
                         break;
                     case 3: // voar
                         if (realizar) {
-                            pedidoConcedidoDramatico(15);
+                            pedidoConcedidoDramatico(23);
                         } else pedidoNegadoDramatico();
                         break;
                     case 4: // castelo
                         if (realizar) {
-                            pedidoConcedidoDramatico(5);
+                            pedidoConcedidoDramatico(8);
                         } else pedidoNegadoDramatico();
                         break;
                     case 5: // inteligente
                         if (realizar) {
-                            pedidoConcedidoDramatico(15);
+                            pedidoConcedidoDramatico(23);
                         } else pedidoNegadoDramatico();
                         break;
                     case 6: // padrinho
@@ -211,32 +211,32 @@ public class Menu {
                         break;
                     case 7: // robô
                         if (realizar) {
-                            pedidoConcedidoDramatico(5);
+                            pedidoConcedidoDramatico(8);
                         } else pedidoNegadoDramatico();
                         break;
                     case 8: // entender meninas
                         if (realizar) {
-                            pedidoConcedidoDramatico(10);
+                            pedidoConcedidoDramatico(15);
                         } else pedidoNegadoDramatico();
                         break;
                     case 9: // super poder
                         if (realizar) {
-                            pedidoConcedidoDramatico(15);
+                            pedidoConcedidoDramatico(23);
                         } else pedidoNegadoDramatico();
                         break;
                     case 10: // cachorro falante
                         if (realizar) {
-                            pedidoConcedidoDramatico(7);
+                            pedidoConcedidoDramatico(11);
                         } else pedidoNegadoDramatico();
                         break;
                     case 11: // paixão
                         if (realizar) {
-                            pedidoConcedidoDramatico(10);
+                            pedidoConcedidoDramatico(15);
                         } else pedidoNegadoDramatico();
                         break;
                     case 12: // famoso
                         if (realizar) {
-                            pedidoConcedidoDramatico(15);
+                            pedidoConcedidoDramatico(23);
                         } else pedidoNegadoDramatico();
                         break;
                     case 13: // somente eu padrinhos
@@ -262,32 +262,32 @@ public class Menu {
                 switch (this.indice2) {
                     case 0: // lanche
                         if (realizar) {
-                            pedidoConcedidoDramatico(20);
+                            pedidoConcedidoDramatico(30);
                         } else pedidoNegadoDramatico();
                         break;
                     case 1: // herói
                         if (realizar) {
-                            pedidoConcedidoDramatico(5);
+                            pedidoConcedidoDramatico(8);
                         } else pedidoNegadoDramatico();
                         break;
                     case 2: // férias
                         if (realizar) {
-                            pedidoConcedidoDramatico(20);
+                            pedidoConcedidoDramatico(30);
                         } else pedidoNegadoDramatico();
                         break;
                     case 3: // voar
                         if (realizar) {
-                            pedidoConcedidoDramatico(15);
+                            pedidoConcedidoDramatico(23);
                         } else pedidoNegadoDramatico();
                         break;
                     case 4: // castelo
                         if (realizar) {
-                            pedidoConcedidoDramatico(5);
+                            pedidoConcedidoDramatico(8);
                         } else pedidoNegadoDramatico();
                         break;
                     case 5: // inteligente
                         if (realizar) {
-                            pedidoConcedidoDramatico(15);
+                            pedidoConcedidoDramatico(23);
                         } else pedidoNegadoDramatico();
                         break;
                     case 6: // padrinho
@@ -306,32 +306,32 @@ public class Menu {
                         break;
                     case 7: // robô
                         if (realizar) {
-                            pedidoConcedidoDramatico(5);
+                            pedidoConcedidoDramatico(8);
                         } else pedidoNegadoDramatico();
                         break;
                     case 8: // entender meninas
                         if (realizar) {
-                            pedidoConcedidoDramatico(10);
+                            pedidoConcedidoDramatico(15);
                         } else pedidoNegadoDramatico();
                         break;
                     case 9: // super poder
                         if (realizar) {
-                            pedidoConcedidoDramatico(15);
+                            pedidoConcedidoDramatico(23);
                         } else pedidoNegadoDramatico();
                         break;
                     case 10: // cachorro falante
                         if (realizar) {
-                            pedidoConcedidoDramatico(7);
+                            pedidoConcedidoDramatico(11);
                         } else pedidoNegadoDramatico();
                         break;
                     case 11: // paixão
                         if (realizar) {
-                            pedidoConcedidoDramatico(10);
+                            pedidoConcedidoDramatico(15);
                         } else pedidoNegadoDramatico();
                         break;
                     case 12: // famoso
                         if (realizar) {
-                            pedidoConcedidoDramatico(15);
+                            pedidoConcedidoDramatico(23);
                         } else pedidoNegadoDramatico();
                         break;
                     case 13: // somente eu padrinhos

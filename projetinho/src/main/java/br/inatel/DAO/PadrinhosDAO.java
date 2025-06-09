@@ -15,6 +15,7 @@ public class PadrinhosDAO extends ConnectionDao{
             System.out.println("🚫 Erro na conexão dos Padrinhos: " + exc.getMessage());
         }
     }
+
     public boolean insertPadrinho(Padrinhos padrinho) {
         connectToDb();
         String sql = "INSERT INTO Padrinhos (nomePadrinho, tipoPadrinho, Varinha_idSerial, Crianca_idCrianca) VALUES (?, ?, ?, ?)";

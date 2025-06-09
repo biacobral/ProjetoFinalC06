@@ -17,40 +17,11 @@ import java.util.Scanner;
 import static br.inatel.Model.Personagens.Crianca.felicidade;
 
 /*
-        Notas para nós mesmos:
-        Felipe - Seguinte, implementei as coisas que eu acredito que a gente vá precisar por enquanto
-        nos DAOs, rodei eles e dá para ver que eles são criados e adicionados no BD quando chama a função.
-            Consegui colocar a lista de crianças que tem no BD na opção de escolher para o baile também, se você rodar
-        você vai ver que sai uma lista com as 7 crianças que tem no BD.
-            Também mudei um pouco o general fada, agora ele tem um metodo só dele que chama o tribunal da magia,
-        isso mais pra poder justificar que a gente criou o fada como abstrata porque o general tem seu próprio metodo,
-        que uma fada não pode ter.
-            Outra coisa, não mexe no for que mostra as crianças do baile.
-            O que que é a ideia: A gente recebe um arraylist pela main com as crianças que já tão cadastradas, só que
-        sempre que a gente cadastra o jogador, ele é lançado como uma criança nova no arraylist, o que significa que
-        aquele for tem que rodar só até a última criança cadastrada que é a 7ª criança. O contador do for começa em 1
-        para ficar bonitinho na hora de sair, mas eu chamo i-1 quando é pra sair a criança, então a lógica tá teoricamente
-        certa.
-            Outra coisa, pra poder testar o baile, eu tô setando a opção do evento como a opção do baile quando entra na
-        função do baile, tem que mudar isso quando for arrumar os eventos.
+- Bia
+    * Fazer eventos serem chamados apenas uma vez "decidirEventos"
 
+    * Ajeitar Exceptions
 
-        Agora o que tem que ser feito:
-
-        * Colocar no switch do baile o que vai acontecer quando ele chamar uma criança pro baile (FEITO)
-
-        * Resetar a varinha do padrinho que quebra quando ele perde pra uma anti-fada, que parece não estar funcionando, não
-        sei se já tá implementada (FEITO)
-
-        * Dar alguma utilidade pra Magia, que eu acho que podia ser no evento da anti-fada, eles lançarem umas magias um no
-        outro um pouco, só pra falar que tamo usando FELIPE
-            - fazer um random nas magias inseridas no BD e mostrar uma de cada fada no combate
-
-        * Colocar um opção segura pra decisão do baile, aquilo ainda não tá nem um pouco seguro, vai cair no default e a pessoa
-        vai perder o evento (FEITO) OBS.: QUANDO ARRUMEI ISSO DEU O ERRO DO PEDIDO PERSONALIZADO *WPP
-
-            Acho que é isso, qualquer coisa me manda mensagem, só não sei que horas eu vou entrar amanhã, com certeza mesmo é
-         só na hora que eu chegar em SRS
  */
 public class Main {
     public static void main(String[] args) {
@@ -100,6 +71,8 @@ public class Main {
         Crianca jogador = new Crianca((criancasExistentes.size()+1), nomeJogador, 12, sexoJogador, true, "Rua dos Desejos, nº72"); // criando jogador
         criancasDAO.insertCrianca(jogador);
         ArrayList<Padrinhos> padrinhosExistentes = padrinhosDAO.selectPadrinho();
+        ArrayList<Magia> magiasExistentes = magiaDAO.selectMagia();
+
         // Criação das Varinhas
         Varinha varinha1 = new Varinha(10, "Azul", "Funcionando");
         varinhaDAO.insertVarinha(varinha1);
@@ -130,7 +103,7 @@ public class Main {
                 "Você tem 12 anos e mora em Dimmsdale, no endereço " + jogador.getEnderecoCrianca() +
                 " e ");
         Random randPadrinho = new Random();
-        int idP = randPadrinho.nextInt(2) + 1;
+        int idP = randPadrinho.nextInt(2) + (padrinhosExistentes.size()+1);
         if (idP == nossoPadrinho.getIdFada()) {
             nossoPadrinho.setCrianca_idCrianca(jogador.getIdCrianca());
             padrinhosDAO.insertPadrinho(nossoPadrinho);
@@ -154,8 +127,8 @@ public class Main {
                 esperaAi(300);
                 System.out.println("Bem vindo ao seu " + (i - 11) + "° ano com seu padrinho");
                 fofoca(); // evento fofoca
-                if(idP==1) {
-                    decidirEvento(antiPadrinho, nossoPadrinho, jogador, criancasExistentes);
+                if(idP==padrinhosExistentes.size()) {
+                    decidirEvento(antiPadrinho, nossoPadrinho, jogador, criancasExistentes, magiasExistentes);
                     if(nossoPadrinho.getVarinha().getStatusVarinha().equals("Funcionando")){
                         menu.mostraMenu();
                         int opcao = menu.lerOpcaoSegura("🪄 Digite sua escolha (1-3): ");
@@ -164,7 +137,7 @@ public class Main {
                     }
                 }
                 else{
-                    decidirEvento(antiMadrinha, nossaMadrinha, jogador, criancasExistentes);
+                    decidirEvento(antiMadrinha, nossaMadrinha, jogador, criancasExistentes, magiasExistentes);
                     if(nossaMadrinha.getVarinha().getStatusVarinha().equals("Funcionando")){
                         menu.mostraMenu();
                         int opcao = menu.lerOpcaoSegura("🪄 Digite sua escolha (1-3): ");
@@ -212,8 +185,10 @@ public class Main {
                             break;
                     }
                 }
-                if (menu.getOpcaoEscolhida() != 1 && menu.getOpcaoEscolhida() != 2 && menu.getOpcaoEscolhida() != 3 && (!nossaMadrinha.getVarinha().getStatusVarinha().equals("Funcionando") || !nossoPadrinho.getVarinha().getStatusVarinha().equals("Funcionando")) ) {
-                    throw new Exception("Faz certo, cabeça de ovo!");
+                if (menu.getOpcaoEscolhida() != 1 && menu.getOpcaoEscolhida() != 2 && menu.getOpcaoEscolhida() != 3) {
+                    if( (nossaMadrinha.getVarinha().getStatusVarinha().equals("Funcionando") && nossoPadrinho.getVarinha().getStatusVarinha().equals("Funcionando")) ) {
+                        throw new Exception("Tá errado aí fi!");
+                    }
                 }
 
                 System.out.println("Sua felicidade até agora é: " + felicidade + "\n");

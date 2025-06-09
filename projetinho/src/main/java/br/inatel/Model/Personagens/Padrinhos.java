@@ -11,11 +11,6 @@ public class Padrinhos extends Fada {
         this.varinha = varinha;
     }
 
-    public Padrinhos(String nomeFada, String tipoFada, Varinha varinha) {
-        super(nomeFada, tipoFada, varinha.getIdSerial());
-        this.varinha = varinha;
-    }
-
     public Padrinhos(String nomeFada, String tipoFada, int idSerial, int Crianca_idCrianca) {
         super(nomeFada, tipoFada, idSerial);
         this.Crianca_idCrianca = Crianca_idCrianca;
@@ -31,9 +26,5 @@ public class Padrinhos extends Fada {
 
     public Varinha getVarinha() {
         return varinha;
-    }
-
-    public void setVarinha(Varinha varinha) {
-        this.varinha = varinha;
     }
 }

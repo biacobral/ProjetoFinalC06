@@ -1,13 +1,10 @@
 package br.inatel.Model.Personagens;
 
-import java.util.Random;
-
 public class Desejos {
     private int idDesejos;
     private String descricao;
     private boolean statusDesejo;
 
-    Random rand = new Random();
     public final static String[] listaDesejos = {
         "Quero lanche infinito...",
         "Quero virar heroi...",
@@ -30,15 +27,6 @@ public class Desejos {
         this.idDesejos = idDesejos;
         this.descricao = descricao;
         this.statusDesejo = statusDesejo;
-    }
-
-    public Desejos(String descricao, boolean statusDesejo) {
-        this.descricao = descricao;
-        this.statusDesejo = statusDesejo;
-    }
-
-    public int getIdDesejos() {
-        return idDesejos;
     }
 
     public String getDescricao() {
