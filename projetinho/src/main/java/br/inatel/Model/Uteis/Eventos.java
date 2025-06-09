@@ -1,9 +1,6 @@
 package br.inatel.Model.Uteis;
 
-import br.inatel.Model.Personagens.Crianca;
-import br.inatel.Model.Personagens.Fada;
-import br.inatel.Model.Personagens.Padrinhos;
-import br.inatel.Model.Personagens.Magia;
+import br.inatel.Model.Personagens.*;
 
 import java.util.ArrayList;
 import java.util.InputMismatchException;
@@ -15,14 +12,7 @@ import static br.inatel.Model.Uteis.Util.diminuirFelicidade;
 import static br.inatel.Model.Uteis.Util.esperaAi;
 
 public class Eventos {
-    /*
-    1. Anti-Fada pega a varinha do padrinho -> sem desejos naquele ano
-    2. Duelo de desejos -> criança vs criança
-    3. Dia com a Vicky -felicidade
-    4. Fofoca na escola sobre você -felicidade
-    5. Escolher alguem para chamar para o baile da escola -> pedido extra
-    6. Duelo AntiFada vs Padrinho
-     */
+    private static boolean []jaFoi = {false, false, false};
     private final String[] eventos = {
             "Anti-fadas",
             "Duelo de desejos",
@@ -38,13 +28,22 @@ public class Eventos {
         int decisao = random.nextInt(3);
         switch (decisao) {
             case 0:
-                combateFada(antiFada, padrinho, magiasExistentes);
+                if(!jaFoi[0]) {
+                    baile(crianca2);
+                    jaFoi[0] = true;
+                }
                 break;
             case 1:
-                baile(crianca2);
+                if(!jaFoi[1]) {
+                    vicky();
+                    jaFoi[1] = true;
+                }
                 break;
             case 2:
-                vicky();
+                if(!jaFoi[2]) {
+                    combateFada(antiFada, padrinho, magiasExistentes);
+                    jaFoi[2] = true;
+                }
                 break;
             default:
                 break;
@@ -55,6 +54,11 @@ public class Eventos {
     private static void combateFada(Fada antiFada, Padrinhos padrinho, ArrayList<Magia> magiasExistentes) {
         //Magia, Varinha e AntiFada
 
+        AntiFada antiFadaCast = null;
+        if (antiFada instanceof AntiFada) {
+            antiFadaCast = (AntiFada) antiFada;
+        }
+
         Random magia1 = new Random();
         Random magia2 = new Random();
 
@@ -64,9 +68,8 @@ public class Eventos {
         System.out.println("⚔️═══════════════════════════════════════⚔️");
         esperaAi(1500);
 
-        System.out.println("😈 " + antiFada.getNomeFada() + " armou uma armadilha sorrateira!");
-        esperaAi(1500);
-        System.out.println("🪄 Ela está tentando roubar a varinha mágica de " + padrinho.getNomeFada() + "!");
+        antiFadaCast.inicioCombate();
+        System.out.println("🪄" + antiFada.getNomeFada() + " está tentando roubar a varinha mágica de " + padrinho.getNomeFada() + "!");
         esperaAi(2000);
 
         Magia magiaUsadaAntiFada = magiasExistentes.get(magia1.nextInt(magiasExistentes.size()));
@@ -76,7 +79,7 @@ public class Eventos {
         esperaAi(1500);
         System.out.println("😈 " + antiFada.getNomeFada() + " ergue os braços e libera um poder sombrio!");
         esperaAi(2000);
-        System.out.println("💥 Ela lançou a temida magia: **" + magiaUsadaAntiFada.getNomeMagia() + "**!");
+        System.out.println("💥 Ela lançou a temida magia: " + magiaUsadaAntiFada.getNomeMagia() + "!");
         esperaAi(2000);
         System.out.println("📖 (" + magiaUsadaAntiFada.getDescricaoMagia() + ")");
         esperaAi(2000);
@@ -85,7 +88,7 @@ public class Eventos {
         esperaAi(1500);
         System.out.println("✨ Com um brilho intenso e coragem inabalável...");
         esperaAi(2000);
-        System.out.println("🪄 Ele revida com a magia: **" + magiaUsadaPadrinho.getNomeMagia() + "**!");
+        System.out.println("🪄 Ele revida com a magia: " + magiaUsadaPadrinho.getNomeMagia() + "!");
         esperaAi(2000);
         System.out.println("📖 (" + magiaUsadaPadrinho.getDescricaoMagia() + ")");
         esperaAi(2000);
@@ -94,18 +97,19 @@ public class Eventos {
         esperaAi(2500);
 
         if (felicidade > 50) {
+            antiFadaCast.perdeBatalha();
             System.out.println("\n💖 Mas sua felicidade está irradiando tanto que cria uma barreira mágica!");
             esperaAi(1500);
             System.out.println("🛡️ " + padrinho.getNomeFada() + " consegue proteger sua varinha com sucesso!");
             esperaAi(1500);
             System.out.println("🎉 Nenhum pedido será perdido este ano!");
         } else {
+            antiFadaCast.ganhaBatalha();
             System.out.println("\n💔 Sua felicidade está muito baixa para proteger seu padrinho...");
             esperaAi(1500);
             System.out.println("😵 " + antiFada.getNomeFada() + " conseguiu roubar a varinha mágica!");
             esperaAi(1500);
             System.out.println("📉 Você ficará sem desejos por um ano inteiro!");
-
             padrinho.getVarinha().setStatusVarinha("Roubada");
         }
 

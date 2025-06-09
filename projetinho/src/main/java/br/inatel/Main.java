@@ -106,16 +106,16 @@ public class Main {
         int idP = randPadrinho.nextInt(2) + (padrinhosExistentes.size()+1);
         if (idP == nossoPadrinho.getIdFada()) {
             nossoPadrinho.setCrianca_idCrianca(jogador.getIdCrianca());
-            padrinhosDAO.insertPadrinho(nossoPadrinho);
             System.out.println("o seu padrinho será: ");
             esperaAi(1000);
             System.out.println(nossoPadrinho.getNomeFada());
+            padrinhosDAO.insertPadrinho(nossoPadrinho);
         } else {
             nossaMadrinha.setCrianca_idCrianca(jogador.getIdCrianca());
-            padrinhosDAO.insertPadrinho(nossaMadrinha);
             System.out.println("a sua madrinha será: ");
             esperaAi(1000);
             System.out.println(nossaMadrinha.getNomeFada());
+            padrinhosDAO.insertPadrinho(nossaMadrinha);
         }
         esperaAi(400);
         menu.warning();
@@ -129,6 +129,7 @@ public class Main {
                 fofoca(); // evento fofoca
                 if(idP==padrinhosExistentes.size()) {
                     decidirEvento(antiPadrinho, nossoPadrinho, jogador, criancasExistentes, magiasExistentes);
+
                     if(nossoPadrinho.getVarinha().getStatusVarinha().equals("Funcionando")){
                         menu.mostraMenu();
                         int opcao = menu.lerOpcaoSegura("🪄 Digite sua escolha (1-3): ");
