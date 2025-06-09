@@ -120,16 +120,16 @@ INSERT INTO Varinha (varinhaCor, statusVarinha) VALUES
                                                     ('Branca', 'Quebrada');
 
 -- Padrinhos
-INSERT INTO Padrinhos (nomePadrinho, tipoPadrinho, Varinha_idSerial, Crianca_idCrianca) VALUES
-                                                                                            ('Cosmo', 'Padrinho', 2, 1),
-                                                                                            ('Wanda', 'Madrinha', 1, 1),
-                                                                                            ('Juandíssimo', 'Padrinho', 4, 2),
-                                                                                            ('Norm', 'Padrinho', 5, 5),
-                                                                                            ('ChloePadrinho', 'Madrinha', 3, 2),
-                                                                                            ('Sparky', 'Padrinho', 6, 6),
-                                                                                            ('Vicky', 'Madrinha', 7, 7),
-                                                                                            ('Professor Calamitous', 'Padrinho', 8, 8),
-                                                                                            ('Ultra Lord', 'Padrinho', 9, 9);
+INSERT INTO Padrinhos (idPadrinhos, nomePadrinho, tipoPadrinho, Varinha_idSerial, Crianca_idCrianca) VALUES
+                                                                                                         (3, 'Cosmo', 'Padrinho', 2, 1),
+                                                                                                         (4, 'Wanda', 'Madrinha', 1, 1),
+                                                                                                         (5, 'Juandíssimo', 'Padrinho', 4, 2),
+                                                                                                         (6, 'Norm', 'Padrinho', 5, 5),
+                                                                                                         (7, 'ChloePadrinho', 'Madrinha', 3, 2),
+                                                                                                         (8, 'Sparky', 'Padrinho', 6, 6),
+                                                                                                         (9, 'Vicky', 'Madrinha', 7, 7),
+                                                                                                         (10, 'Professor Calamitous', 'Padrinho', 8, 8),
+                                                                                                         (11, 'Ultra Lord', 'Padrinho', 9, 9);
 
 -- Desejos
 INSERT INTO Desejos (descricao, statusDesejo) VALUES
@@ -184,8 +184,8 @@ UPDATE Crianca SET temPadrinho = 1 WHERE idCrianca = 3;
 UPDATE Varinha SET statusVarinha = 'Funcionando' WHERE idSerial = 3;
 UPDATE Varinha SET varinhaCor = 'Prateada' WHERE idSerial = 5;
 
-UPDATE Padrinhos SET tipoPadrinho = 'Madrinha' WHERE idPadrinhos = 4;
-UPDATE Padrinhos SET nomePadrinho = 'Chloe Madrinha' WHERE idPadrinhos = 5;
+UPDATE Padrinhos SET tipoPadrinho = 'Madrinha' WHERE idPadrinhos = 6;
+UPDATE Padrinhos SET nomePadrinho = 'Chloe Madrinha' WHERE idPadrinhos = 7;
 
 UPDATE Desejos SET statusDesejo = 'Concedido' WHERE idDesejos = 5;
 UPDATE Desejos SET descricao = 'Quero um castelo de chocolate' WHERE idDesejos = 5;
@@ -251,3 +251,5 @@ GROUP BY C.idCrianca, P.idPadrinhos;
 SELECT * FROM resumoCrianca;
 select * from Crianca;
 select * from AntiFada;
+select * from Magia;
+select * from Padrinhos;

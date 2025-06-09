@@ -2,8 +2,8 @@ package br.inatel.Model.Uteis;
 
 import static br.inatel.Model.Uteis.Util.esperaAi;
 
-public class NaoPodeSerTriste extends Exception {
-    public NaoPodeSerTriste() {
+public class NaoPodeSerTristeException extends Exception {
+    public NaoPodeSerTristeException() {
         System.out.println("✨═══════════════════════════════════════✨");
         System.out.println("🌟     INTERVENÇÃO DIVINA DETECTADA!     🌟");
         System.out.println("✨═══════════════════════════════════════✨");

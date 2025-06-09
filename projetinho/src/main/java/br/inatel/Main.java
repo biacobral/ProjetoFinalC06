@@ -3,6 +3,7 @@ package br.inatel;
 import br.inatel.DAO.*;
 import br.inatel.Model.Personagens.*;
 import br.inatel.Model.Uteis.Menu;
+import br.inatel.Model.Uteis.OpcaoInvalidaException;
 
 import static br.inatel.Model.Uteis.Eventos.decidirEvento;
 import static br.inatel.Model.Uteis.Eventos.fofoca;
@@ -17,12 +18,10 @@ import java.util.Scanner;
 import static br.inatel.Model.Personagens.Crianca.felicidade;
 
 /*
-- Bia
-    * Fazer eventos serem chamados apenas uma vez "decidirEventos"
-
-    * Ajeitar Exceptions
-
+    Beatriz Vaz Pedroso Santos Cobral - 2082
+    Felipe Silva Loschi - 601
  */
+
 public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in); // Scanner para entrada de dados
@@ -59,13 +58,14 @@ public class Main {
                 System.out.print("Insira seu sexo (F, M, NB): ");
                 sexoJogador = scanner.nextLine(); // Scanner -> String
                 if (!Objects.equals(sexoJogador, "F") && !Objects.equals(sexoJogador, "M") && !Objects.equals(sexoJogador, "NB")) {
-                    throw new Exception("Faz certo, cabeça de ovo!");
+                    throw new OpcaoInvalidaException("Faz certo, cabeça de ovo!");
                 }
                 taCerto = true;
-            } catch (Exception e) {
+            } catch (OpcaoInvalidaException e) {
                 System.out.println(e.getMessage());
+                scanner.nextLine(); // limpa o buffer
             }
-        } while (!taCerto); // try catch dentro do while - substituir if else e criar exceção geral opção invalida
+        } while (!taCerto);
         // Criação do Jogador "Criança"
         ArrayList<Crianca> criancasExistentes = criancasDAO.selectCrianca();
         Crianca jogador = new Crianca((criancasExistentes.size()+1), nomeJogador, 12, sexoJogador, true, "Rua dos Desejos, nº72"); // criando jogador
@@ -128,7 +128,7 @@ public class Main {
                 System.out.println("Bem vindo ao seu " + (i - 11) + "° ano com seu padrinho");
                 fofoca(); // evento fofoca
                 if(idP==padrinhosExistentes.size()) {
-                    decidirEvento(antiPadrinho, nossoPadrinho, jogador, criancasExistentes, magiasExistentes);
+                    decidirEvento(antiPadrinho, nossoPadrinho, criancasExistentes, magiasExistentes);
 
                     if(nossoPadrinho.getVarinha().getStatusVarinha().equals("Funcionando")){
                         menu.mostraMenu();
@@ -138,7 +138,7 @@ public class Main {
                     }
                 }
                 else{
-                    decidirEvento(antiMadrinha, nossaMadrinha, jogador, criancasExistentes, magiasExistentes);
+                    decidirEvento(antiMadrinha, nossaMadrinha, criancasExistentes, magiasExistentes);
                     if(nossaMadrinha.getVarinha().getStatusVarinha().equals("Funcionando")){
                         menu.mostraMenu();
                         int opcao = menu.lerOpcaoSegura("🪄 Digite sua escolha (1-3): ");
@@ -188,7 +188,7 @@ public class Main {
                 }
                 if (menu.getOpcaoEscolhida() != 1 && menu.getOpcaoEscolhida() != 2 && menu.getOpcaoEscolhida() != 3) {
                     if( (nossaMadrinha.getVarinha().getStatusVarinha().equals("Funcionando") && nossoPadrinho.getVarinha().getStatusVarinha().equals("Funcionando")) ) {
-                        throw new Exception("Tá errado aí fi!");
+                        throw new OpcaoInvalidaException("Tá errado aí fi!");
                     }
                 }
 
@@ -198,8 +198,9 @@ public class Main {
                     oqAconteceu = 8;
                 }
 
-            } catch (Exception e) {
+            } catch (OpcaoInvalidaException e) {
                 System.out.println(e.getMessage());
+                scanner.nextLine(); // limpa o buffer
             }
         }
 

@@ -45,6 +45,7 @@ public class Menu {
                 return Integer.parseInt(entrada);
             } catch (NumberFormatException e) {
                 System.out.println("⚡ Os ventos da magia rejeitam sua escolha! Digite apenas números mágicos! 🌟");
+                scanner.nextLine(); // limpa o buffer
             }
         }
     }
@@ -61,6 +62,7 @@ public class Menu {
                 } while (indice2 == indice1);
             } catch (Exception e) {
                 System.out.println("🌪️ Um tornado de magia perturbou o sorteio! Os fados conspiram... Tente novamente! ⚡");
+                scanner.nextLine(); // limpa o buffer
             }
         } while (pedidosFeitos.contains(indice1) || pedidosFeitos.contains(indice2));
         pedidosFeitos.add(indice1);
@@ -418,13 +420,14 @@ public class Menu {
                     System.out.println("🌪️ Os portais místicos se confundem! Opção inválida no cosmos! Tente novamente, jovem viajante! ⚡");
                     try {
                         int novaOpcao = scanner.nextInt();
+                        scanner.nextLine(); // limpa o buffer
                         if (novaOpcao >= 1 && novaOpcao <= 3) {
                             setOpcaoEscolhida(novaOpcao);
                             eventos(general, padrinho);
                             break;
                         }
                     } catch (InputMismatchException e) {
-                        scanner.next(); // limpar buffer
+                        scanner.nextLine(); // limpar buffer
                     }
                 }
                 break;

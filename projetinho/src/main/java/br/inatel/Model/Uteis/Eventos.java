@@ -13,16 +13,8 @@ import static br.inatel.Model.Uteis.Util.esperaAi;
 
 public class Eventos {
     private static boolean []jaFoi = {false, false, false};
-    private final String[] eventos = {
-            "Anti-fadas",
-            "Duelo de desejos",
-            "Dia com a Vicky",
-            "Fofoca na escola sobre você",
-            "Baile da escola",
-            "Duelo"
-    };
 
-    public static void decidirEvento(Fada antiFada, Padrinhos padrinho, Crianca crianca1, ArrayList<Crianca> crianca2, ArrayList<Magia> magiasExistentes) {
+    public static void decidirEvento(Fada antiFada, Padrinhos padrinho, ArrayList<Crianca> crianca2, ArrayList<Magia> magiasExistentes) {
         padrinho.getVarinha().setStatusVarinha("Funcionando");
         Random random = new Random();
         int decisao = random.nextInt(3);
@@ -46,13 +38,13 @@ public class Eventos {
                 }
                 break;
             default:
+                System.out.println("Sem eventos esse ano.");
                 break;
         }
     }
 
-    //Anti-fadas rouba varinha
+    // Combate de fadas
     private static void combateFada(Fada antiFada, Padrinhos padrinho, ArrayList<Magia> magiasExistentes) {
-        //Magia, Varinha e AntiFada
 
         AntiFada antiFadaCast = null;
         if (antiFada instanceof AntiFada) {
@@ -213,7 +205,7 @@ public class Eventos {
             try {
                 diminuirFelicidade(10);
                 System.out.println("💙 Sua felicidade diminuiu em 10 pontos...");
-            } catch (NaoPodeSerTriste e) {
+            } catch (NaoPodeSerTristeException e) {
 
                 System.out.println("💙 Sua felicidade agora é 0...");
                 felicidade = 0;
@@ -277,7 +269,7 @@ public class Eventos {
         esperaAi(1000);
         try {
             diminuirFelicidade(5);
-        } catch (NaoPodeSerTriste e) {
+        } catch (NaoPodeSerTristeException e) {
             System.out.println("💙 Sua felicidade agora é 0...");
             felicidade = 0;
         }
@@ -361,7 +353,7 @@ public class Eventos {
                 try {
                     diminuirFelicidade(20);
                     System.out.println("💙 Sua felicidade diminuiu em 20 pontos...");
-                } catch (NaoPodeSerTriste e) {
+                } catch (NaoPodeSerTristeException e) {
 
                     System.out.println("💙 Sua felicidade agora é 0...");
                     felicidade = 0;
@@ -374,7 +366,7 @@ public class Eventos {
                 try {
                     diminuirFelicidade(25);
                     System.out.println("💙 Sua felicidade diminuiu em 25 pontos...");
-                } catch (NaoPodeSerTriste e) {
+                } catch (NaoPodeSerTristeException e) {
 
                     System.out.println("💙 Sua felicidade agora é 0...");
                     felicidade = 0;
@@ -388,7 +380,7 @@ public class Eventos {
                 try {
                     diminuirFelicidade(15);
                     System.out.println("💙 Sua felicidade diminuiu em 15 pontos...");
-                } catch (NaoPodeSerTriste e) {
+                } catch (NaoPodeSerTristeException e) {
 
                     System.out.println("💙 Sua felicidade agora é 0...");
                     felicidade = 0;
@@ -402,7 +394,7 @@ public class Eventos {
                 try {
                     diminuirFelicidade(18);
                     System.out.println("💙 Sua felicidade diminuiu em 18 pontos...");
-                } catch (NaoPodeSerTriste e) {
+                } catch (NaoPodeSerTristeException e) {
 
                     System.out.println("💙 Sua felicidade agora é 0...");
                     felicidade = 0;
@@ -416,7 +408,7 @@ public class Eventos {
                 try {
                     diminuirFelicidade(12);
                     System.out.println("💙 Sua felicidade diminuiu em 12 pontos...");
-                } catch (NaoPodeSerTriste e) {
+                } catch (NaoPodeSerTristeException e) {
 
                     System.out.println("💙 Sua felicidade agora é 0...");
                     felicidade = 0;
@@ -430,7 +422,7 @@ public class Eventos {
                 try {
                     diminuirFelicidade(22);
                     System.out.println("💙 Sua felicidade diminuiu em 22 pontos...");
-                } catch (NaoPodeSerTriste e) {
+                } catch (NaoPodeSerTristeException e) {
 
                     System.out.println("💙 Sua felicidade agora é 0...");
                     felicidade = 0;
@@ -444,7 +436,7 @@ public class Eventos {
                 try {
                     diminuirFelicidade(25);
                     System.out.println("💙 Sua felicidade diminuiu em 25 pontos...");
-                } catch (NaoPodeSerTriste e) {
+                } catch (NaoPodeSerTristeException e) {
 
                     System.out.println("💙 Sua felicidade agora é 0...");
                     felicidade = 0;

@@ -14,9 +14,9 @@ public class Util {
         }
     }
 
-    public static void diminuirFelicidade(int valor) throws NaoPodeSerTriste {
+    public static void diminuirFelicidade(int valor) throws NaoPodeSerTristeException {
         if((felicidade-valor)<0){
-            throw new NaoPodeSerTriste();
+            throw new NaoPodeSerTristeException();
         }
         else{
             felicidade-=valor;
