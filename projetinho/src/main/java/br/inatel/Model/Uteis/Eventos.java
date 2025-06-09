@@ -36,7 +36,6 @@ public class Eventos {
         padrinho.getVarinha().setStatusVarinha("Funcionando");
         Random random = new Random();
         int decisao = random.nextInt(3);
-        decisao = 0;
         switch (decisao) {
             case 0:
                 combateFada(antiFada, padrinho, magiasExistentes);
@@ -246,7 +245,7 @@ public class Eventos {
         esperaAi(2000);
 
         System.out.println("\n🚪═══════════════════════════════════════🚪");
-        System.out.println("👹        A CHEGADA DO TERROR           👹");
+        System.out.println("👹        A CHEGADA DO TERROR            👹");
         System.out.println("🚪═══════════════════════════════════════🚪");
         esperaAi(1500);
         System.out.println("*DONG DONG* - A campainha ecoa como sino fúnebre...");
