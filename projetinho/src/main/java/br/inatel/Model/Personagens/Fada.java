@@ -1,10 +1,10 @@
 package br.inatel.Model.Personagens;
 
 public abstract class Fada {
-    int idFada;
-    String nomeFada;
-    String tipoFada;
-    int Varinha_idSerial;
+    protected int idFada;
+    protected String nomeFada;
+    protected String tipoFada;
+    protected int Varinha_idSerial;
 
     public Fada(int idFada, String nomeFada, String tipoFada, int varinha_idSerial) {
         this.idFada = idFada;

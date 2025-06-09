@@ -3,8 +3,6 @@ package br.inatel.Model.Uteis;
 import java.util.regex.Pattern;
 import java.util.regex.Matcher;
 
-import static br.inatel.Model.Personagens.Crianca.felicidade;
-
 public class podeIssoArnaldo {
 
     // Regra 1: Não pode ressuscitar mortos

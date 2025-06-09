@@ -1,3 +1,8 @@
+/*
+    Beatriz Vaz Pedroso Santos Cobral - 2082
+    Felipe Silva Loschi - 601
+*/
+
 package br.inatel;
 
 import br.inatel.DAO.*;
@@ -8,19 +13,12 @@ import br.inatel.Model.Uteis.OpcaoInvalidaException;
 import static br.inatel.Model.Uteis.Eventos.decidirEvento;
 import static br.inatel.Model.Uteis.Eventos.fofoca;
 import static br.inatel.Model.Uteis.Util.esperaAi;
+import static br.inatel.Model.Personagens.Crianca.felicidade;
 
 import java.util.ArrayList;
 import java.util.Objects;
 import java.util.Random;
 import java.util.Scanner;
-
-//Importando a função que imprime o menu
-import static br.inatel.Model.Personagens.Crianca.felicidade;
-
-/*
-    Beatriz Vaz Pedroso Santos Cobral - 2082
-    Felipe Silva Loschi - 601
- */
 
 public class Main {
     public static void main(String[] args) {
@@ -155,8 +153,8 @@ public class Main {
                             } else {
                                 nossaMadrinha.setCrianca_idCrianca(0);
                             }
-                            oqAconteceu = 1;
                             sairDoLoop = true;
+                            oqAconteceu = 1;
                             break;
                         case 1://Castigo mágico
                             sairDoLoop = true;

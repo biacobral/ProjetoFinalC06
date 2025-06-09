@@ -1,6 +1,5 @@
 package br.inatel.Model.Personagens;
 
-import static br.inatel.Model.Personagens.Crianca.felicidade;
 import static br.inatel.Model.Uteis.Util.esperaAi;
 
 public class GeneralFada extends Fada {

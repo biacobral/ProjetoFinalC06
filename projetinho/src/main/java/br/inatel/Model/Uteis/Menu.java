@@ -1,10 +1,8 @@
 package br.inatel.Model.Uteis;
 
+import java.util.*;
 import br.inatel.Model.Personagens.GeneralFada;
 import br.inatel.Model.Personagens.Padrinhos;
-
-import java.util.*;
-
 import static br.inatel.Model.Personagens.Desejos.*;
 import static br.inatel.Model.Uteis.podeIssoArnaldo.*;
 import static br.inatel.Model.Uteis.Util.esperaAi;
@@ -17,7 +15,7 @@ public class Menu {
     //Indíces do pedido escolhido aleatoriamente pelo sistema
     private int indice1;
     private int indice2;
-    //Por enquanto vou fazer um hashset, que condiz, já que a gente não quer repetição de opções
+    //Hashset(sem repetição de opções)
     //Os dois pedidos aleatórios que a gente vai disponibilizar por ano
     static Set<Integer> pedidosFeitos = new HashSet<Integer>();
     private String pedidoEscolhido1;
@@ -45,7 +43,6 @@ public class Menu {
                 return Integer.parseInt(entrada);
             } catch (NumberFormatException e) {
                 System.out.println("⚡ Os ventos da magia rejeitam sua escolha! Digite apenas números mágicos! 🌟");
-                scanner.nextLine(); // limpa o buffer
             }
         }
     }

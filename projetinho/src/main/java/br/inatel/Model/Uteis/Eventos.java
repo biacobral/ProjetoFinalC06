@@ -362,7 +362,7 @@ public class Eventos {
 
             case 9:
                 System.out.println("🚫 Cancelaram a excursão que todo mundo estava esperando!");
-                System.out.println("😭 Por causa de 'problemas orçamentários'...");
+                System.out.println("😭 Por causa de 'problemas no orçamento'...");
                 try {
                     diminuirFelicidade(25);
                     System.out.println("💙 Sua felicidade diminuiu em 25 pontos...");
