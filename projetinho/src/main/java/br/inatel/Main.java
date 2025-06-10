@@ -61,7 +61,6 @@ public class Main {
                 taCerto = true;
             } catch (OpcaoInvalidaException e) {
                 System.out.println(e.getMessage());
-                scanner.nextLine(); // limpa o buffer
             }
         } while (!taCerto);
         // Criação do Jogador "Criança"
