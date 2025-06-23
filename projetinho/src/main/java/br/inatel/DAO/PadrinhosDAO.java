@@ -72,4 +72,70 @@ public class PadrinhosDAO extends ConnectionDao{
         }
         return Padrinhos;
     }
+
+    public boolean updatePadrinho(int id, Padrinhos padrinho) {
+        connectToDb();
+        String sql = "UPDATE Padrinhos SET nomePadrinho = ?, tipoPadrinho = ?, Varinha_idSerial = ?, Crianca_idCrianca = ? WHERE id = ?";
+
+        try {
+            pst = con.prepareStatement(sql);
+            pst.setString(1, padrinho.getNomeFada());
+            pst.setString(2, padrinho.getTipoFada());
+            pst.setInt(3, padrinho.getVarinha_idSerial());
+            pst.setInt(4, padrinho.getCrianca_idCrianca());
+            pst.setInt(5, id);
+
+            int rowsAffected = pst.executeUpdate();
+
+            if (rowsAffected > 0) {
+                System.out.println("✨ Dados do Padrinho Mágico atualizados com sucesso!");
+                return true;
+            } else {
+                System.out.println("🔍 Nenhum Padrinho encontrado com o ID especificado.");
+                return false;
+            }
+
+        } catch (SQLException exc) {
+            System.out.println("🚫 Erro ao atualizar dados do Padrinho: " + exc.getMessage());
+            return false;
+        } finally {
+            try {
+                if (pst != null) pst.close();
+                if (con != null) con.close();
+            } catch (SQLException exc) {
+                System.out.println("Erro ao fechar conexão: " + exc.getMessage());
+            }
+        }
+    }
+
+    public boolean deletePadrinho(int id) {
+        connectToDb();
+        String sql = "DELETE FROM Padrinhos WHERE id = ?";
+
+        try {
+            pst = con.prepareStatement(sql);
+            pst.setInt(1, id);
+
+            int rowsAffected = pst.executeUpdate();
+
+            if (rowsAffected > 0) {
+                System.out.println("👋 Padrinho Mágico removido do cadastro com sucesso!");
+                return true;
+            } else {
+                System.out.println("🔍 Nenhum Padrinho encontrado com o ID especificado para remoção.");
+                return false;
+            }
+
+        } catch (SQLException exc) {
+            System.out.println("🚫 Erro ao remover Padrinho do cadastro: " + exc.getMessage());
+            return false;
+        } finally {
+            try {
+                if (pst != null) pst.close();
+                if (con != null) con.close();
+            } catch (SQLException exc) {
+                System.out.println("Erro ao fechar conexão: " + exc.getMessage());
+            }
+        }
+    }
 }

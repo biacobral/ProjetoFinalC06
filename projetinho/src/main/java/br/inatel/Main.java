@@ -81,13 +81,13 @@ public class Main {
         varinhaDAO.insertVarinha(antiVarinha2);
 
         // Criação dos Padrinhos
-        Padrinhos nossoPadrinho = new Padrinhos((padrinhosExistentes.size()+1), "Grimbolino, o Estagiário da Magia", "Padrinho", varinha1);
-        Padrinhos nossaMadrinha = new Padrinhos((padrinhosExistentes.size()+2), "Celestina Cintilante, a Matriarca da Magia", "Madrinha", varinha2);
+        Padrinhos nossoPadrinho = new Padrinhos((padrinhosExistentes.size()+4), "Grimbolino, o Estagiário da Magia", "Padrinho", varinha1);
+        Padrinhos nossaMadrinha = new Padrinhos((padrinhosExistentes.size()+5), "Celestina Cintilante, a Matriarca da Magia", "Madrinha", varinha2);
 
         // Criação dos Anti-Fada
-        Fada antiPadrinho = new AntiFada(3, "Grimbolona", "Anti-Fada", 12);
+        Fada antiPadrinho = new AntiFada(10, "Grimbolona", "Anti-Fada", 12);
         antifadaDAO.insertAntiFada((AntiFada) antiPadrinho);
-        Fada antiMadrinha = new AntiFada(4, "Celestina Obscura", "Anti-Fada", 13);
+        Fada antiMadrinha = new AntiFada(11, "Celestina Obscura", "Anti-Fada", 13);
         antifadaDAO.insertAntiFada((AntiFada) antiMadrinha);
 
         // Criação do General Fada

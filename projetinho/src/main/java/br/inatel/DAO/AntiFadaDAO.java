@@ -43,4 +43,67 @@ public class AntiFadaDAO extends ConnectionDao{
             }
         }
     }
+
+    public boolean deleteAntiFada(String nomeFada) {
+        connectToDb();
+        String sql = "DELETE FROM AntiFada WHERE nomeFada = ?";
+
+        try {
+            pst = con.prepareStatement(sql);
+            pst.setString(1, nomeFada);
+
+            int rowsAffected = pst.executeUpdate();
+
+            if (rowsAffected > 0) {
+                System.out.println("⚔️ Anti-Fada " + nomeFada + " foi banida do exército das trevas!");
+                return true;
+            } else {
+                System.out.println("🔍 Anti-Fada " + nomeFada + " não foi encontrada no exército!");
+                return false;
+            }
+
+        } catch (SQLException exc) {
+            System.out.println("❌ Erro ao banir Anti-Fada: " + exc.getMessage());
+            return false;
+        } finally {
+            try {
+                if (pst != null) pst.close();
+                if (con != null) con.close();
+            } catch (SQLException exc) {
+                System.out.println("Erro ao fechar conexão: " + exc.getMessage());
+            }
+        }
+    }
+
+    // Alternativa: DELETE por ID (caso você tenha um campo ID)
+    public boolean deleteAntiFadaById(int id) {
+        connectToDb();
+        String sql = "DELETE FROM AntiFada WHERE id = ?";
+
+        try {
+            pst = con.prepareStatement(sql);
+            pst.setInt(1, id);
+
+            int rowsAffected = pst.executeUpdate();
+
+            if (rowsAffected > 0) {
+                System.out.println("⚔️ Anti-Fada com ID " + id + " foi banida do exército das trevas!");
+                return true;
+            } else {
+                System.out.println("🔍 Anti-Fada com ID " + id + " não foi encontrada no exército!");
+                return false;
+            }
+
+        } catch (SQLException exc) {
+            System.out.println("❌ Erro ao banir Anti-Fada: " + exc.getMessage());
+            return false;
+        } finally {
+            try {
+                if (pst != null) pst.close();
+                if (con != null) con.close();
+            } catch (SQLException exc) {
+                System.out.println("Erro ao fechar conexão: " + exc.getMessage());
+            }
+        }
+    }
 }
