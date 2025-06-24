@@ -29,6 +29,11 @@ public class Desejos {
         this.statusDesejo = statusDesejo;
     }
 
+    public Desejos(String descricao, boolean statusDesejo) {
+        this.descricao = descricao;
+        this.statusDesejo = statusDesejo;
+    }
+
     public String getDescricao() {
         return descricao;
     }

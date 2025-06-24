@@ -11,6 +11,11 @@ public class Varinha {
         this.statusVarinha = statusVarinha;
     }
 
+    public Varinha(String varinhaCor, String statusVarinha) {
+        this.varinhaCor = varinhaCor;
+        this.statusVarinha = statusVarinha;
+    }
+
     public int getIdSerial() {
         return idSerial;
     }

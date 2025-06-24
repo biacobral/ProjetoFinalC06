@@ -8,6 +8,10 @@ public class AntiFada extends Fada {
         super(idFada, nomeFada, tipoFada, varinha_idSerial);
     }
 
+    public AntiFada(String nomeFada, String tipoFada, int varinha_idSerial) {
+        super(nomeFada, tipoFada, varinha_idSerial);
+    }
+
     public void inicioCombate(){
         System.out.println("\n💀 " + this.getNomeFada() + " ergue-se nas sombras com uma risada sinistra...");
         esperaAi(2000);
