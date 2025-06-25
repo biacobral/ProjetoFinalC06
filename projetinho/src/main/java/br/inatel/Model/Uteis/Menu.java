@@ -1,8 +1,10 @@
 package br.inatel.Model.Uteis;
 
 import java.util.*;
+
 import br.inatel.Model.Personagens.GeneralFada;
 import br.inatel.Model.Personagens.Padrinhos;
+
 import static br.inatel.Model.Personagens.Desejos.*;
 import static br.inatel.Model.Uteis.podeIssoArnaldo.*;
 import static br.inatel.Model.Uteis.Util.esperaAi;
@@ -153,7 +155,7 @@ public class Menu {
     }
 
     public int eventos(GeneralFada general, Padrinhos padrinho) {
-        if(!padrinho.getVarinha().getStatusVarinha().equalsIgnoreCase("Funcionando")){
+        if (!padrinho.getVarinha().getStatusVarinha().equalsIgnoreCase("Funcionando")) {
             System.out.println("⚠️ Oh, não! Um silêncio mágico paira no ar...");
             System.out.println("💔 A varinha do seu padrinho está =" + padrinho.getVarinha().getStatusVarinha() + "=!");
             System.out.println("🔮 Sem magia, sem desejos... parece que este ano você terá que contar apenas com a sorte.");

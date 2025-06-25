@@ -67,7 +67,7 @@ public class Main {
         ArrayList<Crianca> criancasExistentes = criancasDAO.selectCrianca();
         Crianca jogador = new Crianca((criancasExistentes.size()+1), nomeJogador, 12, sexoJogador, true, "Rua dos Desejos, nº72"); // criando jogador
         criancasDAO.insertCrianca(jogador);
-        ArrayList<Padrinhos> padrinhosExistentes = padrinhosDAO.selectPadrinho();
+        ArrayList<Padrinhos> padrinhosExistentes = padrinhosDAO.selectAllPadrinhos();
         ArrayList<Magia> magiasExistentes = magiaDAO.selectMagia();
 
         // Criação das Varinhas
